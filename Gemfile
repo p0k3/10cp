@@ -3,10 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'haml'
 gem 'pg'
-gem 'sqlite3'
 gem 'bootstrap-sass', '~> 2.3.0.1'
 
 group :development do
+  gem 'sqlite3'
   gem "better_errors"
   gem "binding_of_caller"
 end

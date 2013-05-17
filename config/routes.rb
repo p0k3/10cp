@@ -1,6 +1,6 @@
 Blog::Application.routes.draw do
 
-  resources :advices
+  resources :subjects
 
   root to: 'subjects#index'
 

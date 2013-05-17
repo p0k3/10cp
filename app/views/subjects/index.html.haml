@@ -1,4 +1,5 @@
 - @subjects.each do |s|
-  .well
-    %h3= s.title
-    %p= s.description
+  = link_to subject_path s.id do
+    .well
+      %h3= s.title
+      %p= s.description
