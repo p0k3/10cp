@@ -14,6 +14,8 @@
         .nav-collapse.collapse
           %ul.nav
             %li
-              = link_to 'Home', root_path
+              = link_to '__Home', root_path
     .container
+      .jumbotron.text-center
+        = link_to "__Ajouter un sujet",new_subject_path , class: "btn btn-large"
       = yield

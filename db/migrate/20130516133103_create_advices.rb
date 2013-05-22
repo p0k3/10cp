@@ -2,7 +2,7 @@ class CreateAdvices < ActiveRecord::Migration
   def up
     create_table :advices do |t|
       t.string :title
-      t.string :description
+      t.text :description
       t.integer :subject_id
       
       t.timestamps

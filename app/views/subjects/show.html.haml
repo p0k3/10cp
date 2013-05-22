@@ -1,4 +1,18 @@
 %h1= @subject.title
 
 .well
-  = @subject.description
+  %p
+    = @subject.description
+
+- @subject.advices.each do |a|
+  .well
+    %h3= a.title
+    %p
+      = a.description
+.well
+  %p
+    %h4 __Ajouter un commentaire
+    = simple_form_for [@subject, Advice.new] do |f|
+      = f.input :title
+      = f.input :description
+      = f.submit

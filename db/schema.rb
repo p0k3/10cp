@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130516134151) do
 
   create_table "advices", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.integer  "subject_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130516134151) do
 
   create_table "subjects", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
