@@ -1,6 +1,21 @@
 %h2= "__Add new subject"
 
-= simple_form_for @subject do |f|
-  = f.input :title
-  = f.input :description
-  = f.submit
+= form_for @subject do |f|
+  .control-group
+    = f.label :title, class: "control-label"
+    .controls
+      = f.text_field :title, class: "input-xxlarge"
+
+  .control-group
+    = f.label :description
+    .controls
+      = f.text_area :description, rows: 3, class: "input-xxlarge"
+      = link_to "#textile", role: "button", data: {toggle: "modal"} do
+        %i.icon-question-sign
+        Aide au formatage
+
+  .control-group
+    .controls
+      = f.submit "Proposer sujet"
+
+= render partial: "shared/textile"

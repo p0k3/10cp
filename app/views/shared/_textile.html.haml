@@ -1,0 +1,30 @@
+#textile.modal.hide.fade
+  .modal-header
+    %button{ type: "button", class: "close", data: { dismiss: "modal"}, aria: { hidden: "true" } }
+      x
+    %h3 Formatage du texte
+  .modal-body
+    %p
+      Mettre en *gras* => Mettre en
+      %strong
+        gras
+      %br
+      Mettre en _italique_ => Mettre en
+      %i
+        italique
+      %br
+      Mettre une "url":http://url.com => Mettre une
+      %a
+        url
+      %br
+      Liste à puce :
+      %br
+      * Premier niveau
+      %br
+      ** Deuxième niveau
+    %p
+      Plus d'information
+      = link_to "sur Wikipédia", "http://fr.wikipedia.org/wiki/Textile_(langage)"
+  .modal-footer
+    %button{ type: "button", class: "btn", data: { dismiss: "modal"}, aria: { hidden: "true" } }
+      Fermer

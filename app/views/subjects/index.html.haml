@@ -1,7 +1,12 @@
 %h2= "__Last subjects"
 
 - @subjects.each do |s|
-  = link_to subject_path s.id do
-    .well
+  .well
+    = link_to subject_path s.id do
       %h3= s.title
-      %p= s.description
+
+    %p= s.description
+
+.form-actions
+  = link_to "__New Subject", new_subject_path, class: "btn btn-primary"
+

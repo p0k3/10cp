@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 %html
   %head
-    %title Blog
+    %title 10 conseils pour...
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -15,7 +15,21 @@
           %ul.nav
             %li
               = link_to '__Home', root_path
+
+          %ul.nav.pull-right
+            - if current_user
+              %li
+                = link_to "__Sign out !", destroy_user_session_path
+            - else
+              %li
+                = link_to "__Sign in !", new_user_registration_path
+              %li
+                = link_to "__Sign up !", new_user_session_path
+
+          %p.navbar-text.pull-right
+            - if current_user
+              Hello
+              = current_user.email
+
     .container
-      .jumbotron.text-center
-        = link_to "__Ajouter un sujet",new_subject_path , class: "btn btn-large"
       = yield

@@ -1,4 +1,6 @@
-Blog::Application.routes.draw do
+DixConseilsPour::Application.routes.draw do
+
+  devise_for :users
 
   resources :subjects do
     resources :advices

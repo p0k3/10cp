@@ -5,14 +5,24 @@
     = @subject.description
 
 - @subject.advices.each do |a|
-  .well
-    %h3= a.title
-    %p
-      = a.description
+  %h3= a.title
+  %p
+    = a.description
+    
 .well
   %p
     %h4 __Ajouter un commentaire
-    = simple_form_for [@subject, Advice.new] do |f|
-      = f.input :title
-      = f.input :description
-      = f.submit
+    = form_for [@subject, Advice.new] do |f|
+      .control-group
+        = f.label :title, class: "control-label"
+        .controls
+          = f.text_field :title, class: "input-xxlarge"
+
+      .control-group
+        = f.label :description
+        .controls
+        = f.text_area :description, rows: 3, class: "input-xxlarge"
+
+      .control-group
+        .controls
+          = f.submit
