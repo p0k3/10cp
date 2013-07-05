@@ -5,24 +5,41 @@
     = @subject.description
 
 - @subject.advices.each do |a|
-  %h3= a.title
-  %p
-    = a.description
-    
-.well
-  %p
-    %h4 __Ajouter un commentaire
-    = form_for [@subject, Advice.new] do |f|
-      .control-group
-        = f.label :title, class: "control-label"
-        .controls
-          = f.text_field :title, class: "input-xxlarge"
+  .well
+    .row
+      .span9
+        %h3= a.title
+        %p
+          = a.description
+      .span2
+        = image_tag "avatar.png"
+        %br
+        = a.user.fullname
+        %br
+        = link_to "Son Blog", "#", class: "btn btn-link"      
 
-      .control-group
-        = f.label :description
-        .controls
-        = f.text_area :description, rows: 3, class: "input-xxlarge"
+- if current_user
+  .well
+    %p
+      %h4 __Ajouter un commentaire
+      = form_for [@subject, Advice.new] do |f|
+        = f.hidden_field :user_id, value: current_user.id
 
-      .control-group
-        .controls
-          = f.submit
+        .control-group
+          = f.label :title, class: "control-label"
+          .controls
+            = f.text_field :title, class: "input-xxlarge"
+
+        .control-group
+          = f.label :description
+          .controls
+          = f.text_area :description, rows: 3, class: "input-xxlarge"
+
+        .control-group
+          .controls
+            = f.submit
+- else
+  .well
+    %p
+      __To post an advice, please
+      = link_to "sign in !", new_user_session_path

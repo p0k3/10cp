@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 
   has_many :subjects
   has_many :advices
+
+  def fullname
+    "#{firstname} #{lastname}"
+  end
 end
