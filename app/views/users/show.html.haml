@@ -1,0 +1,29 @@
+%h2 __Profil utilisateur
+
+.well
+  %address.text-center
+    %h4
+      = @user.lastname
+      = @user.firstname
+    %br
+    = link_to "Son site", @user.link, target: "_blank"
+
+%h3 Ses sujets
+.well
+  - @user.subjects.each do |s|
+    %h4
+      = link_to s.title, subject_path(s)
+    %p
+      = s.description
+
+%h3 Ses meilleurs conseils
+.well
+  - @user.advices.each do |a|
+    %h4
+      = link_to a.subject.title, subject_path(a.subject)
+    %h5= a.title
+    %p
+      = a.description
+
+.form-actions
+  = link_to "__Modifier le profil", edit_user_path(@user), class: "btn btn-primary"

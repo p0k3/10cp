@@ -29,7 +29,8 @@
           %p.navbar-text.pull-right
             - if current_user
               Hello
-              = current_user.email
+              = link_to current_user.email, user_path(current_user)
 
     .container
+      = render 'layouts/messages'
       = yield

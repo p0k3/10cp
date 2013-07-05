@@ -1,0 +1,12 @@
+%h1 Editer un profil
+
+.well
+  = simple_form_for @user do |f|
+    = f.input :lastname
+    = f.input :firstname
+    = f.input :email
+    = f.input :link
+    
+    .form-actions
+      = f.submit "__Save", class: "btn btn-primary"
+      = link_to "__Cancel", user_path(@user), class: "btn"

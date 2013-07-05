@@ -5,6 +5,7 @@ DixConseilsPour::Application.routes.draw do
   resources :subjects do
     resources :advices
   end
+  resources :users
 
   root to: 'subjects#index'
 
