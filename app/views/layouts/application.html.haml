@@ -19,7 +19,7 @@
           %ul.nav.pull-right
             - if current_user
               %li
-                = link_to "__Sign out !", destroy_user_session_path
+                = link_to "__Sign out !", destroy_user_session_path, method: :delete
             - else
               %li
                 = link_to "__Sign in !", new_user_registration_path

@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'RedCloth'
 gem 'devise'
 gem 'simple_form'
+gem "cancan"
 
 group :development do
   gem "better_errors"
