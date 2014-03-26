@@ -5,6 +5,13 @@ development:
   username: root
   password: p@ssw0rd
 
+production:
+  adapter: mysql2
+  database: 10cp_production
+  host: localhost
+  username: 10cp
+  password: 3#caraCh
+
 test:
   adapter: mysql2
   database: 10cp_test
