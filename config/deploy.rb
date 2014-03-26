@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+set :default_shell, '/bin/bash -l'
 
 # multi staging
 set :stages, %w(staging production)

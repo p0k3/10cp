@@ -9,6 +9,7 @@ gem 'devise'
 gem 'simple_form'
 gem "cancan"
 gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
+set :default_shell, '/bin/bash -l'
 
 group :development do
   gem "better_errors"
