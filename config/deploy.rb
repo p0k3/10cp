@@ -12,12 +12,13 @@ set :ssh_options, { :forward_agent => true }
 set :application, "10cp"
 set :user, "dixconseilspour"
 
+set(:deploy_to) { "/home/#{user}/#{application}_#{rails_env}" }
+
 set :default_environment, {
   'PATH' => "#{deploy_to}/bin:$PATH",
   'GEM_HOME' => "#{deploy_to}/gems"
 }
 
-set(:deploy_to) { "/home/#{user}/#{application}_#{rails_env}" }
 set(:releases_path)     { File.join(deploy_to, version_dir) }
 set(:shared_path)       { File.join(deploy_to, shared_dir) }
 set(:current_path)      { File.join(deploy_to, current_dir) }
