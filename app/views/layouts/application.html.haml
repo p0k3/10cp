@@ -6,31 +6,51 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
 
-  %body
-    .navbar.navbar-inverse
-      .navbar-inner
-        %button.btn.btn-navbar
-        = link_to '10 Conseils Pour...', root_path, class: "brand"
-        .nav-collapse.collapse
-          %ul.nav
-            %li
-              = link_to '__Home', root_path
+  %body{class: body_class}
+    #fb-root
+    :javascript
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=359204397558628";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    %header
+      .account.pull-right
+        = link_to 'Mon compte', "#"
 
-          %ul.nav.pull-right
-            - if current_user
-              %li
-                = link_to "__Sign out !", destroy_user_session_path, method: :delete
-            - else
-              %li
-                = link_to "__Sign in !", new_user_registration_path
-              %li
-                = link_to "__Sign up !", new_user_session_path
+      %nav
+        %ul.list-unstyled
+          %li
+            = link_to 'Thématique 1', "#"
+          %li
+            = link_to 'Thématique 2', "#"
+          %li
+            = link_to 'Thématique 3', "#"
+          %li.round.logo
+            10 conseils pour...
+          %li
+            = link_to 'Thématique 4', "#"
+          %li
+            = link_to 'Thématique 5', "#"
+          %li
+            = link_to 'Thématique 6', "#"
+      .search
+        .form
+          %span
+            J'ai besoin d'aide pour
+          .form-group
+            = text_field_tag :q, "", class: "form-control input-lg"
+          %button.btn.btn-default.btn-lg.pull-right
+            Conseillez-moi
 
-          %p.navbar-text.pull-right
-            - if current_user
-              Hello
-              = link_to current_user.email, user_path(current_user)
-
-    .container
-      = render 'layouts/messages'
+    .main
       = yield
+
+    %footer
+      - Theme.all.each do |t|
+        .col-md-2
+          %h4= t.title
+          %ul.list-unstyled
+            %li= link_to 'Theme 1', '#'

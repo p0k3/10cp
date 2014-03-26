@@ -1,45 +1,71 @@
-%h1= @subject.title
+%h2
+  %span.highlight 10 conseils pour
+  = @subject.title
 
 .well
   %p
     = @subject.description
+.row
+  - @subject.advices.each_with_index do |a, index|
+    - if index == 0
+      .col-md-12
+        .advice.master
+          .user
+            = image_tag "avatar.png", class: "avatar"
+            .body
+              %h5
+                Un conseil de
+                = a.user.fullname
+              = link_to a.user.website, a.user.website
+          .inner
+            .col-md-2
+              .top
+                Le top conseil
+            .col-md-10
+              %h3.advice-header
+                = a.title
+              %p
+                = a.description
+            .footer.pull-right
+              = link_to "Très bon conseil", "#", class: "btn btn-default good"
+              = link_to "Mauvais conseil", "#", class: "btn btn-default bad"
+    - else
+      .col-md-4
+        .advice
+          .user
+            = image_tag "avatar.png", class: "avatar"
+            .body
+              %h5
+                Un conseil de
+                = a.user.fullname
+              = link_to a.user.website, a.user.website
+          .inner
+            %h3.advice-header= a.title
+            %p
+              = a.description
+            .footer.pull-right
+              = link_to "Très bon conseil", "#", class: "btn btn-default good"
+              = link_to "Mauvais conseil", "#", class: "btn btn-default bad"
 
-- @subject.advices.each do |a|
-  .well
-    .row
-      .span9
-        %h3= a.title
-        %p
-          = a.description
-      .span2
-        = image_tag "avatar.png"
-        %br
-        = a.user.fullname
-        %br
-        = link_to "Son Blog", "#", class: "btn btn-link"      
+.row
+  %h2.col-md-12 Nos autres sujets
+  - Subject.all.each do |s|
+    .col-md-3
+      .subject
+        %h3= s.theme.title
+        %strong 10 conseils pour
+        %h4= s.title
 
-- if current_user
-  .well
-    %p
-      %h4 __Ajouter un commentaire
-      = form_for [@subject, Advice.new] do |f|
-        = f.hidden_field :user_id, value: current_user.id
+        %small= s.description
 
-        .control-group
-          = f.label :title, class: "control-label"
-          .controls
-            = f.text_field :title, class: "input-xxlarge"
+        = link_to "Conseille moi", s, class: "btn btn-default"
 
-        .control-group
-          = f.label :description
-          .controls
-          = f.text_area :description, rows: 3, class: "input-xxlarge"
 
-        .control-group
-          .controls
-            = f.submit
-- else
-  .well
-    %p
-      __To post an advice, please
-      = link_to "sign in !", new_user_session_path
+.row
+  %h2.col-md-12 Nos autres thématiques
+  - Theme.last(6).each do |s|
+    .col-md-4
+      .theme
+        %h3= s.title
+        = link_to '#', class: "btn btn-default" do
+          Voir tous les sujets

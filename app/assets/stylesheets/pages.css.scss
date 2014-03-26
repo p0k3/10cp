@@ -1,0 +1,55 @@
+.most-visited{
+  margin-bottom:10px;
+  overflow:hidden;
+}
+.subject{
+  background:#4b5b68;
+  padding:10px 15px;
+  color:#fff;
+  height:250px;
+  position: relative;
+  a{
+    position:absolute;
+    bottom:5px;
+    left:5px;
+    right:5px;
+    display:block;
+    border-radius:0;
+  }
+}
+.master-themes{
+  overflow:hidden;
+  margin-bottom:10px;
+}
+.theme{
+  background:#4b5b68;
+  padding:10px 15px;
+  color:#fff;
+  height:150px;
+  position:relative;
+  a{
+    position:absolute;
+    bottom:5px;
+    left:5px;
+    right:5px;
+    display:block;
+    border-radius:0;
+  }
+}
+.best-users{
+  overflow:hidden;
+  margin-bottom:20px;
+  .user{
+    .round{
+      width:150px;
+      height:150px;
+      border-radius:100%;
+      background:#4b5b68;
+      float:left;
+      margin-right:30px;
+    }
+    .body{
+
+    }
+  }
+}

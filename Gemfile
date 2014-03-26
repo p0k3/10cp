@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'bootstrap-sass', '~> 2.3.0.1'
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'haml'
 gem 'jquery-rails'
 gem 'RedCloth'
@@ -13,10 +13,6 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'mysql2'
-end
-
-group :production do
-  gem 'pg'
 end
 
 

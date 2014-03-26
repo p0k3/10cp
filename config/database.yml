@@ -1,6 +1,6 @@
 development:
   adapter: mysql2
-  database: 10cp
+  database: 10cp_dev
   host: localhost
   username: root
   password: p@ssw0rd

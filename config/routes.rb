@@ -7,6 +7,6 @@ DixConseilsPour::Application.routes.draw do
   end
   resources :users
 
-  root to: 'subjects#index'
+  root to: 'pages#home'
 
 end

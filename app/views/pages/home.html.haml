@@ -1,0 +1,37 @@
+%h1.page-header
+  Sujets les plus consultés
+
+.most-visited
+  - @most_visited.each do |a|
+    .col-md-3
+      .subject
+        %h3= a.theme.title
+        %strong 10 conseils pour
+        %h4= a.title
+
+        %small= a.description
+
+        = link_to "Conseille moi", a, class: "btn btn-default"
+
+%h1.page-header
+  Nos thématiques
+.master-themes
+  - @master_themes.each do |s|
+    .col-md-4
+      .theme
+        %h3= s.title
+        = link_to '#', class: "btn btn-default" do
+          Voir tous les sujets
+
+%h1.page-header
+  Nos meilleurs conseillers
+
+.best-users
+  - @best_users.each do |u|
+    .col-md-6
+      .user
+        .round
+        .body
+          = u.email
+
+.fb-follow{ data: {href: "https://www.facebook.com/10conseilspour", width: "980", height: "350", colorscheme: "light", layout: "standard", show: {faces: true }}}
