@@ -17,6 +17,10 @@ group :development do
   gem "capistrano", "2.15.5"
 end
 
+group :production, :staging do
+  gem 'unicorn'
+end
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
