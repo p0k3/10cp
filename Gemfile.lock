@@ -119,8 +119,6 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
-    rvm-capistrano (1.5.1)
-      capistrano (~> 2.15.4)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -155,6 +153,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.1.1)
   cancan
+  capistrano (= 2.15.5)
   coffee-rails (~> 3.2.1)
   devise
   haml
@@ -162,7 +161,6 @@ DEPENDENCIES
   mysql2
   net-ssh (~> 2.8.1)!
   rails (= 3.2.12)
-  rvm-capistrano
   sass-rails (~> 3.2.3)
   simple_form
   uglifier (>= 1.0.3)
