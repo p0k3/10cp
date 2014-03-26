@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "capistrano-rbenv"
 
 # multi staging
 set :stages, %w(staging production)
@@ -13,11 +14,7 @@ set :application, "10cp"
 set :user, "dixconseilspour"
 
 set(:deploy_to) { "/home/#{user}/#{application}_#{rails_env}" }
-
-set :default_environment, {
-  'PATH' => "#{deploy_to}/bin:$PATH",
-  'GEM_HOME' => "#{deploy_to}/gems"
-}
+set :rbenv_ruby_version, "2.0.0p353"
 
 set(:releases_path)     { File.join(deploy_to, version_dir) }
 set(:shared_path)       { File.join(deploy_to, shared_dir) }
