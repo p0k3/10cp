@@ -8,6 +8,7 @@ gem 'RedCloth'
 gem 'devise'
 gem 'simple_form'
 gem "cancan"
+gem 'rvm-capistrano'
 
 group :development do
   gem "better_errors"
