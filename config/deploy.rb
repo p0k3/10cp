@@ -15,7 +15,7 @@ set :user, "dixconseilspour"
 
 set(:deploy_to) { "/home/#{user}/#{application}_#{rails_env}" }
 set :rbenv_ruby_version, "2.0.0p353"
-set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
+set :default_env, { path: "/home/paul/.rbenv/bin/rbenv" }
 
 set(:releases_path)     { File.join(deploy_to, version_dir) }
 set(:shared_path)       { File.join(deploy_to, shared_dir) }
