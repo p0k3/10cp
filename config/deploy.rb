@@ -22,6 +22,7 @@ set(:release_path)      { File.join(releases_path, release_name) }
 set :deploy_via, :remote_cache
 set :scm, :git
 set :repository,  "git@github.com:p0k3/10cp.git"
+set :default_shell, '/bin/bash -l'
 
 # number of releases we want to keep
 set :keep_releases, 5
