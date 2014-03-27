@@ -34,6 +34,7 @@ set(:unicorn_pid) { "#{shared_path}/pids/unicorn.pid" }
 set(:unicorn_bin) { "#{current_path}/bin/unicorn" }
 
 # useful for rbenv
+set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
 set :default_environment, {
   'PATH' => "/opt/ruby-enterprise/bin/:$PATH"
 }
