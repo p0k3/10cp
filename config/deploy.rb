@@ -34,12 +34,8 @@ set(:unicorn_pid) { "#{shared_path}/pids/unicorn.pid" }
 set(:unicorn_bin) { "#{current_path}/bin/unicorn" }
 
 # useful for rbenv
-set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
+set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
 set :bundle_flags, "--deployment --quiet --binstubs"
-
-set(:sidekiq_processes) { 2 }
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do
