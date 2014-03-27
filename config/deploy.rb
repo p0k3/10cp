@@ -35,7 +35,7 @@ set(:unicorn_bin) { "#{current_path}/bin/unicorn" }
 
 # useful for rbenv
 set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH' }
-set :bundle_cmd { "#{release_path}/bin/bundle" }
+set (:bundle_cmd) { "#{release_path}/bin/bundle" }
 set :bundle_flags, "--deployment --quiet --binstubs"
 
 namespace :deploy do
