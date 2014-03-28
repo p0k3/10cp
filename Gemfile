@@ -9,11 +9,11 @@ gem 'devise'
 gem 'simple_form'
 gem "cancan"
 gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
+gem 'mysql2'
 
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'mysql2'
   gem "capistrano", "2.15.5"
 end
 
