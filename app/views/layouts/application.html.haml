@@ -18,7 +18,9 @@
       }(document, 'script', 'facebook-jssdk'));
     %header
       .account.pull-right
-        = link_to 'Mon compte', "#"
+        = link_to "#" do
+          %i.fa.fa-user
+          Mon compte
 
       %nav
         %ul.list-unstyled
@@ -29,7 +31,10 @@
           %li
             = link_to 'Thématique 3', "#"
           %li.round.logo
-            10 conseils pour...
+            = link_to "/" do
+              %span.dix 10
+              %span.conseils conseils
+              %span.pour pour
           %li
             = link_to 'Thématique 4', "#"
           %li
@@ -40,10 +45,11 @@
         .form
           %span
             J'ai besoin d'aide pour
-          .form-group
-            = text_field_tag :q, "", class: "form-control input-lg"
-          %button.btn.btn-default.btn-lg.pull-right
-            Conseillez-moi
+          .col-md-offset-3.col-md-6
+            .input-icon.right
+              = link_to "#" do
+                %i.fa.fa-search
+              = text_field_tag :q, "", class: "form-control input-lg"
 
     .main
       = yield

@@ -8,7 +8,7 @@ preload_app       true
 timeout           30
 
 if rails_env == 'production'
-  listen      '/tmp/unicorn.sock', :backlog => 2048
+  listen      '/tmp/unicorn.10cp_production.sock', :backlog => 2048
 
   pid         "/home/dixconseilspour/10cp_production/shared/pids/unicorn.pid"
   stderr_path "/home/dixconseilspour/10cp_production/shared/log/unicorn.log"
