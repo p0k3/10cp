@@ -27,13 +27,18 @@
   color:#fff;
   height:150px;
   position:relative;
+  h3{
+    font-family: "Menu";
+    text-align: center;
+    color: #fff;
+    text-shadow:1px 1px 10px #000;
+    font-size: 30px;
+  }
   a{
-    position:absolute;
-    bottom:5px;
-    left:5px;
-    right:5px;
-    display:block;
-    border-radius:0;
+    margin: 40px auto 0;
+    min-width: 50%;
+    display: block;
+    border-radius:5px;
   }
 }
 .best-users{

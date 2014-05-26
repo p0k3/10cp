@@ -18,7 +18,7 @@
 .master-themes
   - @master_themes.each do |s|
     .col-md-4
-      .theme
+      .theme{style: "background-color: #{s.color}"}
         %h3= s.title
         = link_to '#', class: "btn btn-default" do
           Voir tous les sujets

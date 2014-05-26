@@ -17,39 +17,40 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     %header
-      .account.pull-right
-        = link_to "#" do
-          %i.fa.fa-user
-          Mon compte
+      .container
+        .account.pull-right
+          = link_to "#" do
+            %i.fa.fa-user
+            Mon compte
 
-      %nav
-        %ul.list-unstyled
-          %li
-            = link_to 'Thématique 1', "#"
-          %li
-            = link_to 'Thématique 2', "#"
-          %li
-            = link_to 'Thématique 3', "#"
-          %li.round.logo
-            = link_to "/" do
-              %span.dix 10
-              %span.conseils conseils
-              %span.pour pour
-          %li
-            = link_to 'Thématique 4', "#"
-          %li
-            = link_to 'Thématique 5', "#"
-          %li
-            = link_to 'Thématique 6', "#"
-      .search
-        .form
-          %span
-            J'ai besoin d'aide pour
-          .col-md-offset-3.col-md-6
-            .input-icon.right
-              = link_to "#" do
-                %i.fa.fa-search
-              = text_field_tag :q, "", class: "form-control input-lg"
+        %nav
+          %ul.list-unstyled
+            %li
+              = link_to 'Thématique 1', "#"
+            %li
+              = link_to 'Thématique 2', "#"
+            %li
+              = link_to 'Thématique 3', "#"
+            %li.round.logo
+              = link_to "/" do
+                %span.dix 10
+                %span.conseils conseils
+                %span.pour pour
+            %li
+              = link_to 'Thématique 4', "#"
+            %li
+              = link_to 'Thématique 5', "#"
+            %li
+              = link_to 'Thématique 6', "#"
+        .search
+          .form
+            %span
+              J'ai besoin d'aide pour
+            .col-md-offset-3.col-md-6
+              .input-icon.right
+                = link_to "#" do
+                  %i.fa.fa-search
+                = text_field_tag :q, "", class: "form-control input-lg"
 
     .main
       = yield
