@@ -20,6 +20,8 @@
     .col-md-4
       .theme{style: "background-color: #{s.color}"}
         %h3= s.title
+        %span.icon
+          = image_tag s.icon.url(:normal)
         = link_to '#', class: "btn btn-default" do
           Voir tous les sujets
 

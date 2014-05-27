@@ -24,6 +24,7 @@
 .theme{
   background:#4b5b68;
   padding:10px 15px;
+  margin: 30px 0 10px 0;
   color:#fff;
   height:150px;
   position:relative;
@@ -39,6 +40,12 @@
     min-width: 50%;
     display: block;
     border-radius:5px;
+  }
+  span.icon{
+    position: absolute;
+    top: -29px;
+    z-index: 10;
+    left: 122px;
   }
 }
 .best-users{

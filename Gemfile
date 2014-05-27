@@ -11,6 +11,7 @@ gem "cancan"
 gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
 gem 'mysql2'
 gem "font-awesome-rails"
+gem "paperclip", "~> 4.1"
 
 group :development do
   gem "better_errors"
