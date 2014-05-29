@@ -1,0 +1,23 @@
+%h1.page-header
+  Les sujets
+  = link_to new_subject_path, class: "btn btn-success" do
+    %i.fa.fa-plus
+    Créer
+
+%table.table
+  %tr
+    %th #
+    %th Titre
+    %th Description
+    %th Theme
+    %th
+  - @subjects.each do |s|
+    %tr
+      %td= s.id
+      %td= s.title
+      %td= s.description[0..50] + "..."
+      %td= s.theme.title
+      %td
+        = link_to edit_subject_path(s), class: "btn btn-primary btn-xs" do
+          %i.fa.fa-edit
+          Modifier

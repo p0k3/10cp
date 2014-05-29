@@ -1,19 +1,34 @@
 .most-visited{
   margin-bottom:10px;
-  overflow:hidden;
+  padding: 10px 0;
+  overflow: hidden;
+  display: block;
 }
 .subject{
-  background:#4b5b68;
+  background: #fff;
   padding:10px 15px;
-  color:#fff;
-  height:250px;
+  color:#000;
+  height:310px;
   position: relative;
+  img.illustration{
+    margin: -10px -15px 0;
+  }
+  img.icon{
+    margin: -24px auto 0;
+    display: block;
+  }
+  .subject-theme{
+    display: block;
+    margin: 5px 0;
+    color: #666;
+  }
   a{
     position:absolute;
     bottom:5px;
     left:5px;
     right:5px;
     display:block;
+    color: #fff;
     border-radius:0;
   }
 }
@@ -22,7 +37,6 @@
   margin-bottom:10px;
 }
 .theme{
-  background:#4b5b68;
   padding:10px 15px;
   margin: 30px 0 10px 0;
   color:#fff;
@@ -53,15 +67,33 @@
   margin-bottom:20px;
   .user{
     .round{
-      width:150px;
-      height:150px;
+      width:160px;
+      height:160px;
       border-radius:100%;
-      background:#4b5b68;
+      background:#d7d7d7;
       float:left;
-      margin-right:30px;
+      margin-right:50px;
+      overflow: hidden;
+      img{
+        width:150px;
+        height:150px;
+        border-radius:100%;
+        margin: 5px;
+      }
     }
     .body{
-
+      color: #4b5b68;
+      .name{
+        font-size: 28px;
+        display: block;
+        margin: 5px 0;
+        font-family: "Menu";
+      }
+      a{
+        color: #4b5b68;
+        text-decoration: underline;
+        font-weight: 700;
+      }
     }
   }
 }

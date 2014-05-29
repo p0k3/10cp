@@ -9,7 +9,13 @@ class Theme < ActiveRecord::Base
   validates :color, format: /#[A-F0-9]*/, allow_blank: true
   validates :description, presence: true
   validates :title, presence: true
-  validates_attachment_content_type :icon, :content_type => %w(image/jpeg image/jpg image/png)
+  validates_attachment_presence :icon
+
+
 
   has_many :subjects
+  has_many :themes
+  belongs_to :theme
+
+  scope :masters, -> {where(theme_id: nil)}
 end

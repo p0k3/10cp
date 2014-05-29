@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140527105328) do
+ActiveRecord::Schema.define(:version => 20140529172046) do
 
   create_table "advices", :force => true do |t|
     t.string   "title"
@@ -25,10 +25,14 @@ ActiveRecord::Schema.define(:version => 20140527105328) do
   create_table "subjects", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "user_id"
     t.integer  "theme_id"
+    t.string   "illustration_file_name"
+    t.string   "illustration_content_type"
+    t.integer  "illustration_file_size"
+    t.datetime "illustration_updated_at"
   end
 
   create_table "themes", :force => true do |t|
@@ -41,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20140527105328) do
     t.string   "icon_content_type"
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
+    t.integer  "theme_id"
   end
 
   create_table "users", :force => true do |t|
@@ -62,6 +67,10 @@ ActiveRecord::Schema.define(:version => 20140527105328) do
     t.string   "link"
     t.string   "role"
     t.string   "website"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
