@@ -13,13 +13,13 @@
  *= require fonts
  *= require pages
  *= require advices
+ *= require themes
  *= require_self
  */
 
  html{
   font-size:12px;
   line-height:15px;
-  font-family: '10cp';
  }
 
  body{
@@ -27,7 +27,8 @@
   position:relative;
   width:100%;
   padding:0;
-  margin: 0 auto 20px;;
+  margin: 0 auto;
+  font-family: "10cp";
   header{
     height:480px;
     width:100%;
@@ -46,19 +47,27 @@
       .account{
         width: 150px;
         height: 55px;
-        margin-right:120px;
+        margin-right:-10px;
         line-height: 55px;
         text-align:center;
         a{
+          font-family: "Menu";
+          color:#767676;
+          background: #ffffff; /* Old browsers */
+          background: -moz-linear-gradient(top,  #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+          background: -o-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Opera 11.10+ */
+          background: -ms-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* IE10+ */
+          background: linear-gradient(to bottom,  #ffffff 0%,#f2f2f2 100%); /* W3C */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+          display:block;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
           .fa{
             font-size: 20px;
             margin-right:5px;
           }
-          color:#fff;
-          background:#4e5c69;
-          display:block;
-          border-bottom-left-radius: 5px;
-          border-bottom-right-radius: 5px;
         }
       }
       nav{
@@ -208,16 +217,35 @@
     }
   }
   footer{
-    background:#4b5b68;
-    height:350px;
+    background: url('bg_footer.jpg') repeat-x top center #4b5b68;
+    height:335px;
+    padding-top: 30px;
     color:#fff;
+    border-top: solid 1px #ccc;
     .container{
       width: 980px;
+      height: 270px;
+      margin: 0 auto;
+      h4{
+        font-family: "Menu";
+      }
+    }
+    .bottom{
+      width: 100%;
+      background: #313c44;
+      color: #fff;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
     }
     ul{
       li{
         a{
           color:#fff;
+          &:hover{
+            color: #ccc;
+            text-decoration: none;
+          }
         }
       }
     }

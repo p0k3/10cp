@@ -1,1 +1,13 @@
-%h1 Hello !
+%h1= @theme.title
+%p.subtitle
+  = @theme.description
+
+.subjects
+  - @theme.subjects.each do |subject|
+    .subject.media
+      = image_tag subject.illustration.url(:thumb), class: "pull-left"
+      .media-body
+        %h2.media-heading
+          = link_to subject do
+            = subject.title
+        %p= truncate(strip_tags(subject.description), length: 200, separator: ' ')

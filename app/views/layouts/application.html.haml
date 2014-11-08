@@ -16,7 +16,7 @@
         js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=359204397558628";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    %header
+    %header{style: "background:#{@header}"}
       .container
         .account.pull-right
           = link_to "#" do
@@ -58,3 +58,9 @@
             %h4= t.title
             %ul.list-unstyled
               %li= link_to 'Theme 1', '#'
+      .bottom
+        %p
+          10ConseilsPour&copy; 2014 - Design :
+          %strong Claudia Berger
+          \- Réalisation & Développement :
+          %strong Paul Gruson
