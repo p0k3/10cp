@@ -9,26 +9,36 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap
- *= require font-awesome/css/font-awesome
+ *= require font-awesome
+ *= require toastr
  *= require fonts
  *= require pages
  *= require advices
  *= require themes
+ *= require subjects
+ *= require accounts
  *= require_self
  */
 
  html{
   font-size:12px;
   line-height:15px;
+  height: 100%;
  }
 
  body{
-  background:url('ticks.png');
+  background:#f5f5f5;
   position:relative;
   width:100%;
+  height: 100%;
   padding:0;
   margin: 0 auto;
   font-family: "10cp";
+  #wrap{
+    min-height:100%;
+    position: relative;
+    padding-bottom: 370px;
+  }
   header{
     height:480px;
     width:100%;
@@ -45,25 +55,28 @@
       overflow: hidden;
       position: relative;
       .account{
-        width: 150px;
+        width: auto;
         height: 55px;
         margin-right:-10px;
         line-height: 55px;
         text-align:center;
+        padding: 0 15px;
+        background: #ffffff; /* Old browsers */
+        background: -moz-linear-gradient(top,  #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #ffffff 0%,#f2f2f2 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
         a{
           font-family: "Menu";
           color:#767676;
-          background: #ffffff; /* Old browsers */
-          background: -moz-linear-gradient(top,  #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
-          background: -webkit-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
-          background: -o-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* Opera 11.10+ */
-          background: -ms-linear-gradient(top,  #ffffff 0%,#f2f2f2 100%); /* IE10+ */
-          background: linear-gradient(to bottom,  #ffffff 0%,#f2f2f2 100%); /* W3C */
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
-          display:block;
-          border-bottom-left-radius: 5px;
-          border-bottom-right-radius: 5px;
+          display:inline;
+          margin: 0 5px;
           .fa{
             font-size: 20px;
             margin-right:5px;
@@ -121,6 +134,7 @@
               font-size: 32px;
               font-family: "Other";
               text-align:center;
+              position: relative;
               .dix{
                 font-size:65px;
                 line-height:40px;
@@ -140,6 +154,15 @@
                 display:block;
                 margin:0;
                 line-height:30px;
+              }
+              .beta{
+                background: #C0392B;
+                color: #fff;
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-family: "Menu";
+                padding: 0 15px;
               }
             }
             a:hover{
@@ -199,32 +222,28 @@
     }
   }
   .main{
-    overflow:hidden;
+    position: relative;
     margin:0 auto 20px;
-    width: 1000px;
+    width: 970px;
     h1{
       text-align:center;
       font-family: "Other";
       color:#767676;
       border-bottom:none;
-    }
-    h1:before, h1:after{
-      content: url(string.png);
-      vertical-align: 25%;
-      opacity:0.7;
-      margin: 0 20px;
-
+      margin: 30px 0 40px;
     }
   }
   footer{
-    background: url('bg_footer.jpg') repeat-x top center #4b5b68;
-    height:335px;
-    padding-top: 30px;
+    background: #95A5A6;
+    padding: 30px 0;
     color:#fff;
     border-top: solid 1px #ccc;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 350px;
     .container{
       width: 980px;
-      height: 270px;
       margin: 0 auto;
       h4{
         font-family: "Menu";
@@ -232,11 +251,16 @@
     }
     .bottom{
       width: 100%;
-      background: #313c44;
+      background: #7F8C8D;
       color: #fff;
       height: 35px;
       line-height: 35px;
       text-align: center;
+      position: absolute;
+      bottom: 0;
+      p{
+        margin: 0;
+      }
     }
     ul{
       li{
@@ -250,8 +274,4 @@
       }
     }
   }
-}
-
-.well{
-  border-radius:0;
 }

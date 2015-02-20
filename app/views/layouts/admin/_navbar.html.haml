@@ -11,3 +11,7 @@
     = link_to subjects_path do
       %span.fa.fa-tag
       Les sujets
+  %li{class: "#{(params["controller"] == "admin/advices") ? 'active' : ''}"}
+    = link_to advices_path do
+      %span.fa.fa-tag
+      Les conseils

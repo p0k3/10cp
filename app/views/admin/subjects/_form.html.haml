@@ -22,5 +22,16 @@
     = f.label :illustration
     = f.file_field :illustration
 
+  .form-group
+    - if @subject.illustration?
+      = image_tag @subject.illustration.url(:thumb)
+
+  = f.fields_for :advices do |ff|
+    .form-group
+      = f.text_field :title, class: "form-control", placeholder: "Titre"
+    .form-group
+      = f.text_area :description, class: "form-control", placeholder: "Description", rows: 4
+    = f.hidden_field :user_id, value: 1
+
   .form_controls
     = f.submit "Enregistrer", class: "btn btn-primary"

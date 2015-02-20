@@ -1,0 +1,18 @@
+= form_for @advice do |f|
+  - if @advice.errors.any?
+    .alert.alert-danger
+      %h5
+        Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
+      -  @advice.errors.full_messages.each do |msg|
+        %li
+          = msg
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: "form-control", rows: "3"
+
+  .form_controls
+    = f.submit "Enregistrer", class: "btn btn-primary"

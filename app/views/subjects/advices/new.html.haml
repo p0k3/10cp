@@ -1,0 +1,22 @@
+%h1
+  Je propose un conseil pour
+  = @subject.title
+
+= form_for [@subject, @advice] do |f|
+  - if @advice.errors.any?
+    .alert.alert-danger
+      %h5
+        Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
+      - @advice.errors.full_messages.each do |msg|
+        %li
+          = msg
+  .form-group
+    %label Quel est votre conseil ?
+    = f.text_field :title, class: "form-control"
+  .form-group
+    %label Dites-en plus !
+    = f.text_area :description, class: "form-control", rows: 5, maxlength: 255
+
+  .form-group
+    %button.btn.btn-success{type: "submit"}
+      Je conseille !

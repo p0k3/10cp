@@ -7,11 +7,14 @@ gem 'jquery-rails'
 gem 'RedCloth'
 gem 'devise'
 gem 'simple_form'
-gem "cancan"
 gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
 gem 'mysql2'
 gem "font-awesome-rails"
 gem "paperclip", "~> 3.0"
+gem 'will_paginate', '~> 3.0.6'
+gem 'state_machine'
+gem 'ransack'
+gem 'toastr-rails'
 
 group :development do
   gem "better_errors"

@@ -1,62 +1,87 @@
 .advice{
   margin-bottom:20px;
+  padding: 10px 15px;
   position:relative;
-  color:#fff;  height: 435px;
+  background:#fefefe;
+  box-shadow: 0 0 10px #ccc;
+  color:#555;
+  border-radius: 5px;
+  height: 380px;
+  .footer{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .btn{
+      width: 50%;
+      border-radius: 0;
+      margin: 0;
+      border: 0;
+      float: left;
+      color: #fff;
+      &.good{
+        background: #2ECC71;
+        &:hover{
+          background: #27AE60;
+        }
+      }
+      &.bad{
+        background: #E74C3C;
+        &:hover{
+          background: #C0392B;
+        }
+      }
+    }
+  }
   .user{
-    position:absolute;
-    z-index:2;
-    top:0px;
-    margin-left:10px;
-    overflow:hidden;
-    height:110px;
+    display: block;
+    margin: 10px auto;
     .avatar{
       border-radius:100%;
-      border: solid 4px #4b5b68;
-      float:left;
-      height:110px;
-      width:110px;
+      border: solid 4px #fff;
+      box-shadow: 0 0 10px #eee;
+      margin: 0 auto 15px;
+      height:50px;
+      width:50px;
+      display: block;
     }
     .body{
-      float:left;
       margin-left:10px;
       line-height:11px;
-      h5{
-        color:#888;
+      display: block;
+      text-align: center;
+      .advice_from{
+        margin: 0 0 10px;
+      }
+      .author{
+        color:#3E3E3E;
+        font-family: "menu";
+        font-size: 20px;
+        line-height: 25px;
+        margin: 0 0 15px;
       }
       a{
-        color:#888;
+        color:#333;
         font-style:italic;
+        line-height: 15px;
+        margin-bottom: 25px;
       }
     }
   }
-  .inner{
-    position:absolute;
-    top:55px;
-    bottom:0px;
-    padding:60px 10px 20px;
-    background:#4b5b68;
-    display:block;
-    float:left;
-    .top{
-      margin-top:45px;
-      font-size:22px;
-      transform:rotate(-30deg);
-      -ms-transform:rotate(-30deg); /* IE 9 */
-      -webkit-transform:rotate(-30deg); /* Opera, Chrome, and Safari */
-    }
-    .footer{
-      bottom:10px;
-      right:10px;
-      position:absolute;
-      .btn{
-        border-radius:0;
+  h3{
+    font-size: 20px;
+  }
+  &.master{
+    height: 280px;
+    .user{
+      .avatar{
+        height: 100px;
+        width: 100px;
       }
     }
-  }
-}
-.advice.master{
-  height:290px;
-  .inner{
-    padding:10px 20px;
+    h3{
+      font-size: 25px;
+    }
   }
 }

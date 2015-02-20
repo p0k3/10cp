@@ -4,8 +4,9 @@ class SubjectsController < ApplicationController
     @subjects = Subject.all
   end
 
-  def show 
+  def show
     @subject = Subject.find(params[:id])
+    @advices = @subject.advices.validated.order_by_notoriety
   end
 
   def new

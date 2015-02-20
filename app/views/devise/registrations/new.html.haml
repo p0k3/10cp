@@ -1,11 +1,36 @@
-%h2 Créer un compte
+%h1 Créer un compte
 
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = f.error_notification
-  = f.input :email, :required => true, :autofocus => true
-  = f.input :password, :required => true
-  = f.input :password_confirmation, :required => true
-  .form-actions
-    = f.button :submit, "S'enregistrer"
+.row
+  .col-md-8.col-md-offset-2
 
-  = render "devise/shared/links"
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+      - if flash.any?
+        .alert.alert-danger
+          %h5
+            Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
+          - flash.each do |msg|
+            %li
+              = msg
+      .row
+        .col-md-6
+          .form-group
+            %label Prénom
+            = f.text_field :firstname, required: false, autofocus: true, class: "form-control"
+
+        .col-md-6
+          .form-group
+            %label Nom
+            = f.text_field :lastname, required: false, class: "form-control"
+
+      .form-group
+        %label Email
+        = f.text_field :email, required: false, class: "form-control"
+
+      .form-group
+        %label Mot de passe
+        = f.text_field :password, required: false, class: "form-control", type: "password"
+      .form-actions
+        %button.btn.btn-success{type:"submit"}
+          Créer mon compte
+
+      = render "devise/shared/links"

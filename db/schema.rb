@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140529172046) do
+ActiveRecord::Schema.define(:version => 20150220094113) do
 
   create_table "advices", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20140529172046) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
+    t.string   "state"
   end
 
   create_table "subjects", :force => true do |t|
@@ -71,9 +72,26 @@ ActiveRecord::Schema.define(:version => 20140529172046) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "type"
+    t.date     "birthdate"
+    t.string   "town"
+    t.string   "job"
+    t.text     "biography"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "advice_id"
+    t.boolean  "is_good"
+    t.string   "ip"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["advice_id"], :name => "index_votes_on_advice_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end

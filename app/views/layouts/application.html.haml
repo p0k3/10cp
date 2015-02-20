@@ -3,64 +3,116 @@
   %head
     %title 10 conseils pour...
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
     = csrf_meta_tags
 
   %body{class: body_class}
-    #fb-root
-    :javascript
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=359204397558628";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    %header{style: "background:#{@header}"}
-      .container
-        .account.pull-right
-          = link_to "#" do
-            %i.fa.fa-user
-            Mon compte
+    #wrap
+      %header
+        .container
+          .account.pull-right
+            - if current_user
+              = link_to me_path do
+                %i.fa.fa-user
+                Mon compte
+              \|
+              = link_to destroy_user_session_path, method: :delete do
+                %i.fa.fa-sign-out
+                Se déconnecter
+            - else
+              = link_to new_user_session_path do
+                %i.fa.fa-user
+                Se connecter
 
-        %nav
-          %ul.list-unstyled
-            - @masters.first(3).each do |m|
-              %li
-                = link_to m do
-                  = m.title
-            %li.round.logo
-              = link_to "/" do
-                %span.dix 10
-                %span.conseils conseils
-                %span.pour pour
-            - @masters.last(3).each do |m|
-              %li
-                = link_to m do
-                  = m.title
-        .search
-          .form
-            %span
-              J'ai besoin d'aide pour
-            .col-md-offset-3.col-md-6
-              .input-icon.right
-                = link_to "#" do
-                  %i.fa.fa-search
-                = text_field_tag :q, "", class: "form-control input-lg"
-
-    .main
-      = yield
-
-    %footer
-      .container
-        - Theme.all.each do |t|
-          .col-md-2
-            %h4= t.title
+          %nav
             %ul.list-unstyled
-              %li= link_to 'Theme 1', '#'
-      .bottom
-        %p
-          10ConseilsPour&copy; 2014 - Design :
-          %strong Claudia Berger
-          \- Réalisation & Développement :
-          %strong Paul Gruson
+              - @masters.first(3).each do |m|
+                %li
+                  = link_to m do
+                    = m.title
+              %li.round.logo
+                = link_to "/" do
+                  %span.dix 10
+                  %span.conseils conseils
+                  %span.pour pour
+                  %span.beta BETA
+              - @masters.last(3).each do |m|
+                %li
+                  = link_to m do
+                    = m.title
+          .search
+            .form
+              %span
+                J'ai besoin d'aide pour
+              .col-md-offset-3.col-md-6
+                .input-icon.right
+                  = link_to "#" do
+                    %i.fa.fa-search
+                  = text_field_tag :q, "", class: "form-control input-lg"
+
+      .main
+        = yield
+
+        %hr
+
+        %h1.page-header
+          Sujets les plus consultés
+
+        .most-visited
+          .row
+            - @most_visited.each do |a|
+              .col-md-3
+                .subject{style: "box-shadow: 0px 0px 3px #{a.theme.color}"}
+                  = image_tag a.illustration.url(:thumb), class: "illustration"
+                  = image_tag a.theme.icon.url(:normal), class: "icon"
+                  %span.subject-theme= a.theme.title
+                  10 conseils pour...
+                  %h4= a.title
+
+                  = link_to "Conseille moi", a, class: "btn btn-default", style: "background-color: #{a.theme.color}"
+
+        %h1.page-header
+          Nos thématiques
+        .master-themes
+          .row
+            - @masters.each do |s|
+              .col-md-4
+                .theme{style: "background-color: #{s.color}"}
+                  %h3= s.title
+                  %span.icon
+                    = image_tag s.icon.url(:normal)
+                  = link_to s, class: "btn btn-default" do
+                    Voir tous les sujets
+
+        %h1.page-header
+          Nos meilleurs conseillers
+
+        .best-users
+          .row
+            - @best_users.each do |u|
+              .col-md-6
+                .user
+                  .round
+                    = image_tag u.avatar.url(:normal)
+                  .body
+                    %span.name= u.fullname
+                    = link_to u.website, target: "_blank" do
+                      = u.website
+
+
+      %footer
+        .container
+          - Theme.all.each do |t|
+            .col-md-4
+              %h4= t.title
+              %ul.list-unstyled
+                - t.subjects.each do |subject|
+                  %li= link_to subject.title, subject
+        .bottom
+          %p
+            10ConseilsPour&copy; 2014 - Design :
+            %strong Claudia Berger
+            \- Réalisation & Développement :
+            %strong Paul Gruson
+
+    = javascript_include_tag "application"
+    = custom_bootstrap_flash

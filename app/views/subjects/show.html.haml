@@ -1,34 +1,34 @@
-%h2
-  %span.highlight 10 conseils pour
-  = @subject.title
+%h1
+  10 conseils pour
+  %span.highlight= @subject.title
 
-.well
+.description
   %p
     = @subject.description
+
 .row
-  - @subject.advices.each_with_index do |a, index|
+  - @advices.each_with_index do |a, index|
     - if index == 0
       .col-md-12
         .advice.master
-          .user
-            = image_tag "avatar.png", class: "avatar"
-            .body
-              %h5
-                Un conseil de
-                = a.user.fullname
-              = link_to a.user.website, a.user.website
-          .inner
-            .col-md-2
-              .top
-                Le top conseil
-            .col-md-10
-              %h3.advice-header
+          .row
+            .col-md-3
+              .user
+                = image_tag "avatar.png", class: "avatar"
+                .body
+                  .advice_from
+                    Un conseil de
+                  .author
+                    = a.user.fullname
+                  = link_to a.user.website, a.user.website
+            .col-md-9
+              %h2
                 = a.title
               %p
                 = a.description
-            .footer.pull-right
-              = link_to "Très bon conseil", "#", class: "btn btn-default good"
-              = link_to "Mauvais conseil", "#", class: "btn btn-default bad"
+            .footer
+              = link_to_good_advice(current_user, a)
+              = link_to_bad_advice(current_user, a)
     - else
       .col-md-4
         .advice
@@ -39,33 +39,16 @@
                 Un conseil de
                 = a.user.fullname
               = link_to a.user.website, a.user.website
-          .inner
-            %h3.advice-header= a.title
-            %p
-              = a.description
-            .footer.pull-right
-              = link_to "Très bon conseil", "#", class: "btn btn-default good"
-              = link_to "Mauvais conseil", "#", class: "btn btn-default bad"
-
+          %h3.advice-header= a.title
+          %p
+            = a.description
+          .footer
+            = link_to_good_advice(current_user, a)
+            = link_to_bad_advice(current_user, a)
 .row
-  %h2.col-md-12 Nos autres sujets
-  - Subject.all.each do |s|
-    .col-md-3
-      .subject
-        %h3= s.theme.title
-        %strong 10 conseils pour
-        %h4= s.title
+  .col-md-4
+    = link_to new_subject_advice_path(@subject), class: "btn btn-block btn-success" do
+      %i.fa.fa-plus
+      Proposer un conseil
 
-        %small= s.description
-
-        = link_to "Conseille moi", s, class: "btn btn-default"
-
-
-.row
-  %h2.col-md-12 Nos autres thématiques
-  - Theme.last(6).each do |s|
-    .col-md-4
-      .theme
-        %h3= s.title
-        = link_to '#', class: "btn btn-default" do
-          Voir tous les sujets
+.clearfix

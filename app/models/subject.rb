@@ -14,4 +14,9 @@ class Subject < ActiveRecord::Base
   validates :description, presence: true
   validates_attachment_content_type :illustration, :content_type => %w(image/jpeg image/jpg image/png image/gif)
 
+
+  def theme_color
+    self.theme.color
+  end
+
 end

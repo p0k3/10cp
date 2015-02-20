@@ -17,4 +17,16 @@ class User < ActiveRecord::Base
   def fullname
     "#{firstname} #{lastname}"
   end
+
+  def is_admin?
+    type == "Admin"
+  end
+
+  def self.best_advisors
+    select('users.*, COUNT(advices.id) AS notoriety')
+      .joins('LEFT JOIN advices AS advices ON advices.user_id=users.id')
+      .group('users.id')
+      .order('notoriety DESC')
+      .first(4)
+  end
 end
