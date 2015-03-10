@@ -22,6 +22,10 @@
               = link_to new_user_session_path do
                 %i.fa.fa-user
                 Se connecter
+              \|
+              = link_to new_user_registration_path do
+                %i.fa.fa-sign-in
+                Devenir conseiller
 
           %nav
             %ul.list-unstyled
@@ -44,59 +48,14 @@
               %span
                 J'ai besoin d'aide pour
               .col-md-offset-3.col-md-6
-                .input-icon.right
-                  = link_to "#" do
-                    %i.fa.fa-search
-                  = text_field_tag :q, "", class: "form-control input-lg"
+                = form_tag '/search', method: :get do
+                  .input-icon.right
+                    %button{type: "submit"}
+                      %i.fa.fa-search
+                    = text_field_tag :q, params[:q], class: "form-control input-lg"
 
       .main
         = yield
-
-        %hr
-
-        %h1.page-header
-          Sujets les plus consultés
-
-        .most-visited
-          .row
-            - @most_visited.each do |a|
-              .col-md-3
-                .subject{style: "box-shadow: 0px 0px 3px #{a.theme.color}"}
-                  = image_tag a.illustration.url(:thumb), class: "illustration"
-                  = image_tag a.theme.icon.url(:normal), class: "icon"
-                  %span.subject-theme= a.theme.title
-                  10 conseils pour...
-                  %h4= a.title
-
-                  = link_to "Conseille moi", a, class: "btn btn-default", style: "background-color: #{a.theme.color}"
-
-        %h1.page-header
-          Nos thématiques
-        .master-themes
-          .row
-            - @masters.each do |s|
-              .col-md-4
-                .theme{style: "background-color: #{s.color}"}
-                  %h3= s.title
-                  %span.icon
-                    = image_tag s.icon.url(:normal)
-                  = link_to s, class: "btn btn-default" do
-                    Voir tous les sujets
-
-        %h1.page-header
-          Nos meilleurs conseillers
-
-        .best-users
-          .row
-            - @best_users.each do |u|
-              .col-md-6
-                .user
-                  .round
-                    = image_tag u.avatar.url(:normal)
-                  .body
-                    %span.name= u.fullname
-                    = link_to u.website, target: "_blank" do
-                      = u.website
 
 
       %footer

@@ -1,5 +1,6 @@
 DixConseilsPour::Application.routes.draw do
 
+  devise_for :users
 
   constraints(subdomain: /admin/) do
     root to: 'admin/home#index'
@@ -22,9 +23,11 @@ DixConseilsPour::Application.routes.draw do
 
   resources :themes, controller: "themes", as: :themes
   resources :votes, controller: "votes", as: :votes, only: :create
+  resources :users
+
+  get '/search', to: "search#index"
 
 
-  devise_for :users
 
   root to: 'pages#home'
 

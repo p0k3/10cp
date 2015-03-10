@@ -48,4 +48,11 @@ class Advice < ActiveRecord::Base
       .order('notoriety DESC')
   end
 
+  def subject_title
+    self.subject.title
+  end
+  def theme_title
+    self.subject.theme_title
+  end
+
 end

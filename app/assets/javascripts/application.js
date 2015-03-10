@@ -16,3 +16,10 @@
 //= require toastr
 //= require votes
 //= require_self
+
+$(document).ready(function(){
+  $('.subject').click(function(){
+    url = $(this).attr('data-url');
+    document.location.href = url;
+  })
+});

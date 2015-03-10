@@ -19,4 +19,7 @@ class Subject < ActiveRecord::Base
     self.theme.color
   end
 
+  def theme_title
+    self.theme.title
+  end
 end

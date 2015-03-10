@@ -207,15 +207,18 @@
             font-size: 25px;
             text-align: center;
           }
-
           .input-icon.right input {
-             padding-left: 15px !important;
-             padding-right: 55px !important;
+            padding-left: 15px !important;
+            padding-right: 55px !important;
           }
-
+          button{
+            background: none!important;
+            border: none;
+            padding: 0;
+          }
           .input-icon.right i {
-             right: 280px;
-             float: right;
+            right: 280px;
+            float: right;
           }
         }
       }

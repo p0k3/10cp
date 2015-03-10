@@ -5,8 +5,16 @@ class Vote < ActiveRecord::Base
 
 
   validates_inclusion_of :is_good, :in => [true, false]
-  validates :user_id, :advice_id, presence: true
+  validates :advice_id, presence: true
+  validate :has_a_user_or_an_ip?
 
   scope :is_good, -> {where(is_good: true)}
   scope :is_bad, -> {where(is_good: false)}
+
+  def has_a_user_or_an_ip?
+    if self.user.blank? && self.ip.blank?
+      errors.add(:vote, 'doit avoir un utilisateur')
+    end
+  end
+
 end

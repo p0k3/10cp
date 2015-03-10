@@ -1,29 +1,42 @@
-%h2 __Profil utilisateur
+.user
+  .row
+    .col-md-4
+      = image_tag @user.avatar.url(:original), class: "avatar"
+    .col-md-8
+      %h1= @user.fullname
+      %span.website
+        = link_to @user.website, target: "_blank" do
+          = @user.website
 
-.well
-  %address.text-center
-    %h4
-      = @user.lastname
-      = @user.firstname
-    %br
-    = link_to "Son site", @user.link, target: "_blank"
+      %ul.list-inline.list-unstyled
+        - if @user.birthdate
+          %li
+            %i.fa.fa-birthday-cake
+            = l @user.birthdate, format: :long
 
-%h3 Ses sujets
-.well
-  - @user.subjects.each do |s|
-    %h4
-      = link_to s.title, subject_path(s)
-    %p
-      = s.description
+        %li
+          %i.fa.fa-map-marker
+          = @user.town
 
-%h3 Ses meilleurs conseils
-.well
-  - @user.advices.each do |a|
-    %h4
-      = link_to a.subject.title, subject_path(a.subject)
-    %h5= a.title
-    %p
-      = a.description
+        %li
+          %i.fa.fa-user
+          = @user.job
 
-.form-actions
-  = link_to "__Modifier le profil", edit_user_path(@user), class: "btn btn-primary"
+  %hr
+
+  .row
+    - @user.advices.order_by_notoriety.each do |advice|
+      .col-md-4
+        .advice
+          %h2.advice-header
+            = link_to theme_path(advice.subject.theme_id) do
+              = advice.theme_title
+          %h3
+            = link_to subject_path(advice.subject.id) do
+              = advice.subject_title
+          %h4= advice.title
+          %p
+            = advice.description
+          .footer
+            = link_to_good_advice(current_user, advice)
+            = link_to_bad_advice(current_user, advice)

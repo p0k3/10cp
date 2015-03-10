@@ -2,5 +2,5 @@ set :rails_env, "production"
 
 set :branch, 'master'
 
-server '10conseilspour.fr', :app, :web
-role :db, '10conseilspour.fr', :primary => true
+server '37.187.37.41', :app, :web
+role :db, '37.187.37.41', :primary => true
