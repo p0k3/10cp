@@ -4,9 +4,10 @@
       = image_tag "avatar.png", class: "avatar"
     .col-md-8
       %h1= @user.fullname
-      %span.website
-        = link_to @user.website, target: "_blank" do
-          = @user.website
+      - if @user.website?
+        %span.website
+          = link_to @user.website, target: "_blank" do
+            = @user.website
 
       %ul.list-inline.list-unstyled
         - if @user.birthdate?
