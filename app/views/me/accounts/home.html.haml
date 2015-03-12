@@ -9,6 +9,7 @@
           = @user.website
 
       %ul.list-inline.list-unstyled
+        - if @user.birthdate?
         %li
           %i.fa.fa-birthday-cake
           = l @user.birthdate, format: :long
