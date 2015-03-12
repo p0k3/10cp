@@ -1,0 +1,40 @@
+.user
+  .row
+    .col-md-4
+      = image_tag "avatar.png", class: "avatar"
+      = link_to edit_me_path(current_user), class: "btn btn-success btn-block" do
+        %i.fa.fa-edit
+        Modifier mon compte
+
+    .col-md-8
+      %h1 Modifier mon profil
+
+      = form_for @user do |f|
+        - if @user.errors.any?
+          .alert.alert-danger
+            %h5
+              Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
+            - @user.errors.full_messages.each do |msg|
+              %li
+                = msg
+        .row
+          .col-md-6
+            .form-group
+              %label Prénom
+              = f.text_field :lastname, class: "form-control"
+          .col-md-6
+            .form-group
+              %label Nom
+              = f.text_field :firstname, class: "form-control"
+
+        .form-group
+          %label Date de naissance
+          = f.text_field :birthdate, class: "form-control", placeholder: "jj/mm/aaaa"
+        .form-group
+          %label Site Internet
+          = f.text_field :website, class: "form-control"
+
+        .form-group
+          %button.btn.btn-success{type: "submit"}
+            Modifier mes informations personnelles
+

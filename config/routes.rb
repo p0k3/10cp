@@ -19,6 +19,7 @@ DixConseilsPour::Application.routes.draw do
 
   scope '/me' do
     root to: 'me/accounts#home', as: :me
+    resources :users, controller: "me/users", as: :me
   end
 
   resources :themes, controller: "themes", as: :themes
