@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 %html
   %head
-    %title 10 conseils pour...
-    = stylesheet_link_tag    "application", :media => "all"
+    %title= @title
+    %meta{ name: "description", content: @description}
+    %meta{ content: "fr", http:{equiv: "content-language"}}
+
+    %meta{ property: "fb:app_id", content: "707624195952119"}
+    %meta{ property: "og:type", content: "website"}
+    %meta{ property: "og:url", content: canonical_url}
+    %meta{ property: "og:title", content: @title}
+    %meta{ property: "og:image", content: @image}
+    %meta{ property: "og:description", content: @description}
+
+
+
+    %link{ rel: "canonical", href: canonical_url }
+    %link{:href => canonical_url, :hreflang => "fr-fr", :rel => "alternate"}/
+
+    = stylesheet_link_tag "application", media: "screen"
     = csrf_meta_tags
+    = favicon_link_tag "favicon.ico"
+
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1"}
 
   %body{class: body_class}
     #wrap

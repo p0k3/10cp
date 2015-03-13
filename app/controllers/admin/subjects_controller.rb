@@ -1,7 +1,10 @@
 class Admin::SubjectsController < AdminController
 
+  before_filter :set_subject, except: [:index]
+
   def index
-    @subjects = Subject.order('id DESC').all
+    @q = Subject.ransack(params[:q])
+    @subjects = @q.result(distinct: true).paginate(:page => params[:page])
   end
 
   def new
@@ -19,18 +22,36 @@ class Admin::SubjectsController < AdminController
   end
 
   def edit
-    @subject = Subject.find params[:id]
   end
 
   def update
-    @subject = Subject.find params[:id]
-
     @subject.attributes = params[:subject]
     if @subject.save
-      redirect_to subjects_path, flash: {success: "Le thème a bien été mis à jour"}
+      redirect_to subjects_path, flash: {success: "Le sujet a bien été mis à jour"}
     else
       render :edit
     end
   end
+
+  def validate
+    if @subject.validate
+      redirect_to subjects_path, flash:{success: "Le sujet a été validé"}
+    else
+      render :edit
+    end
+  end
+
+  def disable
+    if @subject.invalidate
+      redirect_to subjects_path, flash:{success: "Le sujet a été invalidé"}
+    else
+      render :edit
+    end
+  end
+
+  private
+    def set_subject
+      @subject = Subject.find params[:id]
+    end
 
 end

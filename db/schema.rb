@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150220094113) do
+ActiveRecord::Schema.define(:version => 20150313145830) do
 
   create_table "advices", :force => true do |t|
     t.string   "title"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20150220094113) do
     t.string   "illustration_content_type"
     t.integer  "illustration_file_size"
     t.datetime "illustration_updated_at"
+    t.string   "state"
   end
 
   create_table "themes", :force => true do |t|

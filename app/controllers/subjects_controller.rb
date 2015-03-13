@@ -1,12 +1,15 @@
 class SubjectsController < ApplicationController
 
   def index
-    @subjects = Subject.all
+    @subjects = Subject.validated
   end
 
   def show
     @subject = Subject.find(params[:id])
     @advices = @subject.advices.validated.order_by_notoriety
+
+    @title = "10 conseils pour #{@subject.title}"
+    @description = @subject.description[0..150]
   end
 
   def new

@@ -11,6 +11,13 @@ DixConseilsPour::Application.routes.draw do
 
     get '/advices/:id/validate', to: "admin/advices#validate", as: :validate_advice
     get '/advices/:id/disable', to: "admin/advices#disable", as: :disable_advice
+
+    get '/subjects/:id/validate', to: "admin/subjects#validate", as: :validate_subject
+    get '/subjects/:id/disable', to: "admin/subjects#disable", as: :disable_subject
+  end
+
+  resources :themes do
+    resources :subjects, controller: "themes/subjects"
   end
 
   resources :subjects do
@@ -22,7 +29,6 @@ DixConseilsPour::Application.routes.draw do
     resources :users, controller: "me/users", as: :me
   end
 
-  resources :themes, controller: "themes", as: :themes
   resources :votes, controller: "votes", as: :votes, only: :create
   resources :users
 
