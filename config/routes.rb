@@ -35,6 +35,7 @@ DixConseilsPour::Application.routes.draw do
   get '/search', to: "search#index"
 
 
+  get '/:page', to: "pages#show",as: :page
 
   root to: 'pages#home'
 

@@ -1,6 +1,30 @@
+%ol.breadcrumb
+  %li
+    = link_to root_url do
+      %i.fa.fa-home
+  %li
+    = link_to theme_path(@subject.theme) do
+      = @subject.theme.title
+
+  %li.active
+    10 conseils pour
+    = @subject.title
+
 %h1
   10 conseils pour
   %span.highlight= @subject.title
+
+.row
+  .col-md-2.col-md-offset-1
+    = facebook_button
+  .col-md-2
+    = twitter_button
+  .col-md-2
+    = google_plus_button
+  .col-md-2
+    = pinterest_button
+  .col-md-2
+    = linkedin_button
 
 .description
   %p

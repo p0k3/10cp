@@ -1,5 +1,33 @@
-%h1.page-header
-  Sujets les plus consultés
+%h1
+  10 Conseils pour
+  %small le bon conseil !
+
+.intro
+  %p
+    %strong
+      = link_to root_url do
+        10 conseils pour
+    est un site communautaire visant à apporter les conseils les plus pertinents pour tous les sujets que vous souhaitez.
+
+  %h2 Vous chercher un conseil pour un sujet particulier ?
+  %p
+    Utilisez notre outils de recherche rapide pour retrouver le sujet qui correspond à votre attente !
+
+  %h2 Vous souhaitez apporter vos conseils ?
+  %p
+    Ajoutez vos conseils aux sujets existants, ou créez simplement un nouveau sujet afin de partager avec toute la communauté votre expertise.
+
+  %p
+    %strong Suivez nous !
+  .row
+    .col-md-2.col-md-offset-4
+      .fb-follow{"data-colorscheme" => "light", "data-href" => "https://www.facebook.com/10conseilspour", "data-layout" => "box_count", "data-show-faces" => "true", "data-width" => "485"}
+    .col-md-2
+      %a.twitter-follow-button{"data-lang" => "en", "data-show-count" => "false", :href => "https://twitter.com/10conseilspour"}
+        Suivez @10conseilspour
+
+%h2.page-header
+  Les derniers sujets
 
 .most-visited
   .row
@@ -14,7 +42,7 @@
 
           = link_to "Conseille moi", a, class: "btn btn-default", style: "background-color: #{a.theme.color}"
 
-%h1.page-header
+%h2.page-header
   Nos thématiques
 .master-themes
   .row
@@ -27,7 +55,7 @@
           = link_to s, class: "btn btn-default" do
             Voir tous les sujets
 
-%h1.page-header
+%h2.page-header
   Nos meilleurs conseillers
 
 .best-users

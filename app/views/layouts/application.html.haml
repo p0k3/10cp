@@ -24,6 +24,7 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1"}
 
   %body{class: body_class}
+    = render "layouts/script"
     #wrap
       %header
         .container
@@ -78,18 +79,15 @@
 
       %footer
         .container
-          - Theme.all.each do |t|
-            .col-md-4
-              %h4= t.title
-              %ul.list-unstyled
-                - t.subjects.each do |subject|
-                  %li= link_to subject.title, subject
-        .bottom
-          %p
-            10ConseilsPour&copy; 2014 - Design :
-            %strong Claudia Berger
-            \- Réalisation & Développement :
-            %strong Paul Gruson
+          %ul.list-inline.list-unstyled
+            %li
+              10ConseilsPour&copy; 2015
+            %li
+              = link_to page_path('mentions-legales') do
+                Mentions légales
+            %li
+              = link_to page_path('about') do
+                A propos
 
     = javascript_include_tag "application"
     = custom_bootstrap_flash

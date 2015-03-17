@@ -15,6 +15,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'state_machine'
 gem 'ransack'
 gem 'toastr-rails'
+gem 'shareable'
 
 group :development do
   gem "better_errors"
