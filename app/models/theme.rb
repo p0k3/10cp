@@ -1,5 +1,4 @@
 class Theme < ActiveRecord::Base
-  attr_accessible :description, :title, :color, :icon
 
   has_attached_file :icon, :styles => {
                               :normal => "58x58"

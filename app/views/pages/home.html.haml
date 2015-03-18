@@ -1,53 +1,27 @@
-%h1
-  10 Conseils pour
-  %small le bon conseil !
-
-.intro
-  %p
-    %strong
-      = link_to root_url do
-        10 conseils pour
-    est un site communautaire visant à apporter les conseils les plus pertinents pour tous les sujets que vous souhaitez.
-
-  %h2 Vous cherchez un conseil pour un sujet particulier ?
-  %p
-    Utilisez notre outils de recherche rapide pour retrouver le sujet qui correspond à votre attente !
-
-  %h2 Vous souhaitez apporter vos conseils ?
-  %p
-    Ajoutez vos conseils aux sujets existants, ou créez simplement un nouveau sujet afin de partager avec toute la communauté votre expertise.
-
-  %p
-    %strong Suivez nous !
-  .row
-    .col-md-2.col-md-offset-4
-      .fb-follow{"data-colorscheme" => "light", "data-href" => "https://www.facebook.com/10conseilspour", "data-layout" => "box_count", "data-show-faces" => "true", "data-width" => "485"}
-    .col-md-2
-      %a.twitter-follow-button{"data-lang" => "en", "data-show-count" => "false", :href => "https://twitter.com/10conseilspour"}
-        Suivez @10conseilspour
-
-%h2.page-header
+%h1.page-header
   Les derniers sujets
 
-.most-visited
+.last-subjects
   .row
     - @most_visited.each do |a|
-      .col-md-3
-        .subject{style: "box-shadow: 0px 0px 3px #{a.theme.color}"}
-          = image_tag a.illustration.url(:thumb), class: "illustration"
+      .col-md-3.col-sm-4
+        .subject{style: "box-shadow: 0px 0px 3px #{a.theme.color}", data:{url: subject_path(a)}}
+          .illustration
+            = image_tag a.illustration.url(:thumb), class: "img-respnosive"
           = image_tag a.theme.icon.url(:normal), class: "icon"
-          %span.subject-theme= a.theme.title
-          10 conseils pour...
-          %h4= a.title
+          .subject-body
+            %span.subject-theme= a.theme.title
+            10 conseils pour...
+            %h4= a.title
 
-          = link_to "Conseille moi", a, class: "btn btn-default", style: "background-color: #{a.theme.color}"
+            = link_to "Conseille moi", a, class: "btn btn-default", style: "background-color: #{a.theme.color}"
 
-%h2.page-header
+%h1.page-header
   Nos thématiques
 .master-themes
   .row
     - @masters.each do |s|
-      .col-md-4
+      .col-md-4.col-sm-6
         .theme{style: "background-color: #{s.color}"}
           %h3= s.title
           %span.icon
@@ -55,13 +29,13 @@
           = link_to s, class: "btn btn-default" do
             Voir tous les sujets
 
-%h2.page-header
+%h1.page-header
   Nos meilleurs conseillers
 
 .best-users
   .row
     - @best_users.each do |u|
-      .col-md-6
+      .col-sm-6
         .user
           .round
             = image_tag u.avatar.url(:normal)

@@ -1,9 +1,8 @@
 class Subject < ActiveRecord::Base
-  attr_accessible :title, :description, :advice, :illustration, :theme_id, :theme
 
   has_attached_file :illustration, :styles => {
                             :normal => "980x600>",
-                            :thumb => "220x120#"
+                            :thumb => "440x240#"
                           }
   has_many :advices
   belongs_to :theme

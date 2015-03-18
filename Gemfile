@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
-gem 'bootstrap-sass', '~> 2.0'
+gem 'rails', '4.1.6'
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'sass-rails', '>= 3.2'
 gem 'haml'
 gem 'jquery-rails'
 gem 'RedCloth'
@@ -28,7 +29,6 @@ end
 
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass', '3.4.13'
   gem 'uglifier', '>= 1.0.3'
 end

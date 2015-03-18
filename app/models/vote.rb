@@ -1,7 +1,6 @@
 class Vote < ActiveRecord::Base
   belongs_to :user
   belongs_to :advice
-  attr_accessible :is_good, :user_id, :advice_id, :ip
 
 
   validates_inclusion_of :is_good, :in => [true, false]

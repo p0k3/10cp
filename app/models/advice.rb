@@ -1,5 +1,4 @@
 class Advice < ActiveRecord::Base
-  attr_accessible :title, :description, :subject, :user_id, :state
 
   belongs_to :subject
   belongs_to :user

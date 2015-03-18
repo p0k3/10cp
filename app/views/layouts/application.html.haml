@@ -28,7 +28,7 @@
     #wrap
       %header
         .container
-          .account.pull-right
+          .account.hidden-sm
             - if current_user
               = link_to me_path do
                 %i.fa.fa-user
@@ -45,36 +45,51 @@
               = link_to new_user_registration_path do
                 %i.fa.fa-sign-in
                 Devenir conseiller
+          %nav.navbar.navbar-default
+            .navbar-header.visible-sm
+              %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              = link_to root_url, class: "navbar-brand" do
+                10 Conseils pour
 
-          %nav
-            %ul.list-unstyled
-              - @masters.first(3).each do |m|
-                %li
-                  = link_to m do
-                    = m.title
-              %li.round.logo
-                = link_to "/" do
-                  %span.dix 10
-                  %span.conseils conseils
-                  %span.pour pour
-                  %span.beta BETA
-              - @masters.last(3).each do |m|
-                %li
-                  = link_to m do
-                    = m.title
-          .search
-            .form
-              %span
-                J'ai besoin d'aide pour
-              .col-md-offset-3.col-md-6
-                = form_tag '/search', method: :get do
-                  .input-icon.right
-                    %button{type: "submit"}
-                      %i.fa.fa-search
-                    = text_field_tag :q, params[:q], class: "form-control input-lg"
+            #navbar.collapse.navbar-collapse
+              %ul.nav.navbar-nav
+                %li.visible-sm
+                  = link_to root_url do
+                    Accueil
+                - @masters.first(3).each do |m|
+                  %li
+                    = link_to m do
+                      = m.title
+                %li.round.logo.hidden-xs
+                  = link_to "/" do
+                    %span.dix 10
+                    %span.conseils conseils
+                    %span.pour pour
+                    %span.beta BETA
 
-      .main
-        = yield
+                - @masters.last(3).each do |m|
+                  %li
+                    = link_to m do
+                      = m.title
+          .search.hidden-sm
+            .container
+              .form
+                %span
+                  J'ai besoin d'aide pour
+                .col-md-offset-3.col-md-6
+                  = form_tag '/search', method: :get do
+                    .input-icon.right
+                      %button{type: "submit"}
+                        %i.fa.fa-search
+                      = text_field_tag :q, params[:q], class: "form-control input-lg"
+
+      #main
+        .container
+          = yield
 
 
       %footer

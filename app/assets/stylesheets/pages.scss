@@ -1,0 +1,135 @@
+
+
+@media only screen and (min-width: 320px) {
+  .subject{
+    background: #fff;
+    color:#000;
+    position: relative;
+    height: 350px;
+    margin-bottom: $line-height-computed;
+    .illustration{
+      width: auto;
+      height: 200px;
+      overflow: hidden;
+      img{
+        min-width: 100%;
+        min-height: 200px;
+      }
+    }
+    img.icon{
+      margin: -24px auto 0;
+      display: block;
+    }
+    .subject-body{
+      padding: 5px 15px;
+      .subject-theme{
+        display: block;
+        margin: 5px 0;
+        color: #666;
+      }
+      a{
+        position:absolute;
+        bottom:5px;
+        left:5px;
+        right:5px;
+        display:block;
+        color: #fff;
+        border-radius:0;
+      }
+    }
+  }
+  .theme{
+    padding:10px 15px;
+    margin: 30px 0 10px 0;
+    color:#fff;
+    height:150px;
+    position:relative;
+    h3{
+      font-family: "Menu";
+      text-align: center;
+      color: #fff;
+      text-shadow:1px 1px 10px #000;
+      font-size: 30px;
+    }
+    a{
+      margin: 40px auto 0;
+      min-width: 50%;
+      display: block;
+      border-radius:5px;
+    }
+    span.icon{
+      position: absolute;
+      top: -29px;
+      z-index: 10;
+      left: 50%;
+      margin-left: -29px;
+    }
+  }
+  .best-users{
+    overflow:hidden;
+    margin-bottom:20px;
+    .user{
+      display: block;
+      overflow: hidden;
+      margin-bottom: $line-height-computed;
+      .round{
+        width:160px;
+        height:160px;
+        border-radius:100%;
+        background:#d7d7d7;
+        margin: 0 auto 15px;
+        overflow: hidden;
+        z-index: 2;
+        position: relative;
+        img{
+          width:150px;
+          height:150px;
+          border-radius:100%;
+          margin: 5px;
+        }
+      }
+      .body{
+        color: #4b5b68;
+        background: #fff;
+        margin-top: -80px;
+        height: 165px;
+        padding: 90px 15px 15px;
+        .name{
+          font-size: 28px;
+          display: block;
+          text-align: center;
+          margin: 0 0 $line-height-computed;
+          font-family: "Menu";
+          a{
+            text-decoration: none;
+            text-align: center;
+            display: block;
+          }
+        }
+        a{
+          color: #4b5b68;
+          text-decoration: underline;
+          font-weight: 700;
+          text-align: center;
+          display: block;
+        }
+      }
+    }
+  }
+}
+/* Extra Small Devices, Phones */
+
+@media only screen and (min-width: 480px) {}
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {}
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
+
+}
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {
+
+}
