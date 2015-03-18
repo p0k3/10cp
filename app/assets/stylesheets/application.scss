@@ -54,7 +54,7 @@ html {
       width: 100%;
       margin: 0 auto;
       background: #f9f9f9;
-      background: url('open_hand.jpg') center no-repeat;
+      background: url(asset_path('open_hand.jpg')) center no-repeat;
       background-size: 1200px;
       .container{
         position: relative;
