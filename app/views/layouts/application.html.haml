@@ -28,7 +28,7 @@
     #wrap
       %header
         .container
-          .account.hidden-sm
+          .account.hidden-xs
             - if current_user
               = link_to me_path do
                 %i.fa.fa-user
@@ -46,7 +46,7 @@
                 %i.fa.fa-sign-in
                 Devenir conseiller
           %nav.navbar.navbar-default
-            .navbar-header.visible-sm
+            .navbar-header.visible-xs
               %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
                 %span.sr-only Toggle navigation
                 %span.icon-bar
@@ -75,7 +75,7 @@
                   %li
                     = link_to m do
                       = m.title
-          .search.hidden-sm
+          .search.hidden-xs
             .container
               .form
                 %span
