@@ -3,17 +3,7 @@ DixConseilsPour::Application.routes.draw do
   devise_for :users
 
   constraints(subdomain: /admin/) do
-    root to: 'admin/home#index'
-    resources :themes, controller: "admin/themes"
-    resources :subjects, controller: "admin/subjects"
-    resources :advices, controller: "admin/advices"
-    devise_for :users
-
-    get '/advices/:id/validate', to: "admin/advices#validate", as: :validate_advice
-    get '/advices/:id/disable', to: "admin/advices#disable", as: :disable_advice
-
-    get '/subjects/:id/validate', to: "admin/subjects#validate", as: :validate_subject
-    get '/subjects/:id/disable', to: "admin/subjects#disable", as: :disable_subject
+    mount RailsAdmin::Engine => '/', as: 'rails_admin'
   end
 
   resources :themes do

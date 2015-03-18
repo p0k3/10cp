@@ -1,21 +1,20 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass', '~> 2.0'
 gem 'haml'
 gem 'jquery-rails'
 gem 'RedCloth'
 gem 'devise'
 gem 'simple_form'
-gem 'net-ssh', '~> 2.8.1', :git => "https://github.com/net-ssh/net-ssh"
 gem 'mysql2'
-gem "font-awesome-rails"
+gem "font-awesome-rails", '~> 3.0'
 gem "paperclip", "~> 3.0"
-gem 'will_paginate', '~> 3.0.6'
 gem 'state_machine'
 gem 'ransack'
 gem 'toastr-rails'
 gem 'shareable'
+gem 'rails_admin'
 
 group :development do
   gem "better_errors"
