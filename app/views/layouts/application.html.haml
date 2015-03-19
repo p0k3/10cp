@@ -26,7 +26,7 @@
   %body{class: body_class}
     = render "layouts/script"
     #wrap
-      %header
+      %header{style: "#{'background:'+@header_color if @header_color}"}
         .container
           .account.hidden-xs
             - if current_user
@@ -61,8 +61,8 @@
                   = link_to root_url do
                     Accueil
                 - @masters.first(3).each do |m|
-                  %li
-                    = link_to m do
+                  %li{class: "#{'active' if master_menu_is_active(m)}"}
+                    = link_to m, style: "#{'background:'+m.color if master_menu_is_active(m)}" do
                       = m.title
                 %li.round.logo.hidden-xs
                   = link_to "/" do
@@ -72,20 +72,24 @@
                     %span.beta BETA
 
                 - @masters.last(3).each do |m|
-                  %li
-                    = link_to m do
+                  %li{class: "#{'active' if master_menu_is_active(m)}"}
+                    = link_to m, style: "#{'background:'+m.color if master_menu_is_active(m)}" do
                       = m.title
-          .search.hidden-xs
-            .container
-              .form
-                %span
-                  J'ai besoin d'aide pour
-                .col-md-offset-3.col-md-6
-                  = form_tag '/search', method: :get do
-                    .input-icon.right
-                      %button{type: "submit"}
-                        %i.fa.fa-search
-                      = text_field_tag :q, params[:q], class: "form-control input-lg"
+
+          - if content_for?(:header)
+            = yield :header
+          - else
+            .search.hidden-xs
+              .container
+                .form
+                  %span
+                    J'ai besoin d'aide pour
+                  .col-md-offset-3.col-md-6
+                    = form_tag '/search', method: :get do
+                      .input-icon.right
+                        %button{type: "submit"}
+                          %i.fa.fa-search
+                        = text_field_tag :q, params[:q], class: "form-control input-lg"
 
       #main
         .container

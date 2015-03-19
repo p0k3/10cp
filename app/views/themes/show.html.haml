@@ -1,41 +1,28 @@
+- content_for :header do
+  %h1
+    %small Tous nos sujets
+    = @theme.title
+  %p.description
+    = @theme.description
+
 %ol.breadcrumb
   %li
     = link_to root_url do
-      %i.fa.fa-home
+      = fa_icon "home"
   %li.active
     = @theme.title
 
-%h1= @theme.title
-
-.row
-  .col-md-2.col-md-offset-1
-    = facebook_button
-  .col-md-2
-    = twitter_button
-  .col-md-2
-    = google_plus_button
-  .col-md-2
-    = pinterest_button
-  .col-md-2
-    = linkedin_button
-
-%p.subtitle
-  = @theme.description
-
-%p
-  = link_to , class: "btn btn-success" do
-    %i.fa.fa-plus
-    Proposer un nouveau sujet
-
 .subjects
+  .row
+    - @subjects.each do |subject|
+      .col-md-4.col-lg-3.col-sm-6
+        .subject{style: "box-shadow: 0px 0px 3px #{subject.theme.color}", data:{url: subject_path(subject)}}
+          .illustration
+            = image_tag subject.illustration.url(:thumb), class: "img-respnosive"
+          = image_tag subject.theme.icon.url(:normal), class: "icon"
+          .subject-body
+            %span.subject-theme= subject.theme.title
+            10 conseils pour...
+            %h4= subject.title
 
-  - @subjects.each do |subject|
-    .subject.media{data:{url: subject_path(subject)}}
-      = image_tag subject.illustration.url(:thumb), class: "pull-left"
-      .media-body
-        %h2.media-heading
-          %small
-            10 conseils pour
-          = link_to subject do
-            = subject.title
-        %p= truncate(strip_tags(subject.description), length: 200, separator: ' ')
+            = link_to "Conseille moi", subject, class: "btn btn-default", style: "background-color: #{subject.theme.color}"

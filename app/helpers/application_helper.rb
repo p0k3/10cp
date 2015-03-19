@@ -25,4 +25,8 @@ module ApplicationHelper
   def host
     root_url
   end
+
+  def master_menu_is_active(master)
+    params[:controller] == "themes" && params[:id].to_i == master.id
+  end
 end

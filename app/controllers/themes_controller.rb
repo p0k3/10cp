@@ -6,6 +6,7 @@ class ThemesController < ApplicationController
 
     @title = "Tous les conseils pour : #{@theme.title} - Retrouvez de bons conseils pour #{@theme.title}"
     @description = @theme.description
+    @header_color = @theme.color
   end
 
 
