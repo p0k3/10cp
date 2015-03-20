@@ -1,6 +1,14 @@
 
 
 @media only screen and (min-width: 320px) {
+  #main{
+    .page-header{
+      font-size: 48px;
+      text-align: center;
+      display: block;
+      color: #4b5c68;
+    }
+  }
   .subject{
     background: #fff;
     color:#000;
@@ -22,19 +30,27 @@
     }
     .subject-body{
       padding: 5px 15px;
+      margin: -20px 0 0 0;
+      h4{
+        font-family: $font-family-base;
+      }
       .subject-theme{
         display: block;
         margin: 5px 0;
         color: #666;
       }
       a{
+        border-radius: 5px;
         position:absolute;
-        bottom:5px;
-        left:5px;
-        right:5px;
+        bottom:15px;
+        width: 40%;
+        left: 50%;
+        font-size: 14px;
+        margin-left: -20%;
         display:block;
         color: #fff;
-        border-radius:0;
+        padding: 10px 15px;
+        border: 0;
       }
     }
   }
@@ -50,10 +66,13 @@
       color: #fff;
       text-shadow:1px 1px 10px #000;
       font-size: 30px;
+      margin-top: 35px;
     }
     a{
-      margin: 40px auto 0;
-      min-width: 50%;
+      margin: 20px auto 0;
+      width: 50%;
+      padding: 10px 15px;
+      border: none;
       display: block;
       border-radius:5px;
     }

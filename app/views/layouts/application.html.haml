@@ -88,8 +88,8 @@
                     = form_tag '/search', method: :get do
                       .input-icon.right
                         %button{type: "submit"}
-                          %i.fa.fa-search
-                        = text_field_tag :q, params[:q], class: "form-control input-lg"
+                          = fa_icon "search"
+                        = text_field_tag :q, params[:q], class: "form-control input-lg", placeholder: "Entrez votre recherche ici..."
 
       #main
         .container
