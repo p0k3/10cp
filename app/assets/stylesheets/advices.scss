@@ -1,6 +1,6 @@
 .advice{
   margin-bottom:20px;
-  padding: 50px 15px 10px;
+  padding: 50px 0 10px;
   position:relative;
   color:#555;
   border-radius: 5px;
@@ -40,17 +40,22 @@
     position: relative;
     display: block;
     padding: 15px;
+    height: 400px;
     h2{
       font-family: $font-family-base;
       font-size: 24px;
     }
     .footer{
       display: block;
-      margin: 20px -10px;
       overflow: hidden;
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      right: 0;
+      width: 100%;
       .good-advice, .bad-advice{
         float: left;
-        width: 42%;
+        width: 43%;
         margin: 0 10px;
         .btn{
           border-radius: 0;
@@ -92,17 +97,19 @@
     .advice-content{
       padding: 0px 200px 20px 160px;
       position: relative;
-      min-height: 200px;
+      height: 200px;
       .top-advice{
         position: absolute;
         right: 20px;
         top: 30px;
       }
       .footer{
+        width: auto;
+        left: auto;
+        right: auto;
         .good-advice, .bad-advice{
           float: left;
           width: auto;
-          margin: 0 10px;
         }
       }
     }
