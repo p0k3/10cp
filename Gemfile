@@ -7,7 +7,6 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'RedCloth'
 gem 'devise'
-gem 'simple_form'
 gem 'mysql2'
 gem "font-awesome-rails", '~> 3.0'
 gem "paperclip", "~> 3.0"
