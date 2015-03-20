@@ -1,104 +1,110 @@
 .advice{
   margin-bottom:20px;
-  padding: 10px 15px;
+  padding: 50px 15px 10px;
   position:relative;
-  background:#fefefe;
-  box-shadow: 0 0 10px #ccc;
   color:#555;
   border-radius: 5px;
-  height: 380px;
-  .footer{
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    .btn{
-      width: 50%;
-      border-radius: 0;
-      margin: 0;
-      border: 0;
-      float: left;
-      color: #fff;
-      &.good{
-        background: #2ECC71;
-        &:hover{
-          background: #27AE60;
-        }
-      }
-      &.bad{
-        background: #E74C3C;
-        &:hover{
-          background: #C0392B;
-        }
-      }
-    }
-  }
+  display: block;
   .user{
     display: block;
-    margin: 10px auto;
+    width: 100%;
+    margin: -35px auto 10px;
+    position: relative;
+    z-index: 5;
     .avatar{
       border-radius:100%;
       border: solid 4px #fff;
       box-shadow: 0 0 10px #eee;
-      margin: 0 auto 15px;
-      height:50px;
-      width:50px;
+      float: left;
+      margin: 0 20px;
+      height:80px;
+      width:80px;
       display: block;
     }
     .body{
-      margin-left:10px;
-      line-height:11px;
-      display: block;
-      text-align: center;
+      color: #4b5c68;
       .advice_from{
-        margin: 0 0 10px;
-      }
-      .author{
-        color:#3E3E3E;
-        font-family: "menu";
-        font-size: 20px;
-        line-height: 25px;
-        margin: 0 0 15px;
+        font-family: "Menu";
+        font-size: 18px;
+        margin-bottom: 5px;
       }
       a{
-        color:#333;
-        font-style:italic;
-        text-decoration: none;
-        line-height: 15px;
-        margin-bottom: 25px;
+        color: #4b5c68;
+        text-decoration: underline;
       }
     }
   }
-  h2{
-    margin: 0 0 10px;
-    a{
-      color: #3c3c3c;
-      font-family: "Menu";
-      text-decoration: none;
+  .advice-content{
+    background: #fff;
+    border: solid 1px #f9f9f9;
+    position: relative;
+    display: block;
+    padding: 15px;
+    h2{
+      font-family: $font-family-base;
+      font-size: 24px;
     }
-  }
-  h3{
-    margin: 0 0 5px;
-    font-size: 20px;
-    a{
-      color: #9c9c9c;
-      text-decoration: none;
+    .footer{
+      display: block;
+      margin: 20px -10px;
+      overflow: hidden;
+      .good-advice, .bad-advice{
+        float: left;
+        width: 42%;
+        margin: 0 10px;
+        .btn{
+          border-radius: 0;
+          border: 0;
+          float: left;
+          width: 100%;
+          color: #fff;
+          padding: 10px 15px;
+          font-size: 14px;
+          border-radius: 3px;
+          background: #4b5c68;
+          margin: 0 0 5px;
+          &:hover{
+            background: #273037;
+          }
+        }
+      }
     }
-  }
-  h4{
-    color: #000;
   }
   &.master{
-    height: 280px;
     .user{
       .avatar{
-        height: 100px;
-        width: 100px;
+        height:120px;
+        width:120px;
+      }
+      .body{
+        color: #4b5c68;
+        .advice_from{
+          font-family: "Menu";
+          font-size: 18px;
+          margin-bottom: 5px;
+        }
+        a{
+          color: #4b5c68;
+          text-decoration: underline;
+        }
       }
     }
-    h3{
-      font-size: 25px;
+    .advice-content{
+      padding: 0px 200px 20px 160px;
+      position: relative;
+      min-height: 200px;
+      .top-advice{
+        position: absolute;
+        right: 20px;
+        top: 30px;
+      }
+      .footer{
+        .good-advice, .bad-advice{
+          float: left;
+          width: auto;
+          margin: 0 10px;
+        }
+      }
     }
   }
 }

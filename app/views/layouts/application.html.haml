@@ -26,7 +26,7 @@
   %body{class: body_class}
     = render "layouts/script"
     #wrap
-      %header{style: "#{'background:'+@header_color if @header_color}"}
+      %header{style: "#{header_style(@header_color) if @header_color}" }
         .container
           .account.hidden-xs
             - if current_user

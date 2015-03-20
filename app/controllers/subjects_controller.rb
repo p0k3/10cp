@@ -7,9 +7,11 @@ class SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
     @advices = @subject.advices.validated.order_by_notoriety
+    @theme = @subject.theme
 
     @title = "10 conseils pour #{@subject.title}"
     @description = @subject.description[0..150]
+    @header_color = @theme.color
   end
 
   def new

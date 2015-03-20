@@ -1,19 +1,20 @@
 .subjects{
   &.show{
-    h1{
-      font-family: '10cp';
-      font-weight: 100;
-      font-size: 20px;
-      span.highlight{
-        font-family: "menu";
-        display: block;
-        font-size: 40px;
-      }
-    }
     .description{
-      padding: 15px 10px;
-      margin-bottom: 10px;
-      color: #888;
+      background: #fff;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      margin: -150px 0 20px 0;
+      img{
+        width: 25%;
+        float: left;
+      }
+      .description-content{
+        float: right;
+        width: 75%;
+        padding: 25px;
+      }
     }
   }
 }

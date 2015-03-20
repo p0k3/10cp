@@ -29,4 +29,8 @@ module ApplicationHelper
   def master_menu_is_active(master)
     params[:controller] == "themes" && params[:id].to_i == master.id
   end
+
+  def header_style(color)
+    "background: #ffffff;background: -moz-linear-gradient(top,  #ffffff 0%, #ffffff 25%, #{color} 25%, #{color} 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(25%,#ffffff), color-stop(25%,#{color}), color-stop(100%,#{color})); background: -webkit-linear-gradient(top,  #ffffff 0%,#ffffff 25%,#{color} 25%,#{color} 100%); background: -o-linear-gradient(top,  #ffffff 0%,#ffffff 25%,#{color} 25%,#{color} 100%); background: -ms-linear-gradient(top,  #ffffff 0%,#ffffff 25%,#{color} 25%,#{color} 100%);"
+  end
 end

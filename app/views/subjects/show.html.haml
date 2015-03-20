@@ -1,7 +1,16 @@
+- content_for :header do
+  %h1
+    = @subject.title
+
+.description
+  = image_tag @subject.illustration.url, class: "pull-left"
+  .description-content
+    = @subject.description
+
 %ol.breadcrumb
   %li
     = link_to root_url do
-      %i.fa.fa-home
+      = fa_icon "home"
   %li
     = link_to theme_path(@subject.theme) do
       = @subject.theme.title
@@ -10,65 +19,70 @@
     10 conseils pour
     = @subject.title
 
-%h1
-  10 conseils pour
-  %span.highlight= @subject.title
-
-.row
-  .col-md-2.col-md-offset-1
-    = facebook_button
-  .col-md-2
-    = twitter_button
-  .col-md-2
-    = google_plus_button
-  .col-md-2
-    = pinterest_button
-  .col-md-2
-    = linkedin_button
-
-.description
-  %p
-    = @subject.description
-
 .row
   - @advices.each_with_index do |a, index|
     - if index == 0
       .col-md-12
         .advice.master
-          .row
-            .col-md-3
-              .user
-                = image_tag "avatar.png", class: "avatar"
-                .body
-                  .advice_from
-                    Un conseil de
-                  .author
-                    = a.user.fullname
-                  = link_to a.user.website, a.user.website
-            .col-md-9
-              %h2
-                = a.title
-              %p
-                = a.description
+          .user
+            = image_tag "avatar.png", class: "avatar"
+            .body
+              .advice_from
+                Conseil de
+                = a.user.fullname
+              = link_to a.user.website, a.user.website
+          .advice-content
+            %h2
+              = a.title
+            %p
+              = a.description
+            .top-advice
+              = image_tag "top_conseil.png"
             .footer
-              = link_to_good_advice(current_user, a)
-              = link_to_bad_advice(current_user, a)
+              .good-advice
+                = link_to_good_advice(current_user, a) do
+                  = fa_icon "thumbs-up"
+                  Ce conseil est génial
+                %br
+                = "#{a.upvotes} votes"
+              .bad-advice
+                = link_to_bad_advice(current_user, a) do
+                  = fa_icon "thumbs-down"
+                  Ne suivez pas ce conseil
+                %br
+                = "#{a.downvotes} votes"
     - else
       .col-md-4
         .advice
           .user
             = image_tag "avatar.png", class: "avatar"
             .body
-              %h5
-                Un conseil de
+              .advice_from
+                Conseil de
                 = a.user.fullname
               = link_to a.user.website, a.user.website
-          %h3.advice-header= a.title
-          %p
-            = a.description
-          .footer
-            = link_to_good_advice(current_user, a)
-            = link_to_bad_advice(current_user, a)
+          .advice-content
+            %h2
+              = a.title
+            %p
+              = a.description
+            .footer
+              .good-advice
+                = link_to_good_advice(current_user, a) do
+                  = fa_icon "thumbs-up"
+                  Ce conseil
+                  %br
+                  est génial
+                %br
+                = "#{a.upvotes} votes"
+              .bad-advice
+                = link_to_bad_advice(current_user, a) do
+                  = fa_icon "thumbs-down"
+                  Ne suivez pas
+                  %br
+                  ce conseil
+                %br
+                = "#{a.downvotes} votes"
 .row
   .col-md-4
     = link_to new_subject_advice_path(@subject), class: "btn btn-block btn-success" do

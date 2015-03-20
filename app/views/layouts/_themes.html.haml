@@ -1,0 +1,12 @@
+%h1.page-header
+  Nos thématiques
+.master-themes
+  .row
+    - @masters.each do |s|
+      .col-md-4.col-sm-6
+        .theme{style: "background-color: #{s.color}"}
+          %h3= s.title
+          %span.icon
+            = image_tag s.icon.url(:normal)
+          = link_to s, class: "btn btn-default" do
+            Voir tous les sujets
