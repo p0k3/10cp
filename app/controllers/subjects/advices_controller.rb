@@ -7,10 +7,10 @@ class Subjects::AdvicesController < ApplicationController
   end
 
   def create
-    @advice = @subject.advices.build params[:advice]
+    @advice = @subject.advices.build advice_params
     @advice.user = current_user
 
-    if @subject.save
+    if @advice.save
       redirect_to subject_path(@subject), flash:{success: "Votre conseil a été pris en compte et sera publié après validation par notre équipe de modérateurs."}
     else
       render :new
@@ -22,4 +22,7 @@ class Subjects::AdvicesController < ApplicationController
       @subject = Subject.find params[:subject_id]
     end
 
+    def advice_params
+      params.require(:advice).permit(:title, :description)
+    end
 end

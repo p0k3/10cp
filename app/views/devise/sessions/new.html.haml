@@ -5,8 +5,6 @@
     = form_for resource, as: :user, url: session_path(:user) do |f|
       - if flash.any?
         .alert.alert-danger
-          %h5
-            Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
           - flash.each do |msg|
             %li
               = msg

@@ -5,7 +5,7 @@ module VotesHelper
       html_options = {class: "btn btn-default good disabled", id: "vote-true-#{advice.id}"}
       content_tag(:a, "javascript:", html_options, &block)
     else
-      html_options = {class: "btn btn-default good", id: "vote-true-#{advice.id}"}
+      html_options = {onclick: "javascript:vote(#{advice.id}, true)", class: "btn btn-default good", id: "vote-true-#{advice.id}"}
       content_tag(:a, "javascript:", html_options, &block)
     end
   end
@@ -15,7 +15,7 @@ module VotesHelper
       html_options = {class: "btn btn-default bad disabled", id: "vote-false-#{advice.id}"}
       content_tag(:a, "javascript:", html_options, &block)
     else
-      html_options = {class: "btn btn-default bad", id: "vote-false-#{advice.id}"}
+      html_options = {onclick: "javascript:vote(#{advice.id}, false)", class: "btn btn-default bad", id: "vote-false-#{advice.id}"}
       content_tag(:a, "javascript:", html_options, &block)
     end
   end
