@@ -223,6 +223,7 @@ RailsAdmin.config do |config|
         field :theme
         field :user
         field :state
+        field :illustration
       end
       export do; end
       # also see the create, update, modal and nested sections, which override edit in specific cases (resp. when creating, updating, modifying from another model in a popup modal or modifying from another model nested form)
