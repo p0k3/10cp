@@ -13,7 +13,7 @@
     background: #fff;
     color:#000;
     position: relative;
-    height: 300px;
+    height: 350px;
     margin-bottom: $line-height-computed;
     .illustration{
       width: auto;
@@ -52,6 +52,14 @@
         padding: 10px 15px;
         border: 0;
       }
+    }
+    &.propose{
+      h4{
+        margin: 25px 0;
+        font-size: 24px;
+      }
+      color: #fff;
+      text-align: center;
     }
   }
   .theme{

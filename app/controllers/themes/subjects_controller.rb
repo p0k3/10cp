@@ -7,7 +7,7 @@ class Themes::SubjectsController < ApplicationController
   end
 
   def create
-    @subject = @theme.subjects.build params[:subject]
+    @subject = @theme.subjects.build subject_params
     @subject.user = current_user
 
     if @subject.save
@@ -20,6 +20,11 @@ class Themes::SubjectsController < ApplicationController
   private
     def set_theme
       @theme = Theme.find params[:theme_id]
+      @header_color = @theme.color
+    end
+
+    def subject_params
+      params.require(:subject).permit(:title, :description)
     end
 
 end

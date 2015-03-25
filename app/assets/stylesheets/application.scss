@@ -12,14 +12,37 @@ html {
 
 @media only screen and (min-width: 320px) {
   body{
+    #wrap{
+      position: relative;
+    }
     header{
+      padding-top: 50px;
+      position: relative;
       nav.navbar{
         position: fixed;
-        top: 0;
         left: 0;
         right: 0;
-        width: 100%;
+        top: 0;
         z-index: 1000;
+      }
+      h1{
+        color:#fff;
+        font-size: 3.5em;
+        text-align: center;
+        small{
+          display: block;
+          color:#f5f5f5;
+          font-size:0.5em;
+        }
+      }
+      p.description{
+        color:#fff;
+        font-size: 1.2em;
+        background: RGBA(255,255,255,0.2);
+        padding: 15px 20px;
+        border-radius: 5px;
+        text-align: center;
+        color:#f5f5f5;
       }
     }
     #main{
@@ -53,6 +76,7 @@ html {
       height: 480px;
       width: 100%;
       margin: 0 auto;
+      padding: 0;
       background: #f9f9f9;
       background: url(asset_path('open_hand.jpg')) center no-repeat;
       background-size: 1200px;
@@ -66,14 +90,14 @@ html {
         line-height: 55px;
         text-align: center;
         padding: 0 15px;
-        background: #f2f2f2;
+        background: #4B5C68;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         position: absolute;
         right: 0;
         a {
           font-family: "Menu";
-          color: #767676;
+          color: #fff;
           display: inline;
           margin: 0 5px;
           .fa {

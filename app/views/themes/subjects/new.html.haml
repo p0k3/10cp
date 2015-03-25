@@ -1,22 +1,26 @@
-%h1
-  Je propose un sujet pour :
-  = @theme.title
+- content_for :header do
+  %h1
+    %small Je propose un sujet pour
+    = @theme.title
+  %p.description
+    Merci pour votre participation !
 
-= form_for [@theme, @subject] do |f|
-  - if @subject.errors.any?
-    .alert.alert-danger
-      %h5
-        Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
-      - @subject.errors.full_messages.each do |msg|
-        %li
-          = msg
-  .form-group
-    %label Vous souhaitez donner 10 conseils pour...
-    = f.text_field :title, class: "form-control"
-  .form-group
-    %label Dites-en plus !
-    = f.text_area :description, class: "form-control", rows: 5, maxlength: 255
+.col-md-6.col-md-offset-3
+  = form_for [@theme, @subject] do |f|
+    - if @subject.errors.any?
+      .alert.alert-danger
+        %h5
+          Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
+        - @subject.errors.full_messages.each do |msg|
+          %li
+            = msg
+    .form-group
+      %label Vous souhaitez donner 10 conseils pour...
+      = f.text_field :title, class: "form-control"
+    .form-group
+      %label Dites-en plus !
+      = f.text_area :description, class: "form-control", rows: 5, maxlength: 255
 
-  .form-group
-    %button.btn.btn-success{type: "submit"}
-      Je propose un sujet !
+    .form-group
+      %button.btn.btn-success{type: "submit"}
+        Je propose un sujet !
