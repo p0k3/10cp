@@ -1,9 +1,7 @@
-%h1 Créer un compte
-
 .row
-  .col-md-8.col-md-offset-2
-
-    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  .col-md-6.col-md-offset-3
+    %h1.text-center Créer un compte
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       - if flash.any?
         .alert.alert-danger
           %h5
@@ -11,6 +9,7 @@
           - flash.each do |msg|
             %li
               = msg
+      %h2 Informations générales
       .row
         .col-md-6
           .form-group
@@ -29,6 +28,19 @@
       .form-group
         %label Mot de passe
         = f.text_field :password, required: false, class: "form-control", type: "password"
+
+      %h2 Pour aller plus loin
+
+      .form-group
+        %label Date de naissance
+        = f.date_field :birthdate, required: false, class: "form-control"
+      .form-group
+        %label Site web
+        = f.text_field :website, required: false, class: "form-control"
+      .form-group
+        %label Localisation
+        = f.text_field :town, required: false, class: "form-control"
+
       .form-actions
         %button.btn.btn-success{type:"submit"}
           Créer mon compte

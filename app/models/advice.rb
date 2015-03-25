@@ -53,5 +53,8 @@ class Advice < ActiveRecord::Base
   def theme_title
     self.subject.theme_title
   end
+  def theme_color
+    self.subject.theme_color
+  end
 
 end

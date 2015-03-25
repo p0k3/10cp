@@ -24,19 +24,37 @@
 
   %hr
 
-  .row
-    - @user.advices.order_by_notoriety.each do |advice|
-      .col-md-4
-        .advice
-          %h2.advice-header
-            = link_to theme_path(advice.subject.theme_id) do
-              = advice.theme_title
-          %h3
-            = link_to subject_path(advice.subject.id) do
-              = advice.subject_title
-          %h4= advice.title
-          %p
-            = advice.description
-          .footer
-            = link_to_good_advice(current_user, advice)
-            = link_to_bad_advice(current_user, advice)
+  .advices
+    .row
+      - @user.advices.order_by_notoriety.each do |a|
+        .col-md-4
+          .advice
+            .user
+              = image_tag a.user.avatar.url, class: "avatar"
+              .body
+                .advice_from
+                  Conseil de
+                  = a.user.fullname
+                = link_to a.user.website, a.user.website
+            .advice-content
+              %h2
+                = a.title
+              %p
+                = a.description
+              .footer
+                .good-advice
+                  = link_to_good_advice(current_user, a) do
+                    = fa_icon "thumbs-up"
+                    Ce conseil
+                    %br
+                    est génial
+                  %br
+                  = "#{a.upvotes} votes"
+                .bad-advice
+                  = link_to_bad_advice(current_user, a) do
+                    = fa_icon "thumbs-down"
+                    Ne suivez pas
+                    %br
+                    ce conseil
+                  %br
+                  = "#{a.downvotes} votes"

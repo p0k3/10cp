@@ -1,85 +1,27 @@
-.advice{
-  margin-bottom:20px;
-  padding: 50px 0 10px;
-  position:relative;
-  color:#555;
-  border-radius: 5px;
-  display: block;
-  .user{
+.advices{
+  .advice{
+    margin-bottom:20px;
+    padding: 50px 0 10px;
+    position:relative;
+    color:#555;
+    border-radius: 5px;
     display: block;
-    width: 100%;
-    margin: -35px auto 10px;
-    position: relative;
-    z-index: 5;
-    .avatar{
-      border-radius:100%;
-      border: solid 4px #fff;
-      box-shadow: 0 0 10px #eee;
-      float: left;
-      margin: 0 20px;
-      height:80px;
-      width:80px;
-      display: block;
-    }
-    .body{
-      color: #4b5c68;
-      .advice_from{
-        font-family: "Menu";
-        font-size: 18px;
-        margin-bottom: 5px;
-      }
-      a{
-        color: #4b5c68;
-        text-decoration: underline;
-      }
-    }
-  }
-  .advice-content{
-    background: #fff;
-    border: solid 1px #f9f9f9;
-    position: relative;
-    display: block;
-    padding: 15px;
-    height: 400px;
-    h2{
-      font-family: $font-family-base;
-      font-size: 24px;
-    }
-    .footer{
-      display: block;
-      overflow: hidden;
-      position: absolute;
-      bottom: 5px;
-      left: 0;
-      right: 0;
-      width: 100%;
-      .good-advice, .bad-advice{
-        float: left;
-        width: 43%;
-        margin: 0 10px;
-        .btn{
-          border-radius: 0;
-          border: 0;
-          float: left;
-          width: 100%;
-          color: #fff;
-          padding: 10px 15px;
-          font-size: 14px;
-          border-radius: 3px;
-          background: #4b5c68;
-          margin: 0 0 5px;
-          &:hover{
-            background: #273037;
-          }
-        }
-      }
-    }
-  }
-  &.master{
     .user{
+      display: block;
+      width: 100%;
+      margin: -35px auto 10px;
+      padding: 0;
+      position: relative;
+      z-index: 5;
       .avatar{
-        height:120px;
-        width:120px;
+        border-radius:100%;
+        border: solid 4px #fff;
+        box-shadow: 0 0 10px #eee;
+        float: left;
+        margin: 0 20px;
+        height:80px;
+        width:80px;
+        display: block;
       }
       .body{
         color: #4b5c68;
@@ -95,21 +37,82 @@
       }
     }
     .advice-content{
-      padding: 0px 200px 20px 160px;
+      background: #fff;
+      border: solid 1px #f9f9f9;
       position: relative;
-      height: 200px;
-      .top-advice{
-        position: absolute;
-        right: 20px;
-        top: 30px;
+      display: block;
+      padding: 15px;
+      height: 400px;
+      h2{
+        font-family: $font-family-base;
+        font-size: 24px;
       }
       .footer{
-        width: auto;
-        left: auto;
-        right: auto;
+        display: block;
+        overflow: hidden;
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        width: 100%;
         .good-advice, .bad-advice{
           float: left;
+          width: 43%;
+          margin: 0 10px;
+          .btn{
+            border-radius: 0;
+            border: 0;
+            float: left;
+            width: 100%;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 3px;
+            background: #4b5c68;
+            margin: 0 0 5px;
+            &:hover{
+              background: #273037;
+            }
+          }
+        }
+      }
+    }
+    &.master{
+      .user{
+        .avatar{
+          height:120px;
+          width:120px;
+        }
+        .body{
+          color: #4b5c68;
+          .advice_from{
+            font-family: "Menu";
+            font-size: 18px;
+            margin-bottom: 5px;
+          }
+          a{
+            color: #4b5c68;
+            text-decoration: underline;
+          }
+        }
+      }
+      .advice-content{
+        padding: 0px 200px 20px 160px;
+        position: relative;
+        height: 200px;
+        .top-advice{
+          position: absolute;
+          right: 20px;
+          top: 30px;
+        }
+        .footer{
           width: auto;
+          left: auto;
+          right: auto;
+          .good-advice, .bad-advice{
+            float: left;
+            width: auto;
+          }
         }
       }
     }
