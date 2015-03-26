@@ -16,7 +16,7 @@ class SubjectsController < ApplicationController
 
   private
     def set_theme
-      @theme = Theme.find(params[:theme_id])
+      @theme = Theme.find(params[:theme_id]) if params[:theme_id]
     end
 
 end
