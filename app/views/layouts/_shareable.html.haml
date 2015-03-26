@@ -1,0 +1,11 @@
+#socials
+  %span.title Si vous aimez ces conseils, partagez les !
+  %a.share-btn.twitter{:href => "https://twitter.com/intent/tweet?url=#{request.url}&via=10conseilspour&text=10 #conseils pour", :target => "_blank"}
+    = fa_icon "twitter"
+    %span.share-btn-count= get_tweet_count(request.url)
+  %a.share-btn.facebook{:href => "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", :target => "_blank"}
+    = fa_icon "facebook"
+    %span.share-btn-count= get_share_count(request.url)
+  %a.share-btn.gplus{:href => "https://plus.google.com/share?url=#{request.url}", :target => "_blank"}
+    = fa_icon "google-plus"
+    %span.share-btn-count= get_plus_one_count(request.url)

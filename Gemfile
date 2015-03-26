@@ -13,8 +13,8 @@ gem "paperclip", "~> 3.0"
 gem 'state_machine'
 gem 'ransack'
 gem 'toastr-rails'
-gem 'shareable'
 gem 'rails_admin'
+gem "httparty"
 
 group :development do
   gem "better_errors"

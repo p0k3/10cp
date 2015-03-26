@@ -1,12 +1,11 @@
 class SubjectsController < ApplicationController
 
-  before_filter :set_theme, only: :show
-
   def show
     @subject = Subject.find(params[:id])
     if params[:slug] != @subject.slug
-      redirect_to subject_path(@subject.theme_slug, @subject.theme_id, @subject.slug, @subject.id), :status => 301
+      redirect_to subject_path(@subject.slug, @subject.id), :status => 301
     else
+      @theme = @subject.theme
       @advices = @subject.advices.validated.order_by_notoriety
 
       @title = "10 conseils pour #{@subject.title}"
@@ -16,10 +15,5 @@ class SubjectsController < ApplicationController
       @similar_subjects = @theme.subjects.last 4
     end
   end
-
-  private
-    def set_theme
-      @theme = Theme.find(params[:theme_id]) if params[:theme_id]
-    end
 
 end

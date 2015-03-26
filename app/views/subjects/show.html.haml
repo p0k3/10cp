@@ -19,6 +19,7 @@
     10 conseils pour
     = @subject.title
 
+
 .advices
   .row
     - @advices.each_with_index do |a, index|
@@ -103,6 +104,8 @@
 
           = link_to "Cliquez ici", new_subject_advice_path(@subject), class: "btn btn-default", style: "background-color: #fff; color:#{@theme.color}"
 
+= render "layouts/shareable"
+
 %h2
   Autres sujets sur le thème
   = @theme.title
@@ -110,7 +113,7 @@
   .row
     - @similar_subjects.each do |subject|
       .col-md-4.col-lg-3.col-sm-6
-        .subject{data:{url: subject_path(subject.theme_slug, subject.theme_id, subject.slug, subject.id)}}
+        .subject{data:{url: subject_path(subject.slug, subject.id)}}
           .illustration
             = image_tag subject.illustration.url(:thumb), class: "img-responsive"
           = image_tag subject.theme.icon.url(:normal), class: "icon"
@@ -119,6 +122,6 @@
             10 conseils pour...
             %h4= subject.title
 
-            = link_to "Conseille moi", subject_path(subject.theme_slug, subject.theme_id, subject.slug, subject.id), class: "btn btn-default", style: "background-color: #{subject.theme.color}"
+            = link_to "Conseille moi", subject_path(subject.slug, subject.id), class: "btn btn-default", style: "background-color: #{subject.theme.color}"
 
 
