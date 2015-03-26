@@ -6,12 +6,13 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     if params[:slug] != @subject.slug
       redirect_to subject_path(@subject.theme_slug, @subject.theme_id, @subject.slug, @subject.id), :status => 301
-    end
-    @advices = @subject.advices.validated.order_by_notoriety
+    else
+      @advices = @subject.advices.validated.order_by_notoriety
 
-    @title = "10 conseils pour #{@subject.title}"
-    @description = @subject.description[0..150]
-    @header_color = @theme.color
+      @title = "10 conseils pour #{@subject.title}"
+      @description = @subject.description[0..150]
+      @header_color = @theme.color
+    end
   end
 
   private
