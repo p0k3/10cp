@@ -1,41 +1,22 @@
 class SubjectsController < ApplicationController
 
-  def index
-    @subjects = Subject.validated
-  end
+  before_filter :set_theme, only: :show
 
   def show
     @subject = Subject.find(params[:id])
+    if params[:slug] != @subject.slug
+      redirect_to subject_path(@theme.slug, @theme.id, @subject.slug, @subject.id), :status => 301
+    end
     @advices = @subject.advices.validated.order_by_notoriety
-    @theme = @subject.theme
 
     @title = "10 conseils pour #{@subject.title}"
     @description = @subject.description[0..150]
     @header_color = @theme.color
   end
 
-  def new
-    @subject = Subject.new
-  end
-
-  def create
-    @subject= Subject.new(params[:subject])
-    if @subject.save
-      flash[:success] = t(:'subjects.flash.save.ok')
-      redirect_to subject_path @subject.id
-    else
-      render :new
+  private
+    def set_theme
+      @theme = Theme.find(params[:theme_id])
     end
-  end
-
-  def update
-    @subject = Subject.find(params[:id])
-    if @subject.update_attributes(params[:subject])
-      flash[:success] = t(:'subjects.flash.save.ok')
-      redirect_to subject_path params[:id]
-    else
-      render :show
-    end
-  end
 
 end

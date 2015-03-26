@@ -8,5 +8,5 @@
           %h3= s.title
           %span.icon
             = image_tag s.icon.url(:normal)
-          = link_to s, class: "btn btn-default" do
+          = link_to theme_path(s.slug, s.id), class: "btn btn-default" do
             Voir tous les sujets

@@ -11,8 +11,11 @@ class Subject < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :slug, presence: true
   validates :state, inclusion: { in: %w(suggested validated disabled)}
   validates_attachment_content_type :illustration, :content_type => %w(image/jpeg image/jpg image/png image/gif)
+
+  after_create :set_slug
 
   state_machine :state, :initial => :suggested do
 
@@ -33,5 +36,15 @@ class Subject < ActiveRecord::Base
 
   def theme_title
     self.theme.title
+  end
+  def theme_slug
+    self.theme.slug
+  end
+  def theme_id
+    self.theme.id
+  end
+
+  def set_slug
+    self.slug = self.title.to_slug
   end
 end

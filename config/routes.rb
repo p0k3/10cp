@@ -6,6 +6,9 @@ DixConseilsPour::Application.routes.draw do
     mount RailsAdmin::Engine => '/', as: 'rails_admin'
   end
 
+  get '/themes/:slug-:id', to: "themes#show", as: :theme
+  get '/themes/:theme_slug-:theme_id/:slug-:id', to: "subjects#show", as: :subject
+
   resources :themes do
     resources :subjects, controller: "themes/subjects"
   end

@@ -62,7 +62,7 @@
                     Accueil
                 - @masters.first(3).each do |m|
                   %li{class: "#{'active' if master_menu_is_active(m)}"}
-                    = link_to m, style: "#{'background:'+m.color if master_menu_is_active(m)}" do
+                    = link_to theme_path(m.slug, m.id), style: "#{'background:'+m.color if master_menu_is_active(m)}" do
                       = m.title
                 %li.round.logo.hidden-xs
                   = link_to "/" do
@@ -73,7 +73,7 @@
 
                 - @masters.last(3).each do |m|
                   %li{class: "#{'active' if master_menu_is_active(m)}"}
-                    = link_to m, style: "#{'background:'+m.color if master_menu_is_active(m)}" do
+                    = link_to theme_path(m.slug, m.id), style: "#{'background:'+m.color if master_menu_is_active(m)}" do
                       = m.title
 
           - if content_for?(:header)

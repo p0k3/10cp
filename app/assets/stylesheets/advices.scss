@@ -116,5 +116,53 @@
         }
       }
     }
+    &.propose{
+      margin-top: 65px;
+      border-radius: 0;
+      height: 400px;
+      .illustration{
+        width: auto;
+        height: 100px;
+        overflow: hidden;
+        img{
+          max-width: 100%;
+          min-height: 100%;
+        }
+      }
+      img.icon{
+        margin: -24px auto 0;
+        display: block;
+      }
+      .advice-body{
+        padding: 5px 15px;
+        margin: -20px 0 0 0;
+        h3{
+          font-family: $font-family-base;
+          color:#fff;
+          margin: 25px 0;
+          text-align: center;
+          font-size: 20px;
+          font-weight: 700;
+        }
+        .subject-theme{
+          display: block;
+          margin: 5px 0;
+          color: #666;
+        }
+        a{
+          border-radius: 5px;
+          position:absolute;
+          bottom:15px;
+          width: 40%;
+          left: 50%;
+          font-size: 14px;
+          margin-left: -20%;
+          display:block;
+          color: #fff;
+          padding: 10px 15px;
+          border: 0;
+        }
+      }
+    }
   }
 }

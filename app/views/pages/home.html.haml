@@ -5,7 +5,7 @@
   .row
     - @most_visited.each do |a|
       .col-md-3.col-sm-4
-        .subject{style: "box-shadow: 0px 0px 3px #{a.theme.color}", data:{url: subject_path(a)}}
+        .subject{style: "box-shadow: 0px 0px 3px #{a.theme.color}", data:{url: subject_path(a.theme_slug, a.theme_id, a.slug, a.id)}}
           .illustration
             = image_tag a.illustration.url(:thumb), class: "img-respnosive"
           = image_tag a.theme.icon.url(:normal), class: "icon"
@@ -14,7 +14,7 @@
             10 conseils pour...
             %h4= a.title
 
-            = link_to "Conseille moi", a, class: "btn btn-default", style: "background-color: #{a.theme.color}"
+            = link_to "Conseille moi", subject_path(a.theme_slug, a.theme_id, a.slug, a.id), class: "btn btn-default", style: "background-color: #{a.theme.color}"
 
 = render "layouts/themes"
 

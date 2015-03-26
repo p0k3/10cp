@@ -11,7 +11,6 @@ class SearchController < ApplicationController
       end
     end
     @subjects = Subject.where(where).uniq
-
   end
 
 end

@@ -16,7 +16,7 @@
   .row
     - @subjects.each do |subject|
       .col-md-4.col-lg-3.col-sm-6
-        .subject{data:{url: subject_path(subject)}}
+        .subject{data:{url: subject_path(@theme.slug, @theme.id, subject.slug, subject.id)}}
           .illustration
             = image_tag subject.illustration.url(:thumb), class: "img-responsive"
           = image_tag subject.theme.icon.url(:normal), class: "icon"
@@ -25,7 +25,7 @@
             10 conseils pour...
             %h4= subject.title
 
-            = link_to "Conseille moi", subject, class: "btn btn-default", style: "background-color: #{subject.theme.color}"
+            = link_to "Conseille moi", subject_path(@theme.slug, @theme.id, subject.slug, subject.id), class: "btn btn-default", style: "background-color: #{subject.theme.color}"
     .col-md-4.col-lg-3.col-sm-6
       .subject.propose{style:"background:#{@theme.color}", data:{url: new_theme_subject_path(@theme)}}
         .illustration

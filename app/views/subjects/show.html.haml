@@ -12,8 +12,8 @@
     = link_to root_url do
       = fa_icon "home"
   %li
-    = link_to theme_path(@subject.theme) do
-      = @subject.theme.title
+    = link_to theme_path(@theme.slug, @theme.id) do
+      = @theme.title
 
   %li.active
     10 conseils pour
@@ -84,10 +84,20 @@
                     ce conseil
                   %br
                   = "#{a.downvotes} votes"
-.row
-  .col-md-4
-    = link_to new_subject_advice_path(@subject), class: "btn btn-block btn-success" do
-      %i.fa.fa-plus
-      Proposer un conseil
+
+    .col-md-4.col-lg-3.col-sm-6
+      .advice.propose{style:"background:#{@theme.color}", data:{url: new_subject_advice_path(@subject)}}
+        .illustration
+        = image_tag @theme.icon.url(:normal), class: "icon"
+        .advice-body
+          %h3
+            Vous souhaitez déposer
+            %br
+            un conseils pour
+            %br
+            = @subject.title
+            ?
+
+          = link_to "Cliquez ici", new_subject_advice_path(@subject), class: "btn btn-default", style: "background-color: #fff; color:#{@theme.color}"
 
 .clearfix

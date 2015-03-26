@@ -20,6 +20,7 @@ class Subjects::AdvicesController < ApplicationController
   private
     def set_subject
       @subject = Subject.find params[:subject_id]
+      @header_color = @subject.theme_color
     end
 
     def advice_params
