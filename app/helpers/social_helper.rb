@@ -1,8 +1,12 @@
 module SocialHelper
 
   def get_share_count(url)
-    response = JSON.load(open('http://graph.facebook.com/?id=#{url}'))
-    response['shares']
+    response = JSON.load(open("http://graph.facebook.com/?id=#{url}"))
+    if response['shares']
+      response['shares']
+    else
+      0
+    end
   end
 
   def get_plus_one_count(url)
