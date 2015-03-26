@@ -103,4 +103,22 @@
 
           = link_to "Cliquez ici", new_subject_advice_path(@subject), class: "btn btn-default", style: "background-color: #fff; color:#{@theme.color}"
 
-.clearfix
+%h2
+  Autres sujets sur le thème
+  = @theme.title
+.subjects
+  .row
+    - @similar_subjects.each do |subject|
+      .col-md-4.col-lg-3.col-sm-6
+        .subject{data:{url: subject_path(subject.theme_slug, subject.theme_id, subject.slug, subject.id)}}
+          .illustration
+            = image_tag subject.illustration.url(:thumb), class: "img-responsive"
+          = image_tag subject.theme.icon.url(:normal), class: "icon"
+          .subject-body
+            %span.subject-theme= subject.theme.title
+            10 conseils pour...
+            %h4= subject.title
+
+            = link_to "Conseille moi", subject_path(subject.theme_slug, subject.theme_id, subject.slug, subject.id), class: "btn btn-default", style: "background-color: #{subject.theme.color}"
+
+

@@ -12,6 +12,8 @@ class SubjectsController < ApplicationController
       @title = "10 conseils pour #{@subject.title}"
       @description = @subject.description[0..150]
       @header_color = @theme.color
+
+      @similar_subjects = @theme.subjects.last 4
     end
   end
 

@@ -18,6 +18,13 @@ class User < ActiveRecord::Base
     "#{firstname} #{lastname}"
   end
 
+  def advices_count
+    self.advices.count
+  end
+  def subjects_count
+    self.subjects.count
+  end
+
   def is_admin?
     type == "Admin"
   end
