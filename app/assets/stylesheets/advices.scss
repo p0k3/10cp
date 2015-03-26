@@ -47,7 +47,7 @@
         position: relative;
         display: block;
         padding: 20px 15px;
-        height: 400px;
+        min-height: 400px;
         h2{
           font-family: $font-family-base;
           font-size: 24px;
@@ -171,6 +171,7 @@
         .advice-content{
           padding: 0px 200px 20px 160px;
           position: relative;
+          height: 200px;
           min-height: 200px;
           .top-advice{
             position: absolute;
