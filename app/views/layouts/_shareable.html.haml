@@ -1,6 +1,6 @@
 #socials
   %span.title Si vous aimez ces conseils, partagez les !
-  %a.share-btn.twitter{:href => "https://twitter.com/intent/tweet?url=#{request.url}&via=10conseilspour&text=10 #conseils pour", :target => "_blank"}
+  %a.share-btn.twitter{:href => "https://twitter.com/intent/tweet?url=#{request.url}&via=10conseilspour", :target => "_blank"}
     = fa_icon "twitter"
     %span.share-btn-count= get_tweet_count(request.url)
   %a.share-btn.facebook{:href => "https://www.facebook.com/sharer/sharer.php?u=#{request.url}", :target => "_blank"}
