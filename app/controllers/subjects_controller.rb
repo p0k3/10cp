@@ -5,7 +5,7 @@ class SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
     if params[:slug] != @subject.slug
-      redirect_to subject_path(@theme.slug, @theme.id, @subject.slug, @subject.id), :status => 301
+      redirect_to subject_path(@subject.theme_slug, @subject.theme_id, @subject.slug, @subject.id), :status => 301
     end
     @advices = @subject.advices.validated.order_by_notoriety
 
