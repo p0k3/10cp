@@ -26,12 +26,14 @@
         .col-md-12
           .advice.master
             .user
-              = image_tag "avatar.png", class: "avatar"
+              = link_to a.user do
+                = image_tag a.user.avatar.url, class: "avatar"
               .body
                 .advice_from
-                  Conseil de
-                  = a.user.fullname
-                = link_to a.user.website, a.user.website
+                  = link_to a.user do
+                    Conseil de
+                    = a.user.fullname
+                = link_to a.user.website, a.user.website, target: "_blank"
             .advice-content
               %h2
                 = a.title
@@ -53,15 +55,17 @@
                   %br
                   = "#{a.downvotes} votes"
       - else
-        .col-md-4
+        .col-md-4.col-lg-4.col-sm-6
           .advice
             .user
-              = image_tag a.user.avatar.url, class: "avatar"
+              = link_to a.user do
+                = image_tag a.user.avatar.url, class: "avatar"
               .body
                 .advice_from
-                  Conseil de
-                  = a.user.fullname
-                = link_to a.user.website, a.user.website
+                  = link_to a.user do
+                    Conseil de
+                    = a.user.fullname
+                = link_to a.user.website, a.user.website, target: "_blank"
             .advice-content
               %h2
                 = a.title
@@ -84,8 +88,7 @@
                     ce conseil
                   %br
                   = "#{a.downvotes} votes"
-
-    .col-md-4.col-lg-3.col-sm-6
+    .col-md-4.col-lg-4.col-sm-6
       .advice.propose{style:"background:#{@theme.color}", data:{url: new_subject_advice_path(@subject)}}
         .illustration
         = image_tag @theme.icon.url(:normal), class: "icon"

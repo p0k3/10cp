@@ -13,6 +13,7 @@
       padding: 0;
       position: relative;
       z-index: 5;
+      text-decoration: none;
       .avatar{
         border-radius:100%;
         border: solid 4px #fff;
@@ -25,14 +26,17 @@
       }
       .body{
         color: #4b5c68;
-        .advice_from{
-          font-family: "Menu";
-          font-size: 18px;
-          margin-bottom: 5px;
-        }
         a{
           color: #4b5c68;
           text-decoration: underline;
+        }
+        .advice_from{
+          a{
+            font-family: "Menu";
+            font-size: 18px;
+            margin-bottom: 5px;
+            text-decoration: none !important;
+          }
         }
       }
     }
@@ -41,11 +45,12 @@
       border: solid 1px #f9f9f9;
       position: relative;
       display: block;
-      padding: 15px;
+      padding: 20px 15px;
       height: 400px;
       h2{
         font-family: $font-family-base;
         font-size: 24px;
+        display: block;
       }
       .footer{
         display: block;
@@ -79,20 +84,24 @@
     }
     &.master{
       .user{
+        text-decoration: none;
         .avatar{
           height:120px;
           width:120px;
         }
         .body{
           color: #4b5c68;
-          .advice_from{
-            font-family: "Menu";
-            font-size: 18px;
-            margin-bottom: 5px;
-          }
           a{
             color: #4b5c68;
             text-decoration: underline;
+          }
+          .advice_from{
+            a{
+              font-family: "Menu";
+              font-size: 18px;
+              margin-bottom: 5px;
+              text-decoration: none !important;
+            }
           }
         }
       }
