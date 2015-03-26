@@ -1,0 +1,13 @@
+- base_url = "http://#{request.host_with_port}"
+!!! XML
+%urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
+  - Theme.all.each do |theme|
+    %url
+      %loc= theme_url(theme.slug, theme.id)
+      %lastmod=theme.updated_at.strftime("%FT%T+00:00")
+      %changefreq weekly
+  - Subject.all.each do |subject|
+    %url
+      %loc= subject_url(subject.slug, subject.id)
+      %lastmod=subject.updated_at.strftime("%FT%T+00:00")
+      %changefreq weekly

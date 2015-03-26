@@ -8,6 +8,7 @@ DixConseilsPour::Application.routes.draw do
 
   get '/themes/:slug-:id', to: "themes#show", as: :theme
   get '/sujets/:slug-:id', to: "subjects#show", as: :subject
+  get 'sitemap', to: "pages#sitemap"
 
   resources :themes do
     resources :subjects, controller: "themes/subjects"

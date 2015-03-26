@@ -31,8 +31,9 @@
     .subject-body{
       padding: 5px 15px;
       margin: -20px 0 0 0;
-      h4{
+      h2{
         font-family: $font-family-base;
+        font-size: 1.6em;
       }
       .subject-theme{
         display: block;
@@ -68,7 +69,7 @@
     color:#fff;
     height:150px;
     position:relative;
-    h3{
+    h2{
       font-family: "Menu";
       text-align: center;
       color: #fff;

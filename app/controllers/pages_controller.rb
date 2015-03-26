@@ -3,6 +3,9 @@ class PagesController < ApplicationController
   def home
   end
 
+  def sitemap
+  end
+
   def show
     if File.exists?(File.join(Rails.root, "app", "views", "pages", params[:page] + ".html.haml"))
       @title = t("seo.title.#{params[:page]}")
