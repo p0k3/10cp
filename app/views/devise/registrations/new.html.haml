@@ -1,33 +1,39 @@
 .row
   .col-md-6.col-md-offset-3
-    %h1.text-center Créer un compte
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-      - if flash.any?
+    %h1.text-center Créer votre compte
+
+    = form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+
+      - if @user.errors.any?
         .alert.alert-danger
           %h5
             Une ou plusieurs érreurs empêchent l'élement d'être enregistré :
-          - flash.each do |msg|
+          - @user.errors.full_messages.each do |msg|
             %li
               = msg
+
       %h2 Informations générales
       .row
         .col-md-6
           .form-group
             %label Prénom
-            = f.text_field :firstname, required: false, autofocus: true, class: "form-control"
+            = f.text_field :firstname, autofocus: true, class: "form-control"
 
         .col-md-6
           .form-group
             %label Nom
-            = f.text_field :lastname, required: false, class: "form-control"
+            = f.text_field :lastname, class: "form-control"
 
       .form-group
         %label Email
-        = f.text_field :email, required: false, class: "form-control"
+        = f.text_field :email, class: "form-control"
 
       .form-group
         %label Mot de passe
-        = f.text_field :password, required: false, class: "form-control", type: "password"
+        = f.text_field :password, class: "form-control", type: "password"
+      .form-group
+        %label Confirmez le mot de passe
+        = f.text_field :password_confirmation, class: "form-control", type: "password"
 
       %h2 Pour aller plus loin
 
@@ -44,5 +50,3 @@
       .form-actions
         %button.btn.btn-success{type:"submit"}
           Créer mon compte
-
-      = render "devise/shared/links"

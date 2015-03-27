@@ -1,6 +1,6 @@
 DixConseilsPour::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "users/registrations" }
 
   constraints(subdomain: /admin/) do
     mount RailsAdmin::Engine => '/', as: 'rails_admin'
@@ -24,7 +24,7 @@ DixConseilsPour::Application.routes.draw do
   end
 
   resources :votes, controller: "votes", as: :votes, only: :create
-  resources :users
+  resources :users, only: [:show, :create]
 
   get '/search', to: "search#index"
 
