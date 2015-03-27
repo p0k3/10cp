@@ -15,7 +15,7 @@ class Subject < ActiveRecord::Base
   validates :state, inclusion: { in: %w(suggested validated disabled)}
   validates_attachment_content_type :illustration, :content_type => %w(image/jpeg image/jpg image/png image/gif)
 
-  after_create :set_slug
+  before_create :set_slug
 
   state_machine :state, :initial => :suggested do
 
