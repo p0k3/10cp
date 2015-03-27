@@ -3,11 +3,11 @@ class Advice < ActiveRecord::Base
   belongs_to :subject
   belongs_to :user
   has_many :votes
-  accepts_nested_attributes_for :subject
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :user_id, presence: true
+  validates :user, presence: true
+  validates :subject, presence: true
 
   state_machine :state, :initial => :suggested do
 
