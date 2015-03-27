@@ -31,20 +31,20 @@ class Subject < ActiveRecord::Base
   scope :validated, -> {where(state: :validated)}
 
   def theme_color
-    self.theme.color
+    self.theme.color unless self.theme.blank?
   end
 
   def theme_title
-    self.theme.title
+    self.theme.title unless self.theme.blank?
   end
   def theme_slug
-    self.theme.slug
+    self.theme.slug unless self.theme.blank?
   end
   def theme_id
-    self.theme.id
+    self.theme.id unless self.theme.blank?
   end
 
   def set_slug
-    self.slug = self.title.to_slug
+    self.slug = self.title.to_slug unless self.theme?
   end
 end
