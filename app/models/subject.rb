@@ -45,6 +45,6 @@ class Subject < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug = self.title.to_slug unless self.theme?
+    self.slug = self.title.to_slug
   end
 end
