@@ -28,6 +28,17 @@
     #wrap
       %header{style: "#{header_style(@header_color) if @header_color}" }
         .container
+          .socials
+            %span.title Suivez nous !
+            %a.share.share-twitter{name: "@10ConseilsPour", href: "http://twitter.com/10ConseilsPour", title: "Suivez nous sur twitter", target: "_blank"}
+              = fa_icon "twitter"
+
+            %a.share.share-facebook{name: "10conseilspour", href: "https://www.facebook.com/10conseilspour", title: "Suivez nous sur facebook", target: "_blank"}
+              = fa_icon "facebook"
+
+            %a.share.share-gplus{name: "10ConseilsPour", href: "https://plus.google.com/b/111815913322277922092/111815913322277922092/posts", title: "Suivez nous sur GooglePlus", target: "_blank"}
+              = fa_icon "google-plus"
+
           .account.hidden-xs
             - if current_user
               = link_to me_path do
