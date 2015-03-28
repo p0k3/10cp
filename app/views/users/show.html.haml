@@ -1,7 +1,7 @@
 .user
   .row
     .col-md-4
-      = image_tag @user.avatar.url(:original), class: "avatar"
+      = image_tag @user.get_avatar, class: "avatar"
     .col-md-8
       %h1= @user.fullname
       %span.website
