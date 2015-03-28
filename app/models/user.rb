@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  include Gravtastic
+  gravtastic
+
   # attr_accessible :title, :body
   has_attached_file :avatar, :styles => {
                             :normal => "150x150#"
@@ -35,5 +38,13 @@ class User < ActiveRecord::Base
       .group('users.id')
       .order('notoriety DESC')
       .first(4)
+  end
+
+  def get_avatar
+    if self.avatar.blank?
+      self.gravatr_url
+    else
+      self.avatar.url
+    end
   end
 end

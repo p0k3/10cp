@@ -15,6 +15,7 @@ gem 'ransack'
 gem 'toastr-rails'
 gem 'rails_admin'
 gem "httparty"
+gem 'gravtastic'
 
 group :development do
   gem "better_errors"

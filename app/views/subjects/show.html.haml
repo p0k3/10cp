@@ -57,38 +57,7 @@
                   = "#{a.downvotes} votes"
       - else
         .col-md-4.col-lg-4.col-sm-6
-          .advice
-            .user
-              = link_to a.user do
-                = image_tag a.user.avatar.url, class: "avatar"
-              .body
-                .advice_from
-                  = link_to a.user do
-                    Conseil de
-                    = a.user.fullname
-                = link_to a.user.website, a.user.website, target: "_blank"
-            .advice-content
-              %h2
-                = a.title
-              %p
-                = a.description
-              .footer
-                .good-advice
-                  = link_to_good_advice(current_user, a) do
-                    = fa_icon "thumbs-up"
-                    Ce conseil
-                    %br
-                    est génial
-                  %br
-                  = "#{a.upvotes} votes"
-                .bad-advice
-                  = link_to_bad_advice(current_user, a) do
-                    = fa_icon "thumbs-down"
-                    Ne suivez pas
-                    %br
-                    ce conseil
-                  %br
-                  = "#{a.downvotes} votes"
+          = render "advices/advice", advice: a
     .col-md-4.col-lg-4.col-sm-6
       .advice.propose{style:"background:#{@theme.color}", data:{url: new_subject_advice_path(@subject)}}
         .illustration

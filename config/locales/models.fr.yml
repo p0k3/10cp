@@ -1,0 +1,9 @@
+fr:
+  activerecord:
+    models:
+      advice: Conseil
+    attributes:
+      advice:
+        author_name: Nom ou Pseudo
+        author_email: Email
+        author_website: Site Internet

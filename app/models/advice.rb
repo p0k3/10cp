@@ -1,4 +1,5 @@
 class Advice < ActiveRecord::Base
+  require 'digest/md5'
 
   belongs_to :subject
   belongs_to :user
@@ -6,7 +7,7 @@ class Advice < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :user, presence: true
+  validates :author_name, :author_email, presence: true, unless: :has_user?
   validates :subject, presence: true
 
   state_machine :state, :initial => :suggested do
@@ -55,6 +56,27 @@ class Advice < ActiveRecord::Base
   end
   def theme_color
     self.subject.theme_color
+  end
+
+  def has_user?
+    !self.user_id.blank?
+  end
+
+  def user_avatar
+    if self.has_user?
+      self.user.get_avatar
+    else
+      hash = Digest::MD5.hexdigest(self.author_email)
+      "http://www.gravatar.com/avatar/#{hash}"
+    end
+  end
+
+  def user_website
+    if self.has_user?
+      self.user.website unless self.user.website.blank?
+    else
+      self.author_website unless self.author_website.blank?
+    end
   end
 
 end

@@ -1,0 +1,40 @@
+.advice
+  .user
+    - if advice.has_user?
+      = link_to advice.user do
+        = image_tag advice.user_avatar, class: "avatar"
+    - else
+      = image_tag advice.user_avatar, class: "avatar"
+    .body
+      .advice_from
+        - if advice.has_user?
+          = link_to advice.user do
+            Conseil de
+            = advice.user.fullname
+        - else
+          Conseil de
+          = advice.author_name
+
+      = link_to advice.user_website, advice.user_website, target: "_blank" if advice.user_website
+  .advice-content
+    %h2
+      = advice.title
+    %p
+      = advice.description
+    .footer
+      .good-advice
+        = link_to_good_advice(current_user, advice) do
+          = fa_icon "thumbs-up"
+          Ce conseil
+          %br
+          est génial
+        %br
+        = "#{advice.upvotes} votes"
+      .bad-advice
+        = link_to_bad_advice(current_user, advice) do
+          = fa_icon "thumbs-down"
+          Ne suivez pas
+          %br
+          ce conseil
+        %br
+        = "#{advice.downvotes} votes"

@@ -28,36 +28,7 @@
     .row
       - @user.advices.order_by_notoriety.each do |a|
         .col-md-4
-          .advice
-            .user
-              = image_tag a.user.avatar.url, class: "avatar"
-              .body
-                .advice_from
-                  Conseil de
-                  = a.user.fullname
-                = link_to a.user.website, a.user.website
-            .advice-content
-              %h2
-                = a.title
-              %p
-                = a.description
-              .footer
-                .good-advice
-                  = link_to_good_advice(current_user, a) do
-                    = fa_icon "thumbs-up"
-                    Ce conseil
-                    %br
-                    est génial
-                  %br
-                  = "#{a.upvotes} votes"
-                .bad-advice
-                  = link_to_bad_advice(current_user, a) do
-                    = fa_icon "thumbs-down"
-                    Ne suivez pas
-                    %br
-                    ce conseil
-                  %br
-                  = "#{a.downvotes} votes"
+          = render "advices/advice", advice: a
 
   %h2 Tous ses sujets
   .subjects
