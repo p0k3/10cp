@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 
   def get_avatar
     if self.avatar.blank?
-      self.gravatr_url
+      self.gravatar_url
     else
       self.avatar.url
     end
