@@ -1,10 +1,7 @@
 .user
   .row
     .col-md-4
-      = image_tag "avatar.png", class: "avatar"
-      = link_to edit_me_path(current_user), class: "btn btn-success btn-block" do
-        %i.fa.fa-edit
-        Modifier mon compte
+      = image_tag @user.get_avatar, class: "avatar"
 
     .col-md-8
       %h1 Modifier mon profil
@@ -33,6 +30,10 @@
         .form-group
           %label Site Internet
           = f.text_field :website, class: "form-control"
+
+        .form-group
+          %label Avatar
+          = f.file_field :avatar
 
         .form-group
           %button.btn.btn-success{type: "submit"}

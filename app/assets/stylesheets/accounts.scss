@@ -3,9 +3,11 @@
     padding: 25px 0;
     img.avatar{
       width: 250px;
+      margin: 10px auto;
       height: 250px;
       border-radius: 100%;
       border: solid 3px #fff;
+      display: block;
     }
     h1{
       text-align: left;

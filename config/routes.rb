@@ -24,7 +24,7 @@ DixConseilsPour::Application.routes.draw do
   end
 
   resources :votes, controller: "votes", as: :votes, only: :create
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create, :update]
 
   get '/search', to: "search#index"
 

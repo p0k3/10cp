@@ -1,7 +1,8 @@
 .user
   .row
     .col-md-4
-      = image_tag "avatar.png", class: "avatar"
+      = image_tag @user.get_avatar, class: "avatar"
+      %br
       = link_to edit_me_path(current_user), class: "btn btn-success btn-block" do
         %i.fa.fa-edit
         Modifier mon compte
