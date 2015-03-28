@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
 
   def home
+    @most_visited = Subject.validated.order('created_at DESC').last 4
+    @best_users = User.best_advisors.first 2
   end
 
   def sitemap
