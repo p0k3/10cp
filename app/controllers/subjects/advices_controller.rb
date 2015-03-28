@@ -11,7 +11,7 @@ class Subjects::AdvicesController < ApplicationController
     @advice.user = current_user
 
     if @advice.save
-      redirect_to subject_path(@subject), flash:{success: "Votre conseil a été pris en compte et sera publié après validation par notre équipe de modérateurs."}
+      redirect_to subject_path(@subject.slug, @subject.id), flash:{success: "Votre conseil a été pris en compte et sera publié après validation par notre équipe de modérateurs."}
     else
       render :new
     end
