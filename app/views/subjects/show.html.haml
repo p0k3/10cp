@@ -27,14 +27,23 @@
         .col-md-12
           .advice.master
             .user
-              = link_to a.user do
-                = image_tag a.user.avatar.url, class: "avatar"
+              - if a.has_user?
+                = link_to a.user do
+                  = image_tag a.user_avatar, class: "avatar"
+              - else
+                = image_tag a.user_avatar, class: "avatar"
+
               .body
                 .advice_from
-                  = link_to a.user do
+                  - if advice.has_user?
+                    = link_to a.user do
+                      Conseil de
+                      = a.user.fullname
+                  - else
                     Conseil de
-                    = a.user.fullname
-                = link_to a.user.website, a.user.website, target: "_blank"
+                    = a.author_name
+
+                  = link_to a.user.website, a.user.website, target: "_blank" if a.user_website
             .advice-content
               %h2
                 = a.title
