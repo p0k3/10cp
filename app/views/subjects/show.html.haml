@@ -35,7 +35,7 @@
 
               .body
                 .advice_from
-                  - if advice.has_user?
+                  - if a.has_user?
                     = link_to a.user do
                       Conseil de
                       = a.user.fullname
