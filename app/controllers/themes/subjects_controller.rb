@@ -11,7 +11,7 @@ class Themes::SubjectsController < ApplicationController
     @subject.user = current_user
 
     if @subject.save
-      redirect_to theme_path(@theme), flash:{success: "Votre sujet a été pris en compte et sera publié après validation par notre équipe de modérateurs."}
+      redirect_to theme_path(@theme.slub, @theme.id), flash:{success: "Votre sujet a été pris en compte et sera publié après validation par notre équipe de modérateurs."}
     else
       render :new
     end
