@@ -51,6 +51,12 @@ class Advice < ActiveRecord::Base
   def subject_title
     self.subject.title
   end
+  def subject_slug
+    self.subject.slug
+  end
+  def subject_id
+    self.subject.id
+  end
   def theme_title
     self.subject.theme_title
   end
