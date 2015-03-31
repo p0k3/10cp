@@ -77,6 +77,14 @@ class Advice < ActiveRecord::Base
     end
   end
 
+  def authorname
+    if self.has_user?
+      self.user.fullname
+    else
+      self.author_name
+    end
+  end
+
   def user_website
     if self.has_user?
       self.user.website unless self.user.website.blank?

@@ -1,3 +1,4 @@
+#encoding: UTF-8
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
@@ -10,8 +11,9 @@ xml.rss :version => "2.0" do
         xml.title advice.title
         xml.description advice.description
         xml.pubDate advice.created_at.to_s(:rfc822)
+        xml.author advice.authorname
         xml.link subject_url(advice.subject_slug, advice.subject_id)
-        xml.guid subject_url(advice.subject_slug, advice.subject_id)
+        xml.guid advice.id
       end
     end
   end
