@@ -44,6 +44,10 @@ class Subject < ActiveRecord::Base
     self.theme.id unless self.theme.blank?
   end
 
+  def authorname
+    self.user.fullname unless self.user.blank?
+  end
+
   def set_slug
     self.slug = self.title.to_slug
   end

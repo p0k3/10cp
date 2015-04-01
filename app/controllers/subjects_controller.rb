@@ -1,5 +1,12 @@
 class SubjectsController < ApplicationController
 
+  def index
+    @subjects = Subject.validated.order('created_at DESC').first 50
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
+  end
+
   def show
     @subject = Subject.find(params[:id])
     if params[:slug] != @subject.slug
