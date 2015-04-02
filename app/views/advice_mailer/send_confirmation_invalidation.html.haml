@@ -1,0 +1,30 @@
+%h3{style:"color:#4B5C68; margin:none;"}
+  Bonjour
+  = @advice.authorname
+%p{style: "font-size:14px;line-height:18px;"}
+  Nous sommes au regret de vous annoncer que votre conseil n'a pas été validé pour la raison suivante :
+
+%p{style: "font-size:14px;line-height:18px;"}
+  %span{:style => "display:block;padding:10px 15px;background:#dedede;"}
+    = @advice.invalidation_reason
+
+%p{style: "font-size:14px;line-height:18px;"}
+  Vous pouvez néanmoins essayer d'ajouter un nouveau conseil.
+
+%p{style: "font-size:14px;line-height:18px;"}
+  %span{:style => "display:block;padding:10px 15px;background:#dedede;"}
+    = link_to new_subject_advice_url(@advice.subject_id), target: "_blank", style:"text-decoration:none;color:#0000" do
+      %strong Ajouter un nouveau conseil &raquo;
+
+%p{style: "font-size:14px;line-height:18px;"}
+  Ou en copiant le lien ci-dessous :
+
+%p{style: "font-size:14px;line-height:18px;"}
+  %span{:style => "display:block;padding:10px 15px;background:#dedede;"}
+    = link_to new_subject_advice_url(@advice.subject_id), target: "_blank", style:"text-decoration:none;color:#0000" do
+      %strong= new_subject_advice_url(@advice.subject_id)
+
+%p{style: "font-style:italic;font-size:14px;line-height:18px;"}
+  L'équipe
+  %strong
+    10ConseilsPour

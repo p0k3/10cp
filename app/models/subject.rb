@@ -27,8 +27,23 @@ class Subject < ActiveRecord::Base
       transition :suggested => :disabled
     end
 
+    state :disabled do
+      validates :invalidation_reason, presence: true
+    end
+
+    after_transition :on => :validate, :do => :send_confirmation_validation
+    after_transition :on => :invalidate, :do => :send_confirmation_invalidation
+
   end
   scope :validated, -> {where(state: :validated)}
+  scope :invalidated, -> {where(state: :disabled)}
+
+  def send_confirmation_validation
+    SubjectMailer.send_confirmation_validation(self).deliver
+  end
+  def send_confirmation_invalidation
+    SubjectMailer.send_confirmation_invalidation(self).deliver
+  end
 
   def theme_color
     self.theme.color unless self.theme.blank?
@@ -42,6 +57,10 @@ class Subject < ActiveRecord::Base
   end
   def theme_id
     self.theme.id unless self.theme.blank?
+  end
+
+  def user_email
+    self.user.email unless self.user.blank?
   end
 
   def authorname

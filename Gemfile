@@ -16,6 +16,7 @@ gem 'ransack'
 gem 'toastr-rails'
 gem "httparty"
 gem 'gravtastic' #gravatar
+gem 'rails_email_preview', '~> 0.2.28'
 
 group :development do
   gem "better_errors"

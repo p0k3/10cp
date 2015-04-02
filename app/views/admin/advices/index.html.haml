@@ -9,8 +9,8 @@
     %table.table
       %thead
         %tr
-          %th #
-          %th= sort_link @q, :title, "Titre", default: :asc
+          %th= sort_link @q, :id, "ID", default: :DESC
+          %th= sort_link @q, :title, "Titre"
           %th= sort_link @q, :user_firstname, "Auteur"
           %th= sort_link @q, :subject_title, "Sujet"
           %th Status
@@ -39,6 +39,11 @@
                     = link_to validate_advice_path(advice), class: "btn btn-xs btn-primary" do
                       = fa_icon "tick"
                       Publier
+                - if advice.can_invalidate?
+                  %li
+                    = link_to invalidate_advice_path(advice), class: "btn btn-xs btn-warning" do
+                      = fa_icon "times"
+                      Invalider
                 %li
                   = link_to admin_advice_path(advice), class: "btn btn-xs btn-danger", method: :delete, data:{confirm: "Êtes vous sûr de vouloir supprimer ce conseil ?"} do
                     = fa_icon "trash"

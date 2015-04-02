@@ -15,15 +15,15 @@
             = @user.website
 
       %ul.list-inline.list-unstyled
-        - if @user.birthdate?
+        - if @user.birthdate
           %li
-            %i.fa.fa-birthday-cake
+            = fa_icon "gift"
             = l @user.birthdate, format: :long
 
         %li
-          %i.fa.fa-map-marker
+          = fa_icon "map-marker"
           = @user.town
 
         %li
-          %i.fa.fa-user
+          = fa_icon "user"
           = @user.job

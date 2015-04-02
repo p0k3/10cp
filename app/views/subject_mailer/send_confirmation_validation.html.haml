@@ -1,0 +1,28 @@
+%h3{style:"color:#4B5C68; margin:none;"}
+  Bonjour
+  = @subject.authorname
+%p{style: "font-size:14px;line-height:18px;"}
+  Nous vous annonçons que votre sujet
+  %strong= "#{@subject.title}"
+  vient d'être validé et publié.
+
+%p{style: "font-size:14px;line-height:18px;"}
+  Dès maintenant, ajoutez des conseils pour alimenter le sujet :
+
+%p{style: "font-size:14px;line-height:18px;"}
+  %span{:style => "display:block;padding:10px 15px;background:#dedede;"}
+    = link_to subject_url(@subject.slug, @subject.id), target: "_blank", style:"text-decoration:none;color:#0000" do
+      %strong Consulter le nouveau sujet &raquo;
+
+%p{style: "font-size:14px;line-height:18px;"}
+  Ou en copiant le lien ci-dessous :
+
+%p{style: "font-size:14px;line-height:18px;"}
+  %span{:style => "display:block;padding:10px 15px;background:#dedede;"}
+    = link_to subject_url(@subject.slug, @subject.id), target: "_blank", style:"text-decoration:none;color:#0000" do
+      %strong= subject_url(@subject.slug, @subject.id)
+
+%p{style: "font-style:italic;font-size:14px;line-height:18px;"}
+  L'équipe
+  %strong
+    10ConseilsPour

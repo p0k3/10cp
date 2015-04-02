@@ -1,5 +1,7 @@
 DixConseilsPour::Application.routes.draw do
 
+  mount RailsEmailPreview::Engine, at: 'emails'
+
   namespace :admin do
     resources :subjects
   end
@@ -15,7 +17,9 @@ DixConseilsPour::Application.routes.draw do
     resources :users, controller: "admin/users", as: :admin_users
 
     get '/subjects/:id/validate', to: 'admin/subjects#validate', as: :validate_subject
+    get '/subjects/:id/invalidate', to: 'admin/subjects#invalidate', as: :invalidate_subject
     get '/advices/:id/validate', to: 'admin/advices#validate', as: :validate_advice
+    get '/advices/:id/invalidate', to: 'admin/advices#invalidate', as: :invalidate_advice
   end
 
   get '/themes/:slug-:id', to: "themes#show", as: :theme

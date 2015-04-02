@@ -1,10 +1,13 @@
 = form_for [:admin, advice] do |f|
   - if advice.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@advice.errors.count, "error")} prohibited this advice from being saved:"
-      %ul
-        - @advice.errors.full_messages.each do |msg|
-          %li= msg
+    .panel.panel-danger
+      .panel-heading
+        = "#{pluralize(advice.errors.count, "erreur")}"
+      .panel-body
+        %ul
+          - advice.errors.full_messages.each do |msg|
+            %li= msg
+
 
   .form-group
     %label Titre
@@ -32,5 +35,11 @@
     %label Site de l'auteur
     = f.text_field :author_website, class: "form-control"
 
-  .actions
-    = f.submit 'Save'
+  %hr
+    .form-group
+      %label Raison de l'invalidation
+      = f.text_area :invalidation_reason, class: "form-control"
+
+  .form-group
+    %button.btn.btn-success{type: "submit"}
+      Enregistrer

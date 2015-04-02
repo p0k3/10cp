@@ -1,5 +1,5 @@
 class Admin::SubjectsController < AdminController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy, :validate]
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :validate, :invalidate]
 
   respond_to :html
 
@@ -45,6 +45,13 @@ class Admin::SubjectsController < AdminController
     @subject.validate
     redirect_to admin_subjects_path, flash:{success: "Le sujet a été validé et publié"}
   end
+  def invalidate
+    if @subject.invalidate
+      redirect_to admin_subjects_path, flash:{success: "Le sujet a été invalidé"}
+    else
+      render :edit
+    end
+  end
 
   private
     def set_subject
@@ -52,6 +59,6 @@ class Admin::SubjectsController < AdminController
     end
 
     def subject_params
-      params.require(:subject).permit(:title, :description, :theme_id)
+      params.require(:subject).permit(:title, :slug, :illustration, :description, :theme_id, :invalidation_reason)
     end
 end

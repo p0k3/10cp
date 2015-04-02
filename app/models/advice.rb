@@ -20,9 +20,24 @@ class Advice < ActiveRecord::Base
       transition :suggested => :disabled
     end
 
+    state :disabled do
+      validates :invalidation_reason, presence: true
+    end
+
+    after_transition :on => :validate, :do => :send_confirmation_validation
+    after_transition :on => :invalidate, :do => :send_confirmation_invalidation
+
   end
 
   scope :validated, -> {where(state: :validated)}
+  scope :invalidated, -> {where(state: :disabled)}
+
+  def send_confirmation_validation
+    AdviceMailer.send_confirmation_validation(self).deliver
+  end
+  def send_confirmation_invalidation
+    AdviceMailer.send_confirmation_invalidation(self).deliver
+  end
 
   def upvotes
     self.votes.is_good.count
@@ -59,6 +74,14 @@ class Advice < ActiveRecord::Base
   end
   def theme_color
     self.subject.theme_color
+  end
+
+  def user_email
+    if self.has_user?
+      self.user.email
+    else
+      self.author_email
+    end
   end
 
   def has_user?

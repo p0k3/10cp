@@ -38,6 +38,11 @@
                     = link_to validate_subject_path(subject), class: "btn btn-xs btn-primary" do
                       = fa_icon "tick"
                       Publier
+                - if subject.can_invalidate?
+                  %li
+                    = link_to invalidate_subject_path(subject), class: "btn btn-xs btn-warning" do
+                      = fa_icon "times"
+                      Invalider
                 %li
                   = link_to admin_subject_path(subject), class: "btn btn-xs btn-danger", method: :delete, data:{confirm: "Êtes vous sûr de vouloir supprimer ce sujet ? Ceci entrainera la suppresion des conseils associés !"} do
                     = fa_icon "trash"

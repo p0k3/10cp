@@ -20,7 +20,7 @@
     %h2
       = advice.title
     %p
-      = advice.description
+      = simple_format advice.description
     .footer
       .good-advice
         = link_to_good_advice(current_user, advice) do
