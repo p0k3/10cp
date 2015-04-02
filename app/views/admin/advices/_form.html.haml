@@ -16,7 +16,7 @@
 
   .form-group
     %label Sujet
-    = f.select :subject_id, options_from_collection_for_select(Subject.order('title ASC'), :id, :title), {prompt: "( Choisissez )"}, class: "form-control"
+    = f.select :subject_id, options_from_collection_for_select(Subject.order('title ASC'), :id, :title, advice.subject_id), {prompt: "( Choisissez )"}, class: "form-control"
 
   %hr
 
