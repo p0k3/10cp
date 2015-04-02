@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_attached_file :avatar, :styles => {
                             :normal => "150x150#"
-                          }
+                          },
+                          url: "/system/users/:attachment/:id_partition/:style/:basename.:extension"
   has_many :subjects
   has_many :advices
 

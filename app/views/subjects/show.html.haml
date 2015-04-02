@@ -28,7 +28,7 @@
           .advice.master
             .user
               - if a.has_user?
-                = link_to a.user do
+                = link_to user_path(a.user) do
                   = image_tag a.user_avatar, class: "avatar"
               - else
                 = image_tag a.user_avatar, class: "avatar"
@@ -36,7 +36,7 @@
               .body
                 .advice_from
                   - if a.has_user?
-                    = link_to a.user do
+                    = link_to user_path(a.user) do
                       Conseil de
                       = a.user.fullname
                   - else

@@ -32,7 +32,7 @@
             = image_tag u.avatar.url(:normal)
           .body
             %span.name
-              = link_to u do
+              = link_to user_path(u) do
                 = u.fullname
             = link_to u.website, target: "_blank" do
               = u.website
