@@ -1,0 +1,29 @@
+%h1.page-header
+  = fa_icon 'thumbs-up'
+  Votes
+
+.panel
+  .panel-body
+    %p
+      Il y a
+      %strong
+        = @votes.count
+        votes
+    %br
+    %table.table
+      %thead
+        %tr
+          %th #
+          %th= sort_link @q, :advice_title, "Conseil", default: :asc
+          %th= sort_link @q, :user_firstname, "Votant"
+          %th= sort_link @q, :ip, "IP"
+          %th Vote
+      %tbody
+        - @votes.each do |vote|
+          %tr
+            %td= vote.id
+            %td= vote.advice_title
+            %td= vote.user_fullname
+            %th= vote.ip
+            %td
+              = fa_icon "#{(vote.is_good?)? 'thumbs-up' : 'thumbs-down'}", class: "#{(vote.is_good?)? 'green' : 'red'}"

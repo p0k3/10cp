@@ -22,4 +22,8 @@ class Theme < ActiveRecord::Base
   def set_slug
     self.slug = self.title.to_slug
   end
+
+  def subjects_count
+    self.subjects.count
+  end
 end

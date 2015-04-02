@@ -4,6 +4,7 @@ gem 'rails', '4.1.6'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
 gem 'haml'
+gem 'haml-rails'
 gem 'jquery-rails'
 gem 'RedCloth'
 gem 'devise'
@@ -13,9 +14,8 @@ gem "paperclip", "~> 3.0"
 gem 'state_machine'
 gem 'ransack'
 gem 'toastr-rails'
-gem 'rails_admin'
 gem "httparty"
-gem 'gravtastic'
+gem 'gravtastic' #gravatar
 
 group :development do
   gem "better_errors"

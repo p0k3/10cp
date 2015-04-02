@@ -1,0 +1,36 @@
+= form_for [:admin, advice] do |f|
+  - if advice.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@advice.errors.count, "error")} prohibited this advice from being saved:"
+      %ul
+        - @advice.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    %label Titre
+    = f.text_field :title, class: "form-control"
+
+  .form-group
+    %label Description
+    = f.text_area :description, class: "form-control", rows: 10
+
+  .form-group
+    %label Sujet
+    = f.select :subject_id, options_from_collection_for_select(Subject.order('title ASC'), :id, :title), {prompt: "( Choisissez )"}, class: "form-control"
+
+  %hr
+
+  .form-group
+    %label Auteur
+    = f.text_field :author_name, class: "form-control"
+
+  .form-group
+    %label Email de l'auteur
+    = f.email_field :author_email, class: "form-control"
+
+  .form-group
+    %label Site de l'auteur
+    = f.text_field :author_website, class: "form-control"
+
+  .actions
+    = f.submit 'Save'

@@ -1,57 +1,57 @@
 class Admin::SubjectsController < AdminController
+  before_action :set_subject, only: [:show, :edit, :update, :destroy, :validate]
 
-  before_filter :set_subject, except: [:index]
+  respond_to :html
 
   def index
     @q = Subject.ransack(params[:q])
-    @subjects = @q.result(distinct: true).paginate(:page => params[:page])
+    @subjects = @q.result(distinct: true)
+  end
+
+  def show
   end
 
   def new
     @subject = Subject.new
   end
 
-  def create
-    @subject = Subject.new params[:subject]
+  def edit
+  end
 
+  def create
+    @subject = Subject.new(subject_params)
     if @subject.save
-      redirect_to subjects_path, flash: {success: "Le sujet a bien été ajouté"}
+      redirect_to admin_subjects_path
     else
       render :new
     end
   end
 
-  def edit
-  end
-
   def update
-    @subject.attributes = params[:subject]
+    @subject.update(subject_params)
     if @subject.save
-      redirect_to subjects_path, flash: {success: "Le sujet a bien été mis à jour"}
+      redirect_to admin_subjects_path
     else
       render :edit
     end
+  end
+
+  def destroy
+    @subject.destroy
+    respond_with(@subject)
   end
 
   def validate
-    if @subject.validate
-      redirect_to subjects_path, flash:{success: "Le sujet a été validé"}
-    else
-      render :edit
-    end
-  end
-
-  def disable
-    if @subject.invalidate
-      redirect_to subjects_path, flash:{success: "Le sujet a été invalidé"}
-    else
-      render :edit
-    end
+    @subject.validate
+    redirect_to admin_subjects_path, flash:{success: "Le sujet a été validé et publié"}
   end
 
   private
     def set_subject
-      @subject = Subject.find params[:id]
+      @subject = Subject.find(params[:id])
     end
 
+    def subject_params
+      params.require(:subject).permit(:title, :description, :theme_id)
+    end
 end

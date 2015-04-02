@@ -1,0 +1,29 @@
+= form_for [:admin, theme] do |f|
+  .form-group
+    %label Titre
+    = f.text_field :title, class: "form-control"
+  .form-group
+    %label Slug
+    = f.text_field :slug, class: "form-control"
+  .form-group
+    %label Couleur
+    = f.text_field :color, class: "form-control"
+  .form-group
+    %label Description
+    = f.text_area :description, class: "form-control"
+
+  %hr
+
+  .form-group
+    %label Thème parent
+    = f.select :theme_id, Theme.all, {prompt: "( Choisissez )"}, class: "form-control"
+
+  .form-group
+    - unless theme.icon.blank?
+      = image_tag theme.icon.url
+      %br
+    %label Icone
+    = f.file_field :icon
+
+  %button.btn.btn-success{type: "submit"}
+    Enregistrer

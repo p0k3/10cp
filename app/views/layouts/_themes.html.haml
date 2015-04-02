@@ -4,7 +4,7 @@
   .row
     - @masters.each do |s|
       .col-md-4.col-sm-6
-        .theme{style: "background-color: #{s.color}"}
+        .theme{style: "background-color: #{s.color}", data:{url: theme_path(s.slug, s.id)}}
           %h2= s.title
           %span.icon
             = image_tag s.icon.url(:normal)

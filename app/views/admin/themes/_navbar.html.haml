@@ -1,0 +1,9 @@
+%ul.nav.nav-tabs
+  %li{class: "#{'active' if params[:action]=='index'}"}
+    = link_to admin_themes_path do
+      = fa_icon 'list'
+      Liste
+  %li{class: "#{'active' if params[:action]=='new'}"}
+    = link_to new_admin_theme_path do
+      = fa_icon 'plus'
+      Ajouter

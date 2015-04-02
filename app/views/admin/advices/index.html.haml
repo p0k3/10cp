@@ -1,0 +1,45 @@
+%h1.page-header
+  = fa_icon 'comments'
+  Conseils
+
+= render 'navbar'
+
+.panel
+  .panel-body
+    %table.table
+      %thead
+        %tr
+          %th #
+          %th= sort_link @q, :title, "Titre", default: :asc
+          %th= sort_link @q, :user_firstname, "Auteur"
+          %th= sort_link @q, :subject_title, "Sujet"
+          %th Status
+          %th Votes
+          %th
+      %tbody
+        - @advices.each do |advice|
+          %tr
+            %td= advice.id
+            %td= advice.title
+            %td= advice.authorname
+            %th= advice.subject_title
+            %td= advice.state
+            %td
+              = "#{advice.upvotes} votes +"
+              %br
+              = "#{advice.downvotes} votes -"
+            %td
+              %ul.list-inline.list-unstyled
+                %li
+                  = link_to edit_admin_advice_path(advice), class: "btn btn-xs btn-success" do
+                    = fa_icon "edit"
+                    Modifier
+                - if advice.can_validate?
+                  %li
+                    = link_to validate_advice_path(advice), class: "btn btn-xs btn-primary" do
+                      = fa_icon "tick"
+                      Publier
+                %li
+                  = link_to admin_advice_path(advice), class: "btn btn-xs btn-danger", method: :delete, data:{confirm: "Êtes vous sûr de vouloir supprimer ce conseil ?"} do
+                    = fa_icon "trash"
+                    Supprimer

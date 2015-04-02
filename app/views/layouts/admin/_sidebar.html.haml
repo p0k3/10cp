@@ -1,0 +1,25 @@
+%ul.nav.navbar-nav.side-nav
+  %li{class: "#{'active' if params[:controller].match(/dashboard/)}"}
+    = link_to root_path do
+      = fa_icon 'dashboard', class: "fa-li"
+      Dashboard
+  %li{class: "#{'active' if params[:controller].match(/themes/)}"}
+    = link_to admin_themes_path do
+      = fa_icon 'tags', class: "fa-li"
+      Themes
+  %li{class: "#{'active' if params[:controller].match(/subjects/)}"}
+    = link_to admin_subjects_path do
+      = fa_icon 'tag', class: "fa-li"
+      Sujets
+  %li{class: "#{'active' if params[:controller].match(/advices/)}"}
+    = link_to admin_advices_path do
+      = fa_icon 'comments', class: "fa-li"
+      Conseils
+  %li{class: "#{'active' if params[:controller].match(/users/)}"}
+    = link_to admin_users_path do
+      = fa_icon 'user', class: "fa-li"
+      Utilisateurs
+  %li{class: "#{'active' if params[:controller].match(/votes/)}"}
+    = link_to admin_votes_path do
+      = fa_icon 'thumbs-up', class: "fa-li"
+      Votes

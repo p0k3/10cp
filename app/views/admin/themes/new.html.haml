@@ -1,0 +1,8 @@
+%h1.page-header
+  = fa_icon 'tags'
+  Themes
+
+= render 'navbar'
+.panel
+  .panel-body
+    = render 'form', theme: @theme

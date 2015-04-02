@@ -1,0 +1,33 @@
+= form_for [:admin, subject] do |f|
+  - if subject.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(subject.errors.count, "error")} prohibited this advice from being saved:"
+      %ul
+        - subject.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    %label Titre
+    = f.text_field :title, class: "form-control"
+  .form-group
+    %label Slug
+    = f.text_field :slug, class: "form-control"
+  .form-group
+    %label Description
+    = f.text_area :description, class: "form-control", rows: 10
+
+  %hr
+
+  .form-group
+    %label Thème
+    = f.select :theme_id, options_from_collection_for_select(Theme.all, :id, :title), {prompt: "( Choisissez )"}, class: "form-control"
+
+  .form-group
+    - unless subject.illustration.blank?
+      = image_tag subject.illustration.url(:thumb)
+      %br
+    %label Illustration
+    = f.file_field :illustration
+
+  %button.btn.btn-success{type: "submit"}
+    Enregistrer

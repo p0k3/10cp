@@ -47,4 +47,5 @@ class User < ActiveRecord::Base
       self.avatar.url
     end
   end
+
 end

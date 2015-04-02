@@ -27,7 +27,7 @@
   .row
     - @best_users.each do |u|
       .col-sm-6
-        .user
+        .user{data:{url: user_path(u)}}
           .round
             = image_tag u.avatar.url(:normal)
           .body

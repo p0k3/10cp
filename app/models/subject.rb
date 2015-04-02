@@ -48,6 +48,10 @@ class Subject < ActiveRecord::Base
     self.user.fullname unless self.user.blank?
   end
 
+  def advices_count
+    self.advices.count
+  end
+
   def set_slug
     self.slug = self.title.to_slug
   end

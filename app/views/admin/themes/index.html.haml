@@ -1,0 +1,35 @@
+%h1.page-header
+  = fa_icon 'tags'
+  Themes
+
+= render 'navbar'
+.panel
+  .panel-body
+    %table.table
+      %thead
+        %tr
+          %th #
+          %th= sort_link @q, :title, "Titre", default: :asc
+          %th Couleur
+          %th Nombre de sujets
+          %th
+      %tbody
+        - @themes.each do |theme|
+          %tr
+            %td= theme.id
+            %td
+              = link_to admin_theme_path(theme) do
+                = theme.title
+            %td= theme.color
+            %td
+              = theme.subjects_count
+            %td
+              %ul.list-inline.list-unstyled
+                %li
+                  = link_to edit_admin_theme_path(theme), class: "btn btn-xs btn-success" do
+                    = fa_icon "edit"
+                    Modifier
+                %li
+                  = link_to admin_theme_path(theme), class: "btn btn-xs btn-danger", method: :delete, data:{confirm: "Êtes vous sûr de vouloir supprimer ce thème ? Ceci entrainera la suppresion des sujets et conseils associés !"} do
+                    = fa_icon "trash"
+                    Supprimer

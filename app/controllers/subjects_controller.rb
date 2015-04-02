@@ -15,7 +15,7 @@ class SubjectsController < ApplicationController
       @theme = @subject.theme
       @advices = @subject.advices.validated.order_by_notoriety
 
-      @title = "10 conseils pour #{@subject.title}"
+      @title = "10 conseils pour #{@subject.title.downcase}"
       @description = @subject.description[0..150]
       @header_color = @theme.color
 

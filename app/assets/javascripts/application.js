@@ -21,5 +21,13 @@ $(document).ready(function(){
   $('.subject').click(function(){
     url = $(this).attr('data-url');
     document.location.href = url;
-  })
+  });
+  $('.theme').click(function(){
+    url = $(this).attr('data-url');
+    document.location.href = url;
+  });
+  $('.best-users .user').click(function(){
+    url = $(this).attr('data-url');
+    document.location.href = url;
+  });
 });

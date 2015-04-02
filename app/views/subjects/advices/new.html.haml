@@ -5,7 +5,7 @@
   %p.description
     Merci pour votre participation !
 
-.col-md-6.col-md-offset-3
+.col-md-8.col-md-offset-2
   = form_for [@subject, @advice] do |f|
     - if @advice.errors.any?
       .alert.alert-danger
@@ -38,10 +38,14 @@
     %h2 Votre conseil
     .form-group
       %label Quel est votre conseil ?
-      = f.text_field :title, class: "form-control"
+      = f.text_field :title, class: "form-control input-lg"
     .form-group
       %label Dites-en plus !
-      = f.text_area :description, class: "form-control", rows: 5, maxlength: 350
+      %span.help-block
+        N'hésitez pas à être précis dans vos termes.
+        %br
+        %strong Un conseil efficace passe par une explication efficace.
+      = f.text_area :description, class: "form-control input-lg", rows: 20, maxlength: "600"
 
     .form-group
       %button.btn.btn-success{type: "submit"}

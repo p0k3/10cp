@@ -63,6 +63,9 @@
       color: #fff;
       text-align: center;
     }
+    &:hover{
+      cursor: pointer;
+    }
   }
   .theme{
     padding:10px 15px;
@@ -92,6 +95,9 @@
       z-index: 10;
       left: 50%;
       margin-left: -29px;
+    }
+    &:hover{
+      cursor: pointer;
     }
   }
   .best-users{
@@ -143,6 +149,9 @@
           display: block;
         }
       }
+    }
+    &:hover{
+      cursor: pointer;
     }
   }
 }

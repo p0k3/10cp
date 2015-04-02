@@ -16,4 +16,12 @@ class Vote < ActiveRecord::Base
     end
   end
 
+  def advice_title
+    self.advice.title
+  end
+
+  def user_fullname
+    self.user.fullname unless self.user.blank?
+  end
+
 end

@@ -1,0 +1,10 @@
+%h1.page-header
+  = fa_icon 'tag'
+  Sujets
+
+= render 'navbar'
+
+.panel
+  .panel-body
+    = render 'form', subject: @subject
+
