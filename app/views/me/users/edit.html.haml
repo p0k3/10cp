@@ -6,7 +6,7 @@
     .col-md-8
       %h1 Modifier mon profil
 
-      = form_for @user do |f|
+      = form_for @user, as: :user, url: user_path(@user) do |f|
         - if @user.errors.any?
           .alert.alert-danger
             %h5
