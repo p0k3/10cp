@@ -25,6 +25,7 @@ group :development do
 end
 
 group :production, :staging do
+  gem 'exception_notification'
   gem 'unicorn'
 end
 

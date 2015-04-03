@@ -91,4 +91,9 @@ Rails.application.configure do
     openssl_verify_mode:  'none',
     enable_starttls_auto: true
   }
+
+  Whatever::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[10ConseilsPour] ",
+  :sender_address => %{"Erreur 10cp" <contact@10conseilspour.fr>},
+  :exception_recipients => %w{p.gruson@gmail.com}
 end
