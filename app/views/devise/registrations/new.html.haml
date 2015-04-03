@@ -47,6 +47,8 @@
         %label Localisation
         = f.text_field :town, required: false, class: "form-control"
 
-      .form-actions
+      .form-group
         %button.btn.btn-success{type:"submit"}
           Créer mon compte
+
+      = render "devise/shared/links"

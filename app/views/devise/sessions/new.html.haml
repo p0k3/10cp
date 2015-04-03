@@ -3,12 +3,6 @@
     %h1 Connexion
 
     = form_for resource, as: :user, url: session_path(:user) do |f|
-      / - if flash.any?
-      /   .alert.alert-danger
-      /     - flash.full_messages.each do |msg|
-      /       %li
-      /         = msg
-
       .form-group
         %label Email
         = f.text_field :email, required: false, autofocus: true, class: "form-control"
@@ -22,4 +16,4 @@
           Connexion
 
 
-    = render "devise/shared/links"
+      = render "devise/shared/links"
