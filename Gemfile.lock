@@ -197,6 +197,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
+    whatever (0.0.3)
 
 PLATFORMS
   ruby
@@ -226,3 +227,4 @@ DEPENDENCIES
   toastr-rails
   uglifier (>= 1.0.3)
   unicorn
+  whatever

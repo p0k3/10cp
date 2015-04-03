@@ -92,8 +92,11 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  Whatever::Application.config.middleware.use ExceptionNotifier,
-  :email_prefix => "[10ConseilsPour] ",
-  :sender_address => %{"Erreur 10cp" <contact@10conseilspour.fr>},
-  :exception_recipients => %w{p.gruson@gmail.com}
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[10ConseilsPour] ",
+    :sender_address => %{"Erreur 10cp" <contact@10conseilspour.fr>},
+    :exception_recipients => %w{p.gruson@gmail.com}
+  }
+
 end
