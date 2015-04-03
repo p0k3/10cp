@@ -43,11 +43,7 @@ class User < ActiveRecord::Base
   end
 
   def get_avatar
-    if self.avatar.blank?
-      self.gravatar_url
-    else
-      self.avatar.url
-    end
+    self.avatar.url
   end
 
   def self.koala(auth)

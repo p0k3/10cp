@@ -25,7 +25,7 @@ class Advice < ActiveRecord::Base
     end
 
     after_transition :on => :validate, :do => :send_confirmation_validation
-    after_transition :on => :validate, :do => :post_on_facebook
+    # after_transition :on => :validate, :do => :post_on_facebook
     after_transition :on => :invalidate, :do => :send_confirmation_invalidation
 
   end
@@ -117,8 +117,8 @@ class Advice < ActiveRecord::Base
   end
 
   def post_on_facebook
-    facebook = Koala::Facebook::API.new(self.user.facebook_token)
-    facebook.put_wall_post("J'ai publié un nouveau conseil sur 10ConseilsPour<br>#{self.title}<br>Pour en savoir plus ! #{Rails.application.routes.url_helpers.subject_url(self.subject_slug, self.subject_id, host: '10conseilspour.fr')}")
+    # facebook = Koala::Facebook::API.new(self.user.facebook_token)
+    # facebook.put_wall_post("J'ai publié un nouveau conseil sur 10ConseilsPour<br>#{self.title}<br>Pour en savoir plus ! #{Rails.application.routes.url_helpers.subject_url(self.subject_slug, self.subject_id, host: '10conseilspour.fr')}")
   end
 
 end
