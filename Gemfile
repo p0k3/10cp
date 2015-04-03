@@ -17,6 +17,7 @@ gem 'toastr-rails'
 gem "httparty"
 gem 'gravtastic' #gravatar
 gem 'rails_email_preview', '~> 0.2.28'
+gem 'exception_notification'
 
 group :development do
   gem "better_errors"
@@ -25,7 +26,6 @@ group :development do
 end
 
 group :production, :staging do
-  gem 'exception_notification'
   gem 'unicorn'
 end
 
