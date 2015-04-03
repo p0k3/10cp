@@ -6,7 +6,10 @@ DixConseilsPour::Application.routes.draw do
     resources :subjects
   end
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: {
+      registrations: "users/registrations",
+      omniauth_callbacks: "users/omniauth_callbacks"
+    }
 
   constraints(subdomain: /admin/) do
     get '/', to: "admin/dashboard#index"
@@ -39,14 +42,17 @@ DixConseilsPour::Application.routes.draw do
     resources :users, controller: "me/users", as: :me
   end
 
+  get 'auth/facebook', to: "users/auth#facebook", as: :link_with_facebook
+  get 'auth/facebook/callback', to: 'users#login'
+
   resources :votes, controller: "votes", as: :votes, only: :create
   resources :advices, controller: "advices", as: :advices, only: :index
   resources :users, only: [:show, :create, :update]
 
   get '/search', to: "search#index"
 
-
   get '/:page', to: "pages#show",as: :page
+
 
   root to: 'pages#home'
 

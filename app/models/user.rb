@@ -2,8 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :omniauthable,
+          :recoverable, :rememberable,
+          :trackable, :validatable, :omniauth_providers => [:facebook]
 
   include Gravtastic
   gravtastic
@@ -47,6 +48,30 @@ class User < ActiveRecord::Base
     else
       self.avatar.url
     end
+  end
+
+  def self.koala(auth)
+    access_token = auth['token']
+    facebook = Koala::Facebook::API.new(access_token)
+    facebook.get_object("me?fields=name,picture")
+  end
+
+  def self.from_omniauth(auth)
+    user = where(email: auth.info.email).first
+    if user
+      user.facebook_id = auth.uid
+    else
+      user = User.new
+      user.firstname = auth.info.first_name
+      user.lastname = auth.info.last_name
+      password = Devise.friendly_token[0,20]
+      user.password = password
+      user.password_confirmation = password
+      user.email = auth.info.email
+      user.facebook_id = auth.uid
+    end
+    user.save
+    user
   end
 
 end

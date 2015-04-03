@@ -2,10 +2,16 @@
   .row
     .col-md-4
       = image_tag @user.get_avatar, class: "avatar"
-      %br
-      = link_to edit_me_path(current_user), class: "btn btn-success btn-block" do
-        %i.fa.fa-edit
-        Modifier mon compte
+
+      %ul.list-group
+        = link_to edit_me_path(current_user), class: "list-group-item" do
+          = fa_icon "edit"
+          Modifier mon profil
+        - if @user.facebook_id.blank?
+          = link_to user_omniauth_authorize_path(provider: :facebook), class: "list-group-item" do
+            = fa_icon 'facebook'
+            Se connecter à Facebook
+
 
     .col-md-8
       %h1= @user.fullname
