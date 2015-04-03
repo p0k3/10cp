@@ -77,10 +77,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Mailer
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.asset_host = config.action_controller.asset_host
   config.action_mailer.default_url_options = {:host => "10conseilspour.fr"}
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     address:              'smtp-relay.mailin.fr',
     port:                 587,
@@ -95,8 +96,9 @@ Rails.application.configure do
   config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[10ConseilsPour] ",
-    :sender_address => %{"Erreur 10cp" <contact@10conseilspour.fr>},
+    :sender_address => %{contact@10conseilspour.fr},
     :exception_recipients => %w{p.gruson@gmail.com}
   }
+
 
 end
