@@ -14,8 +14,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def failure
-    ss
-  end
-
 end
