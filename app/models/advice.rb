@@ -25,6 +25,7 @@ class Advice < ActiveRecord::Base
     end
 
     after_transition :on => :validate, :do => :send_confirmation_validation
+    after_transition :on => :validate, :do => :post_on_facebook
     after_transition :on => :invalidate, :do => :send_confirmation_invalidation
 
   end
@@ -79,8 +80,10 @@ class Advice < ActiveRecord::Base
   def user_email
     if self.has_user?
       self.user.email
-    else
+    elsif !self.author_email.blank?
       self.author_email
+    else
+      "p.gruson@gmail.com"
     end
   end
 
@@ -111,6 +114,11 @@ class Advice < ActiveRecord::Base
     else
       self.author_website unless self.author_website.blank?
     end
+  end
+
+  def post_on_facebook
+    facebook = Koala::Facebook::API.new(self.user.facebook_token)
+    facebook.put_wall_post("J'ai publié un nouveau conseil sur 10ConseilsPour<br>#{self.title}<br>Pour en savoir plus ! #{Rails.application.routes.url_helpers.subject_url(self.subject_slug, self.subject_id, host: '10conseilspour.fr')}")
   end
 
 end

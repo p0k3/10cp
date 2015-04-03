@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403090757) do
+ActiveRecord::Schema.define(version: 20150403123406) do
 
   create_table "advices", force: true do |t|
     t.string   "title"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150403090757) do
     t.string   "job"
     t.text     "biography"
     t.integer  "facebook_id",            limit: 8
+    t.string   "facebook_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

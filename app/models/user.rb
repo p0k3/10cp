@@ -60,6 +60,7 @@ class User < ActiveRecord::Base
     user = where(email: auth.info.email).first
     if user
       user.facebook_id = auth.uid
+      user.facebook_token = auth[:credentials][:token]
     else
       user = User.new
       user.firstname = auth.info.first_name
