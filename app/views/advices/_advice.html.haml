@@ -18,9 +18,16 @@
       = link_to advice.user_website, advice.user_website, target: "_blank" if advice.user_website
   .advice-content
     %h2
+      %small
+        = link_to theme_path(advice.theme_slug, advice.theme_id) do
+          = advice.theme_title
+        = fa_icon 'angle-right'
+        = link_to subject_path(advice.subject_slug, advice.subject_id) do
+          = advice.subject_title
       = advice.title
+
     %p
-      = simple_format advice.description
+      = simple_format truncate(advice.description, length: 600, separator: " ")
     .footer
       .good-advice
         = link_to_good_advice(current_user, advice) do

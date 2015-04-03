@@ -1,6 +1,15 @@
 = render "layouts/shareable"
 
 %h1.page-header
+  Nos derniers conseils
+
+.advices
+  .row
+    - @last_advices.each do |advice|
+      .col-md-4
+        = render 'advices/advice', advice: advice
+
+%h1.page-header
   Les derniers sujets
 
 .last-subjects

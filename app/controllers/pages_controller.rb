@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
   def home
+    @last_advices = Advice.validated.order('id DESC').first 6
     @most_visited = Subject.validated.order('id DESC').first 4
     @best_users = User.best_advisors.first 2
   end

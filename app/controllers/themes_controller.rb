@@ -5,7 +5,7 @@ class ThemesController < ApplicationController
     if params[:slug] != @theme.slug
       redirect_to theme_path(@theme.slug, @theme.id), :status => 301
     end
-    @subjects = @theme.subjects.validated
+    @subjects = @theme.subjects.validated.order('created_at DESC')
 
     @title = "Tous les conseils pour : #{@theme.title} - Retrouvez de bons conseils pour #{@theme.title}"
     @description = @theme.description

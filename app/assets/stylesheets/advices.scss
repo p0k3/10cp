@@ -53,6 +53,9 @@
           font-family: $font-family-base;
           font-size: 24px;
           display: block;
+          small{
+            display: block;
+          }
         }
         .footer{
           display: block;
