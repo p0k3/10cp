@@ -1,5 +1,10 @@
-%h1 New advice
+%h1.page-header
+  = fa_icon 'comments'
+  Conseils
 
-= render 'form'
+= render 'navbar'
 
-= link_to 'Back', advices_path
+.panel
+  .panel-body
+    = render 'form', advice: @advice
+

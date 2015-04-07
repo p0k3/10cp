@@ -26,4 +26,12 @@ class String
 
      ret
   end
+
+  def has_url?
+    self.match(/(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/)
+  end
+
+  def include_url_tag
+    self.gsub(/((https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?)/, '<a href="\1" target="_blank">\1</a>')
+  end
 end

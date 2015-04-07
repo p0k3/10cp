@@ -20,7 +20,7 @@ gem 'rails_email_preview', '~> 0.2.28'
 gem 'exception_notification'
 gem 'omniauth-facebook' # Facebook authentication
 gem "koala", "~> 1.10.0rc" # Facebook API
-
+gem 'twitter-text'
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
