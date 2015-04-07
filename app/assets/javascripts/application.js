@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.linky.js
 //= require bootstrap
 //= require toastr
 //= require votes
+//= require advices
 //= require_self
 
 $(document).ready(function(){
