@@ -5,9 +5,9 @@ class Subject < ActiveRecord::Base
                             :thumb => "440x240#"
                           }
   has_many :advices
+  accepts_nested_attributes_for :advices, :reject_if => proc { |attributes| attributes['title'].blank? }, :allow_destroy => true
   belongs_to :theme
   belongs_to :user
-  accepts_nested_attributes_for :advices
 
   validates :title, presence: true
   validates :description, presence: true

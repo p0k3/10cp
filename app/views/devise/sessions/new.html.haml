@@ -22,6 +22,6 @@
   .col-md-6
     %h2 Se conencter avec les réseaux sociaux
 
-    = link_to user_omniauth_authorize_path(provider: :facebook), class: "list-group-item" do
+    = link_to user_omniauth_authorize_path(:facebook), class: "list-group-item" do
       = fa_icon 'facebook'
       Se connecter à Facebook

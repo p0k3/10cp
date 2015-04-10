@@ -21,6 +21,8 @@ gem 'exception_notification'
 gem 'omniauth-facebook' # Facebook authentication
 gem "koala", "~> 1.10.0rc" # Facebook API
 gem 'twitter-text'
+gem "cocoon"
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"

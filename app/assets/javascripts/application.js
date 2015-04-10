@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.linky.js
 //= require bootstrap
+//= require cocoon
 //= require toastr
 //= require votes
 //= require advices

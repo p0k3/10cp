@@ -3,5 +3,9 @@ development:
   secret: aec6c3e8e67e37c301752d6b4fce4cef
 
 production:
-  app_id: 359204397558628
-  secret: ec83b0159cf4f71f70b25799e911359c
+  app_id: 667785563367175
+  secret: aec6c3e8e67e37c301752d6b4fce4cef
+
+#PRO
+  # app_id: 359204397558628
+  # secret: ec83b0159cf4f71f70b25799e911359c

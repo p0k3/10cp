@@ -4,11 +4,13 @@ class Themes::SubjectsController < ApplicationController
 
   def new
     @subject = @theme.subjects.build
+    @subject.advices.build user_id: current_user.id
   end
 
   def create
-    @subject = @theme.subjects.build subject_params
+    @subject = Subject.new subject_params
     @subject.user = current_user
+    @subject.theme = @theme
 
     if @subject.save
       redirect_to theme_path(@theme.slug, @theme.id), flash:{success: "Votre sujet a été pris en compte et sera publié après validation par notre équipe de modérateurs."}
@@ -24,7 +26,7 @@ class Themes::SubjectsController < ApplicationController
     end
 
     def subject_params
-      params.require(:subject).permit(:title, :description)
+      params.require(:subject).permit(:title, :description, advices_attributes:[:title, :description, :user_id, :subject_id])
     end
 
 end

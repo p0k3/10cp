@@ -21,6 +21,13 @@
       %label Dites-en plus !
       = f.text_area :description, class: "form-control", rows: 5, maxlength: 250
 
+
+    = f.fields_for :advices do |ff|
+      = render 'advice_fields', :f => ff
+      .form-group
+        = link_to_add_association 'Ajouter un conseil', f, :advices, class: "btn btn-primary"
+
+
     .form-group
       %button.btn.btn-success{type: "submit"}
         Je propose un sujet !

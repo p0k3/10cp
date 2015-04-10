@@ -1,0 +1,14 @@
+%hr
+%h2= "Conseil"
+.form-group
+  = f.text_field :title, class: "form-control input-lg"
+  = f.hidden_field :user_id
+.form-group
+  %label Dites-en plus !
+  %span.help-block
+    N'hésitez pas à être précis dans vos termes.
+    %br
+    %strong Un conseil efficace passe par une explication efficace.
+  = f.text_area :description, class: "form-control input-lg", rows: 10, maxlength: 700
+.form-group
+  = link_to_remove_association 'Supprimer le conseil', f, class: "btn btn-danger"
