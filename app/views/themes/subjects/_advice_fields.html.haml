@@ -2,7 +2,7 @@
 %h2= "Conseil"
 .form-group
   = f.text_field :title, class: "form-control input-lg"
-  = f.hidden_field :user_id
+  = f.hidden_field :user_id, value: current_user.id
 .form-group
   %label Dites-en plus !
   %span.help-block
