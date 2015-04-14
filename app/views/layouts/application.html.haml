@@ -12,7 +12,12 @@
     %meta{ property: "og:image", content: @image}
     %meta{ property: "og:description", content: @description}
 
-
+    %meta{:content => "summary", :name => "twitter:card"}/
+    %meta{:content => "@10conseilspour", :name => "twitter:site"}/
+    %meta{:content => @title, :name => "twitter:title"}
+    %meta{:content => @description[0..50], :name => "twitter:description"}/
+    %meta{:content => @image}
+    %meta{:content => canonical_url, :name => "twitter:url"}
 
     %link{ rel: "canonical", href: canonical_url }
     %link{:href => canonical_url, :hreflang => "fr-fr", :rel => "alternate"}/
