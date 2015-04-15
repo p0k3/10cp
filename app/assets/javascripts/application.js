@@ -18,6 +18,7 @@
 //= require toastr
 //= require votes
 //= require advices
+//= require facebook
 //= require_self
 
 $(document).ready(function(){

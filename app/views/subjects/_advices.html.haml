@@ -1,0 +1,60 @@
+.row
+  - advices.each_with_index do |a, index|
+    - if index == 0
+      .col-md-12
+        .advice.master
+          .user
+            - if a.has_user?
+              = link_to user_path(a.user) do
+                = image_tag a.user_avatar, class: "avatar"
+            - else
+              = image_tag a.user_avatar, class: "avatar"
+
+            .body
+              .advice_from
+                - if a.has_user?
+                  = link_to user_path(a.user) do
+                    Conseil de
+                    = a.user.fullname
+                - else
+                  Conseil de
+                  = a.author_name
+
+              = link_to a.user.website, a.user.website, target: "_blank" if a.user_website
+          .advice-content
+            %h2
+              = a.title
+            %p
+              = a.description
+            .top-advice
+              = image_tag "top_conseil.png"
+            .footer
+              .good-advice
+                = link_to_good_advice(current_user, a, 'js') do
+                  = fa_icon "thumbs-up"
+                  Ce conseil est génial
+                %br
+                = "#{a.upvotes} votes"
+              .bad-advice
+                = link_to_bad_advice(current_user, a, 'js') do
+                  = fa_icon "thumbs-down"
+                  Ne suivez pas ce conseil
+                %br
+                = "#{a.downvotes} votes"
+    - else
+      .col-md-4.col-lg-4.col-sm-6
+        = render "advices/advice", advice: a
+  .col-md-4.col-lg-4.col-sm-6
+    .advice.propose{style:"background:#{theme.color}", data:{url: new_subject_advice_path(subject)}}
+      .illustration
+      = image_tag @theme.icon.url(:normal), class: "icon"
+      .advice-body
+        %h3
+          Vous souhaitez déposer
+          %br
+          un conseil pour
+          %br
+          = subject.title
+          ?
+
+        = link_to "Cliquez ici", new_subject_advice_path(subject), class: "btn btn-default", style: "background-color: #fff; color:#{theme.color}"
