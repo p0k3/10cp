@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
                           url: "/system/users/:attachment/:id_partition/:style/:basename.:extension"
   has_many :subjects
   has_many :advices
-  has_many :authorizations
+  has_many :authentications, :dependent => :delete_all
 
   validates :firstname, :lastname, presence: true
 
@@ -46,5 +46,15 @@ class User < ActiveRecord::Base
   def get_avatar
     self.avatar.url
   end
+
+  def apply_omniauth(auth)
+    # In previous omniauth, 'user_info' was used in place of 'raw_info'
+    self.email = auth['extra']['raw_info']['email']
+    self.firstname = auth['extra']['raw_info']['first_name']
+    self.lastname = auth['extra']['raw_info']['last_name']
+    # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
+    authentications.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
+  end
+
 
 end

@@ -18,7 +18,9 @@ gem "httparty"
 gem 'gravtastic' #gravatar
 gem 'rails_email_preview', '~> 0.2.28'
 gem 'exception_notification'
+gem 'omniauth'
 gem 'omniauth-facebook' # Facebook authentication
+gem 'oauth2'
 gem "koala", "~> 1.10.0rc" # Facebook API
 gem 'twitter-text'
 gem "cocoon"

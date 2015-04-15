@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408141004) do
+ActiveRecord::Schema.define(version: 20150414164858) do
 
   create_table "advices", force: true do |t|
     t.string   "title"
@@ -27,17 +27,14 @@ ActiveRecord::Schema.define(version: 20150408141004) do
     t.string   "invalidation_reason"
   end
 
-  create_table "authorizations", force: true do |t|
+  create_table "authentications", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
     t.string   "token"
-    t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"

@@ -42,8 +42,9 @@ DixConseilsPour::Application.routes.draw do
     resources :users, controller: "me/users", as: :me
   end
 
-  get 'auth/facebook', to: "users/auth#facebook", as: :link_with_facebook
-  get 'auth/facebook/callback', to: 'users#login'
+  get 'auth/facebook', to: "authentications#facebook", as: :link_with_facebook
+
+  get '/auth/:provider/callback' => 'authentications#create'
 
   resources :votes, controller: "votes", as: :votes, only: :create
   resources :advices, controller: "advices", as: :advices, only: :index

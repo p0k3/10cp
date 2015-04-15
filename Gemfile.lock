@@ -250,6 +250,8 @@ DEPENDENCIES
   jquery-rails
   koala (~> 1.10.0rc)
   mysql2
+  oauth2
+  omniauth
   omniauth-facebook
   paperclip (~> 3.0)
   rails (= 4.1.6)

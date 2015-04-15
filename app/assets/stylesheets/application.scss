@@ -16,7 +16,8 @@ html {
       position: relative;
     }
     header{
-      margin-top: 50px;
+      margin-top: -50px;
+      padding-top: 100px;
       position: relative;
       nav.navbar{
         position: fixed;
@@ -45,11 +46,9 @@ html {
         color:#f5f5f5;
       }
       .socials{
-        position: absolute;
-        left: 0;
-        top: 0;
         padding: 5px;
         text-align: left;
+        display: none;
         .title{
           display: block;
           font-family: "10cp";
@@ -230,6 +229,11 @@ html {
 @media only screen and (min-width: 768px) {
   body{
     header{
+      .socials{
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
       nav.navbar{
         ul{
           li{
