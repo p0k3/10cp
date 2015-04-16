@@ -2,7 +2,7 @@
   - advices.each_with_index do |a, index|
     - if index == 0
       .col-md-12
-        .advice.master
+        .advice.master{class: "advice-#{a.id}"}
           .user
             - if a.has_user?
               = link_to user_path(a.user) do
@@ -30,15 +30,19 @@
               = image_tag "top_conseil.png"
             .footer
               .good-advice
-                = link_to_good_advice(current_user, a, 'js') do
+                = link_to_good_advice(current_user, a) do
                   = fa_icon "thumbs-up"
-                  Ce conseil est génial
+                  Ce conseil
+                  %br
+                  est génial
                 %br
                 = "#{a.upvotes} votes"
               .bad-advice
-                = link_to_bad_advice(current_user, a, 'js') do
+                = link_to_bad_advice(current_user, a) do
                   = fa_icon "thumbs-down"
-                  Ne suivez pas ce conseil
+                  Ne suivez pas
+                  %br
+                  ce conseil
                 %br
                 = "#{a.downvotes} votes"
     - else

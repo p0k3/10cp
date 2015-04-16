@@ -1,1 +1,5 @@
-$(".advices").html("<%= j render 'subjects/advices', advices: @advices, theme: @theme, subject: @subject %>")
+if(<%= params[:controller].include?('subjects') %>){
+  $(".advices").html("<%= j render 'subjects/advices', advices: @advices, theme: @theme, subject: @subject %>")
+}else{
+  $('.advice-<%= @advice.id %> .footer').html("<%= j render 'advices/advice_footer', advice: @advice %>")
+}

@@ -1,0 +1,16 @@
+.good-advice
+  = link_to_good_advice(current_user, advice) do
+    = fa_icon "thumbs-up"
+    Ce conseil
+    %br
+    est génial
+  %br
+  = "#{advice.upvotes} votes"
+.bad-advice
+  = link_to_bad_advice(current_user, advice) do
+    = fa_icon "thumbs-down"
+    Ne suivez pas
+    %br
+    ce conseil
+  %br
+  = "#{advice.downvotes} votes"

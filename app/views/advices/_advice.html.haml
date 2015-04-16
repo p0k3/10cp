@@ -1,4 +1,4 @@
-.advice
+.advice{class: "advice-#{advice.id}"}
   .user
     - if advice.has_user?
       = link_to user_path(advice.user) do
@@ -29,19 +29,4 @@
     %p
       = simple_format truncate(advice.description, length: 600, separator: " ")
     .footer
-      .good-advice
-        = link_to_good_advice(current_user, advice, 'js') do
-          = fa_icon "thumbs-up"
-          Ce conseil
-          %br
-          est génial
-        %br
-        = "#{advice.upvotes} votes"
-      .bad-advice
-        = link_to_bad_advice(current_user, advice, 'js') do
-          = fa_icon "thumbs-down"
-          Ne suivez pas
-          %br
-          ce conseil
-        %br
-        = "#{advice.downvotes} votes"
+      = render "advices/advice_footer", advice: advice
