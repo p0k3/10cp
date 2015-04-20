@@ -6,44 +6,45 @@
 
 .panel
   .panel-body
-    %table.table
-      %thead
-        %tr
-          %th #
-          %th= sort_link @q, :title, "Titre", default: :asc
-          %th= sort_link @q, :user_firstname, "Auteur"
-          %th= sort_link @q, :theme_title, "Theme"
-          %th Status
-          %th Nombre de conseils
-          %th
-      %tbody
-        - @subjects.each do |subject|
+    .table-responsive
+      %table.table
+        %thead
           %tr
-            %td= subject.id
-            %td
-              = link_to admin_subject_path(subject) do
-                = subject.title
-            %td= subject.authorname
-            %th= subject.theme_title
-            %td= subject.state
-            %td= subject.advices_count
-            %td
-              %ul.list-inline.list-unstyled
-                %li
-                  = link_to edit_admin_subject_path(subject), class: "btn btn-xs btn-success" do
-                    = fa_icon "edit"
-                    Modifier
-                - if subject.can_validate?
+            %th #
+            %th= sort_link @q, :title, "Titre", default: :asc
+            %th= sort_link @q, :user_firstname, "Auteur"
+            %th= sort_link @q, :theme_title, "Theme"
+            %th Status
+            %th Nombre de conseils
+            %th
+        %tbody
+          - @subjects.each do |subject|
+            %tr
+              %td= subject.id
+              %td
+                = link_to admin_subject_path(subject) do
+                  = subject.title
+              %td= subject.authorname
+              %th= subject.theme_title
+              %td= subject.state
+              %td= subject.advices_count
+              %td
+                %ul.list-inline.list-unstyled
                   %li
-                    = link_to validate_subject_path(subject), class: "btn btn-xs btn-primary" do
-                      = fa_icon "tick"
-                      Publier
-                - if subject.can_invalidate?
+                    = link_to edit_admin_subject_path(subject), class: "btn btn-xs btn-success" do
+                      = fa_icon "edit"
+                      Modifier
+                  - if subject.can_validate?
+                    %li
+                      = link_to validate_subject_path(subject), class: "btn btn-xs btn-primary" do
+                        = fa_icon "tick"
+                        Publier
+                  - if subject.can_invalidate?
+                    %li
+                      = link_to invalidate_subject_path(subject), class: "btn btn-xs btn-warning" do
+                        = fa_icon "times"
+                        Invalider
                   %li
-                    = link_to invalidate_subject_path(subject), class: "btn btn-xs btn-warning" do
-                      = fa_icon "times"
-                      Invalider
-                %li
-                  = link_to admin_subject_path(subject), class: "btn btn-xs btn-danger", method: :delete, data:{confirm: "Êtes vous sûr de vouloir supprimer ce sujet ? Ceci entrainera la suppresion des conseils associés !"} do
-                    = fa_icon "trash"
-                    Supprimer
+                    = link_to admin_subject_path(subject), class: "btn btn-xs btn-danger", method: :delete, data:{confirm: "Êtes vous sûr de vouloir supprimer ce sujet ? Ceci entrainera la suppresion des conseils associés !"} do
+                      = fa_icon "trash"
+                      Supprimer
