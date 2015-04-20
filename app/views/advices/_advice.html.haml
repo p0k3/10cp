@@ -1,4 +1,4 @@
-.advice{class: "advice-#{advice.id}"}
+.advice.col-sm-6.col-md-4.col-xs-12{class: "advice-#{advice.id}"}
   .user
     - if advice.has_user?
       = link_to user_path(advice.user) do
@@ -24,9 +24,10 @@
         = fa_icon 'angle-right'
         = link_to subject_path(advice.subject_slug, advice.subject_id) do
           = advice.subject_title
+
       = advice.title
 
     %p
-      = simple_format truncate(advice.description, length: 600, separator: " ")
+      = simple_format advice.description
     .footer
       = render "advices/advice_footer", advice: advice

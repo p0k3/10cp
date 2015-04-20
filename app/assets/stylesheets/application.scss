@@ -4,6 +4,17 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "toastr";
+
+/*
+*= require 'masonry/basic'
+*= require 'masonry/centered'
+*= require 'masonry/fluid'
+*= require 'masonry/gutters'
+*= require 'masonry/infinitescroll'
+*= require 'masonry/right-to-left'
+*= require 'masonry/transitions'
+*/
+
 html {
   font-size: 12px;
   line-height: 15px;

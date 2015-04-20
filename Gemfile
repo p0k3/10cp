@@ -24,6 +24,7 @@ gem 'oauth2'
 gem "koala", "~> 1.10.0rc" # Facebook API
 gem 'twitter-text'
 gem "cocoon"
+gem 'masonry-rails'
 
 group :development do
   gem "better_errors"

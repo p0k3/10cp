@@ -19,6 +19,7 @@
 //= require votes
 //= require advices
 //= require facebook
+//= require masonry/jquery.masonry
 //= require_self
 
 $(document).ready(function(){

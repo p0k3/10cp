@@ -25,10 +25,8 @@
   %hr
   %h2 Tous ses conseils
   .advices
-    .row
-      - @user.advices.order_by_notoriety.each do |a|
-        .col-md-4
-          = render "advices/advice", advice: a
+    - @user.advices.order_by_notoriety.each do |a|
+      = render "advices/advice", advice: a
 
   %h2 Tous ses sujets
   .subjects

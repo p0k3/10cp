@@ -4,4 +4,10 @@ $(document).ready(function(){
     excludeHashtags: true,
     hyperlinkTarget: "blank"
   });
+
+  $('.advices').masonry({
+    itemSelector: '.advice',
+    gutterWidth: 30,
+    columnWidth: 100
+  });
 })

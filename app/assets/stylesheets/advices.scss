@@ -49,12 +49,21 @@
         display: block;
         padding: 20px 15px 85px;
         min-height: 400px;
+        width: 100%;
+        a{
+          text-overflow: ellipsis;
+          display: block;
+          overflow: hidden;
+        }
         h2{
           font-family: $font-family-base;
           font-size: 24px;
           display: block;
           small{
             display: block;
+          }
+          a{
+            display: inline;
           }
         }
         .footer{
@@ -88,7 +97,6 @@
         }
       }
       &.propose{
-        margin-top: 65px;
         border-radius: 0;
         height: 400px;
         .illustration{
