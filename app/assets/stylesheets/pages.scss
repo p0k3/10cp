@@ -9,6 +9,21 @@
       color: #4b5c68;
     }
   }
+  .pages.home{
+    .advices{
+      .advice{
+        h2{
+          font-size: 22px;
+          small{
+            margin: 0 0 10px 0;
+          }
+        }
+        .advice-content{
+          min-height: 300px;
+        }
+      }
+    }
+  }
   .subject{
     background: #fff;
     color:#000;

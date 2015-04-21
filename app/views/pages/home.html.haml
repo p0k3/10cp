@@ -5,7 +5,40 @@
 
 .advices
   - @last_advices.each do |advice|
-    = render 'advices/advice', advice: advice
+    .advice.col-sm-6.col-md-4.col-xs-12{class: "advice-#{advice.id}"}
+      .user
+        - if advice.has_user?
+          = link_to user_path(advice.user) do
+            = image_tag advice.user_avatar, class: "avatar"
+        - else
+          = image_tag advice.user_avatar, class: "avatar"
+        .body
+          .advice_from
+            - if advice.has_user?
+              = link_to user_path(advice.user) do
+                Conseil de
+                = advice.user.fullname
+            - else
+              Conseil de
+              = advice.author_name
+
+          = link_to advice.user_website, advice.user_website, target: "_blank" if advice.user_website
+      .advice-content
+        %h2
+          %small
+            = link_to theme_path(advice.theme_slug, advice.theme_id) do
+              = advice.theme_title
+            = fa_icon 'angle-right'
+            = link_to subject_path(advice.subject_slug, advice.subject_id) do
+              = advice.subject_title
+          = advice.title
+
+
+        .footer
+          = link_to subject_path(advice.subject_slug, advice.subject_id), class: "btn btn-link btn-block" do
+            En savoir plus
+            = fa_icon 'plus'
+          = render "advices/advice_footer", advice: advice
 
 %h1.page-header
   Les derniers sujets
