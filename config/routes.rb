@@ -27,6 +27,7 @@ DixConseilsPour::Application.routes.draw do
 
   get '/themes/:slug-:id', to: "themes#show", as: :theme
   get '/sujets/:slug-:id', to: "subjects#show", as: :subject
+  get '/sujets/:slug-:subject_id/conseil-:id', to: "subjects/advices#show", as: :subject_advice
   get '/sitemap', to: "pages#sitemap"
 
   resources :themes do
@@ -34,7 +35,7 @@ DixConseilsPour::Application.routes.draw do
   end
 
   resources :subjects do
-    resources :advices, controller: "subjects/advices"
+    resources :advices, controller: "subjects/advices", only: [:new, :create]
   end
 
   scope '/me' do

@@ -2,6 +2,10 @@ class Subjects::AdvicesController < ApplicationController
 
   before_filter :set_subject
 
+  def show
+    @advice = Advice.find params[:id]
+  end
+
   def new
     @advice = @subject.advices.build
   end

@@ -1,0 +1,60 @@
+= render "layouts/pubs"
+%br
+%ol.breadcrumb
+  %li
+    = link_to root_url do
+      = fa_icon "home"
+  %li
+    = link_to theme_path(@subject.theme_slug, @subject.theme_id) do
+      = @subject.theme_title
+  %li
+    = link_to subject_path(@subject.slug, @subject.id) do
+      = @subject.title
+  %li.active
+    = @advice.title
+
+
+.advices
+  .advice.master.col-xs-12{class: "advice-#{@advice.id}"}
+    .user
+      - if @advice.has_user?
+        = link_to user_path(@advice.user) do
+          = image_tag @advice.user_avatar, class: "avatar"
+      - else
+        = image_tag @advice.user_avatar, class: "avatar"
+
+      .body
+        .advice_from
+          - if @advice.has_user?
+            = link_to user_path(@advice.user) do
+              Conseil de
+              = @advice.user.fullname
+          - else
+            Conseil de
+            = @advice.author_name
+
+        = link_to @advice.user.website, @advice.user.website, target: "_blank" if @advice.user_website
+    .advice-content
+      %h2
+        = @advice.title
+      %p
+        = @advice.description
+      .top-advice
+        = image_tag "top_conseil.png"
+      .footer
+        .good-advice
+          = link_to_good_advice(current_user, @advice) do
+            = fa_icon "thumbs-up"
+            Ce conseil
+            %br
+            est génial
+          %br
+          = "#{@advice.upvotes} votes"
+        .bad-advice
+          = link_to_bad_advice(current_user, @advice) do
+            = fa_icon "thumbs-down"
+            Ne suivez pas
+            %br
+            ce conseil
+          %br
+          = "#{@advice.downvotes} votes"
