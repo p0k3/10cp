@@ -29,6 +29,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    ambry (0.3.1)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (5.1.7.1)
       execjs
@@ -109,6 +110,8 @@ GEM
       mime-types (>= 1.16, < 3)
     masonry-rails (0.2.4)
       railties
+    merit (2.3.2)
+      ambry (~> 0.3.0)
     mime-types (2.4.3)
     minitest (5.5.1)
     multi_json (1.11.0)
@@ -252,6 +255,7 @@ DEPENDENCIES
   jquery-rails
   koala (~> 1.10.0rc)
   masonry-rails
+  merit
   mysql2
   oauth2
   omniauth
