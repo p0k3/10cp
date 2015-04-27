@@ -2,9 +2,9 @@
   .user
     - if advice.has_user?
       = link_to user_path(advice.user) do
-        = image_tag advice.user_avatar, class: "avatar"
+        = image_tag advice.user_avatar, class: "avatar", size: "80x80"
     - else
-      = image_tag advice.user_avatar, class: "avatar"
+      = image_tag advice.user_avatar, class: "avatar", size: "80x80"
     .body
       .advice_from
         - if advice.has_user?

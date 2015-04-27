@@ -7,6 +7,6 @@
         .theme{style: "background-color: #{s.color}", data:{url: theme_path(s.slug, s.id)}}
           %h2= s.title
           %span.icon
-            = image_tag s.icon.url(:normal)
+            = image_tag s.icon.url(:normal), size: "58x58"
           = link_to theme_path(s.slug, s.id), class: "btn btn-default" do
             Voir tous les sujets

@@ -37,8 +37,8 @@
       .col-md-4.col-lg-3.col-sm-6
         .subject{data:{url: subject_path(subject.slug, subject.id)}}
           .illustration
-            = image_tag subject.illustration.url(:thumb), class: "img-responsive"
-          = image_tag subject.theme.icon.url(:normal), class: "icon"
+            = image_tag subject.illustration.url(:thumb), class: "img-responsive", size: "520x300"
+          = image_tag subject.theme.icon.url(:normal), class: "icon", size: "58x58"
           .subject-body
             %span.subject-theme= subject.theme.title
             10 conseils pour...

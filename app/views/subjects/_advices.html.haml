@@ -4,9 +4,9 @@
       .user
         - if a.has_user?
           = link_to user_path(a.user) do
-            = image_tag a.user_avatar, class: "avatar"
+            = image_tag a.user_avatar, class: "avatar", size: "120x120"
         - else
-          = image_tag a.user_avatar, class: "avatar"
+          = image_tag a.user_avatar, class: "avatar", size: "120x120"
 
         .body
           .advice_from
@@ -24,7 +24,7 @@
           = a.title
         = simple_format a.description
         .top-advice
-          = image_tag "top_conseil.png"
+          = image_tag "top_conseil.png", size: "168x129"
         .footer
           .good-advice
             = link_to_good_advice(current_user, a) do
@@ -48,7 +48,7 @@
 
 .advice.col-md-4.col-lg-4.col-sm-6.propose{style:"background:#{theme.color}", data:{url: new_subject_advice_path(subject)}}
   .illustration
-  = image_tag @theme.icon.url(:normal), class: "icon"
+  = image_tag @theme.icon.url(:normal), class: "icon", size: "58x58"
   .advice-body
     %h3
       Vous souhaitez déposer
