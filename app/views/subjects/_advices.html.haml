@@ -22,8 +22,7 @@
       .advice-content
         %h2
           = a.title
-        %p
-          = a.description
+        = simple_format a.description
         .top-advice
           = image_tag "top_conseil.png"
         .footer
@@ -34,7 +33,7 @@
               %br
               est génial
             %br
-            = "#{a.upvotes} votes"
+            %small= "#{a.upvotes} votes"
           .bad-advice
             = link_to_bad_advice(current_user, a) do
               = fa_icon "thumbs-down"
@@ -42,7 +41,7 @@
               %br
               ce conseil
             %br
-            = "#{a.downvotes} votes"
+            %small= "#{a.downvotes} votes"
   - else
     = render "advices/advice", advice: a
 

@@ -25,7 +25,7 @@
           .subject-body
             %span.subject-theme= subject.theme.title
             10 conseils pour...
-            %h4= subject.title
+            %h2= subject.title
 
             = link_to "Conseille moi", subject_path(subject.slug, subject.id), class: "btn btn-default", style: "background-color: #{subject.theme.color}"
     .col-md-4.col-lg-3.col-sm-6
@@ -33,7 +33,7 @@
         .illustration
         = image_tag @theme.icon.url(:normal), class: "icon"
         .subject-body
-          %h4
+          %h3
             Vous souhaitez
             %br
             proposer un sujet

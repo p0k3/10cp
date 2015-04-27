@@ -28,7 +28,7 @@
 
 = render "layouts/shareable"
 
-%h2
+%h2.page-header
   Autres sujets sur le thème
   = @theme.title
 .subjects
@@ -42,7 +42,7 @@
           .subject-body
             %span.subject-theme= subject.theme.title
             10 conseils pour...
-            %h4= subject.title
+            %h3= subject.title
 
             = link_to "Conseille moi", subject_path(subject.slug, subject.id), class: "btn btn-default", style: "background-color: #{subject.theme.color}"
 

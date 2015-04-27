@@ -47,20 +47,20 @@
           .account.hidden-xs
             - if current_user
               = link_to me_path do
-                %i.fa.fa-user
+                = fa_icon "user"
                 Mon compte
               \|
               = link_to destroy_user_session_path, method: :delete do
-                %i.fa.fa-sign-out
+                = fa_icon "log-out"
                 Se déconnecter
             - else
               = link_to new_user_session_path do
-                %i.fa.fa-user
+                = fa_icon "user"
                 Se connecter
               \|
               = link_to new_user_registration_path do
-                %i.fa.fa-sign-in
-                Devenir conseiller
+                = fa_icon "thumbs-up-alt"
+                Proposez vos conseils
           %nav.navbar.navbar-default
             .navbar-header.visible-xs
               %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
@@ -76,19 +76,18 @@
                 %li.visible-sm
                   = link_to root_url do
                     Accueil
-                - @masters.first(3).each do |m|
-                  %li{class: "#{'active' if master_menu_is_active(m)}"}
+                - @masters.first(3).each_with_index do |m, index|
+                  %li{class: "#{'active' if master_menu_is_active(m)} #{'no-border' if index == 0}"}
                     = link_to theme_path(m.slug, m.id), style: "#{'background:'+m.color if master_menu_is_active(m)}" do
                       = m.title
                 %li.round.logo.hidden-xs
                   = link_to "/" do
                     %span.dix 10
-                    %span.conseils conseils
-                    %span.pour pour
-                    %span.beta BETA
+                    %span.conseils Conseils
+                    %span.pour pour...
 
-                - @masters.last(3).each do |m|
-                  %li{class: "#{'active' if master_menu_is_active(m)}"}
+                - @masters.last(3).each_with_index do |m, index|
+                  %li{class: "#{'active' if master_menu_is_active(m)} #{'no-border' if index == 0}"}
                     = link_to theme_path(m.slug, m.id), style: "#{'background:'+m.color if master_menu_is_active(m)}" do
                       = m.title
 
