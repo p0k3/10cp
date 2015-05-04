@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
     @title = "10 conseils pour - Tout ce qu'il faut savoir sur tout"
     @description = "Tout ce qu'il faut savoir sur tout réuni dans les meilleurs conseils. Retrouvez des conseils pour la maison, la famille, le travail, vos loisirs et même pour votre ordinateur"
+    @image = "http://10conseilspour.fr/logo.png"
   end
 
 end
