@@ -25,7 +25,6 @@ gem "koala", "~> 1.10.0rc" # Facebook API
 gem 'twitter-text'
 gem "cocoon"
 gem 'masonry-rails'
-gem "font-awesome-rails"
 
 group :development do
   gem "better_errors"
