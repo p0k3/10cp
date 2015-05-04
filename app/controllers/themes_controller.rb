@@ -7,8 +7,8 @@ class ThemesController < ApplicationController
     end
     @subjects = @theme.subjects.validated.order('created_at DESC')
 
-    @title = "Tous les conseils pour : #{@theme.title} - Retrouvez de bons conseils pour #{@theme.title}"
-    @description = @theme.description
+    @title = "#{@theme.title} - 10 Conseils Pour - Retrouvez de bons conseils pour #{@theme.title}"
+    @description = "Tous les bons conseils pour #{@theme.title} - #{@theme.description[0..100]}"
     @header_color = @theme.color
   end
 
