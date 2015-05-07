@@ -8,11 +8,13 @@ class Subjects::AdvicesController < ApplicationController
 
   def new
     @advice = @subject.advices.build
+    @noindex = true
   end
 
   def create
     @advice = @subject.advices.build advice_params
     @advice.user = current_user if current_user
+    @noindex = true
 
     if @advice.save
       if current_user

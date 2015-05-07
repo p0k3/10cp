@@ -12,6 +12,9 @@
     %meta{ property: "og:image", content: @image}
     %meta{ property: "og:description", content: @description}
 
+    - if @noindex
+      %meta{name: "robots", content: "noindex"}
+
     %meta{:content => "summary", :name => "twitter:card"}/
     %meta{:content => "@10conseilspour", :name => "twitter:site"}/
     %meta{:content => @title, :name => "twitter:title"}

@@ -5,12 +5,14 @@ class Themes::SubjectsController < ApplicationController
   def new
     @subject = @theme.subjects.build
     @subject.advices.build user_id: current_user.id
+    @noindex = true
   end
 
   def create
     @subject = Subject.new subject_params
     @subject.user = current_user
     @subject.theme = @theme
+    @noindex = true
 
     if @subject.save
       redirect_to theme_path(@theme.slug, @theme.id), flash:{success: "Votre sujet a été pris en compte et sera publié après validation par notre équipe de modérateurs."}

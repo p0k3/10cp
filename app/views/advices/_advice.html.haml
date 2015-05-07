@@ -15,7 +15,7 @@
           Conseil de
           = advice.author_name
 
-      = link_to advice.user_website, advice.user_website, target: "_blank" if advice.user_website
+      = link_to advice.user_website, advice.user_website, target: "_blank", rel: "nofollow" if advice.user_website
   .advice-content
     %h2
       %small
