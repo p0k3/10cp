@@ -29,7 +29,7 @@
 
             = link_to "Conseille moi", subject_path(subject.slug, subject.id), class: "btn btn-default", style: "background-color: #{subject.theme.color}"
     .col-md-4.col-lg-3.col-sm-6
-      .subject.propose{style:"background:#{@theme.color}", data:{url: new_theme_subject_path(@theme)}}
+      .subject.propose{style:"background:#{@theme.color}", data:{url: new_theme_subject_path(@theme.slug, @theme.id)}}
         .illustration
         = image_tag @theme.icon.url(:normal), class: "icon", size: "58x58"
         .subject-body
@@ -41,7 +41,7 @@
             = @theme.title
             ?
 
-          = link_to "Cliquez ici", new_theme_subject_path(@theme), class: "btn btn-default", style: "background-color: #fff; color:#{@theme.color}"
+          = link_to "Cliquez ici", new_theme_subject_path(@theme.slug, @theme.id), class: "btn btn-default", style: "background-color: #fff; color:#{@theme.color}"
 
 
 = render "layouts/shareable"

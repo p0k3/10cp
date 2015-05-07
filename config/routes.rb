@@ -6,10 +6,13 @@ DixConseilsPour::Application.routes.draw do
     resources :subjects
   end
 
-  devise_for :users, controllers: {
-      registrations: "users/registrations",
-      omniauth_callbacks: "users/omniauth_callbacks"
-    }
+  devise_for :users, skip: [:sessions, :registrations]
+  as :user do
+    get "/connexion" => "devise/sessions#new", as: :new_user_session
+    delete "/deconnexion" => "devise/sessions#destroy", as: :destroy_user_session
+    get "/devenir-conseiller" => "users/registrations#new", as: :new_user_registration
+    post "/devenir-conseiller" => "users/registrations#create", as: :user_registration
+  end
 
   constraints(subdomain: /admin/) do
     get '/', to: "admin/dashboard#index"
@@ -30,12 +33,15 @@ DixConseilsPour::Application.routes.draw do
   get '/sujets/:slug-:subject_id/conseil-:id', to: "subjects/advices#show", as: :subject_advice
   get '/sitemap', to: "pages#sitemap"
 
+  get '/sujets/:subject_slug-:subject_id/nouveau-conseil', to: "subjects/advices#new", as: :new_subject_advice
+  get '/themes/:theme_slug-:theme_id/nouveau-sujet', to: "themes/subjects#new", as: :new_theme_subject
+
   resources :themes do
-    resources :subjects, controller: "themes/subjects"
+    resources :subjects, controller: "themes/subjects", only: [:create]
   end
 
   resources :subjects do
-    resources :advices, controller: "subjects/advices", only: [:new, :create]
+    resources :advices, controller: "subjects/advices", only: [:create]
   end
 
   scope '/me' do

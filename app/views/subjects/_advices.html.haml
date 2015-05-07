@@ -46,7 +46,7 @@
     = render "advices/advice", advice: a
 
 
-.advice.col-md-4.col-lg-4.col-sm-6.propose{style:"background:#{theme.color}", data:{url: new_subject_advice_path(subject)}}
+.advice.col-md-4.col-lg-4.col-sm-6.propose{style:"background:#{theme.color}", data:{url: new_subject_advice_path(subject.slug, subject.id)}}
   .illustration
   = image_tag @theme.icon.url(:normal), class: "icon", size: "58x58"
   .advice-body
@@ -58,4 +58,4 @@
       = subject.title
       ?
 
-    = link_to "Cliquez ici", new_subject_advice_path(subject), class: "btn btn-default", style: "background-color: #fff; color:#{theme.color}"
+    = link_to "Cliquez ici", new_subject_advice_path(subject.slug, subject.id), class: "btn btn-default", style: "background-color: #fff; color:#{theme.color}"
