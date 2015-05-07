@@ -9,6 +9,7 @@ DixConseilsPour::Application.routes.draw do
   devise_for :users, skip: [:sessions, :registrations]
   as :user do
     get "/connexion" => "devise/sessions#new", as: :new_user_session
+    post "/connexion" => "devise/sessions#create", as: :user_session
     delete "/deconnexion" => "devise/sessions#destroy", as: :destroy_user_session
     get "/devenir-conseiller" => "users/registrations#new", as: :new_user_registration
     post "/devenir-conseiller" => "users/registrations#create", as: :user_registration

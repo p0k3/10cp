@@ -6,5 +6,6 @@ class AdminController < ApplicationController
     unless current_user.is_admin?
       redirect_to root_url(subdomain: ''), flash:{warning: "Vous n'êtes pas autorisé à voir ceci"}
     end
+    @noindex = true
   end
 end
