@@ -11,8 +11,6 @@ class Advice < ActiveRecord::Base
   validates :description, presence: true
   validates :author_name, :author_email, presence: true, unless: :has_user?
 
-
-
   state_machine :state, :initial => :suggested do
 
     event :validate do

@@ -26,4 +26,5 @@ class Theme < ActiveRecord::Base
   def subjects_count
     self.subjects.count
   end
+
 end

@@ -4,7 +4,9 @@ class Themes::SubjectsController < ApplicationController
 
   def new
     @subject = @theme.subjects.build
-    @subject.advices.build user_id: current_user.id
+    10.times do
+      @subject.advices.build user_id: current_user.id
+    end
     @noindex = true
   end
 

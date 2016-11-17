@@ -14,6 +14,7 @@ class Subject < ActiveRecord::Base
   validates :slug, presence: true
   validates :state, inclusion: { in: %w(suggested validated disabled)}
   validates_attachment_content_type :illustration, :content_type => %w(image/jpeg image/jpg image/png image/gif)
+  validate :has_at_least_10_advices?
 
   before_validation :set_slug, on: :create
 
@@ -73,5 +74,11 @@ class Subject < ActiveRecord::Base
 
   def set_slug
     self.slug = self.title.to_slug
+  end
+
+  def has_at_least_10_advices?
+    if advices_count < 10
+      self.errors.add(:advices, "Doit avoir au moins 10 conseils valides")
+    end
   end
 end
