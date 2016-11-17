@@ -25,7 +25,7 @@ class Admin::ThemesController < AdminController
     @theme = Theme.new(theme_params)
 
     if @theme.save
-      redirect_to @theme, notice: 'Theme was successfully created.'
+      redirect_to [:admin, :themes], notice: 'Theme was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::ThemesController < AdminController
   # PATCH/PUT /themes/1
   def update
     if @theme.update(theme_params)
-      redirect_to @theme, notice: 'Theme was successfully updated.'
+      redirect_to [:admin, :themes], notice: 'Theme was successfully updated.'
     else
       render :edit
     end
@@ -54,6 +54,6 @@ class Admin::ThemesController < AdminController
 
     # Only allow a trusted parameter "white list" through.
     def theme_params
-      params[:theme]
+      params.required(:theme).permit(:title, :slug, :color, :description, :icon)
     end
 end

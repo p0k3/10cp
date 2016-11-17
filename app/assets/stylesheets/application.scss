@@ -351,10 +351,9 @@ html {
                     left: 0;
                     max-width: 100%;
                   }
-                }
-                a:hover {
-                  color: #f5f5f5;
-                  text-decoration: none;
+                  &:hover{
+                    background: transparent
+                  }
                 }
               }
               &.active{
