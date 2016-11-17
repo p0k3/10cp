@@ -23,7 +23,7 @@
 
   .form-group
     %label Thème
-    = f.select :theme_id, options_from_collection_for_select(Theme.all, :id, :title), {prompt: "( Choisissez )"}, class: "form-control"
+    = f.select :theme_id, options_from_collection_for_select(Theme.all, :id, :title, subject.theme_id), {prompt: "( Choisissez )"}, class: "form-control"
 
   .form-group
     - unless subject.illustration.blank?
