@@ -31,10 +31,6 @@ module SocialHelper
   end
 
   def get_tweet_count(url)
-    api = "http://urls.api.twitter.com/1/urls/count.json?url=#{url}"
-    call = URI.encode(api)
-    response = JSON.load(open(call))
-
-    response['count']
+    0
   end
 end

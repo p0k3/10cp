@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20150414164858) do
     t.string   "title"
     t.text     "description"
     t.integer  "subject_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "state"
     t.string   "author_name"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20150414164858) do
     t.string   "table"
     t.integer  "month",      limit: 2
     t.integer  "year",       limit: 8
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20150414164858) do
   create_table "subjects", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "theme_id"
     t.string   "illustration_file_name"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20150414164858) do
   create_table "themes", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "color"
     t.string   "icon_file_name"
     t.string   "icon_content_type"
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 20150414164858) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "gender"
     t.string   "lastname"
     t.string   "firstname"
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(version: 20150414164858) do
     t.integer  "advice_id"
     t.boolean  "is_good"
     t.string   "ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "votes", ["advice_id"], name: "index_votes_on_advice_id", using: :btree
