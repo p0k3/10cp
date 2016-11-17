@@ -90,9 +90,7 @@
                       = m.title
                 %li.round.logo.hidden-xs
                   = link_to "/" do
-                    %span.dix 10
-                    %span.conseils Conseils
-                    %span.pour pour...
+                    = image_tag "logo.png", alt: "10 Conseils pour"
 
                 - @masters.last(3).each_with_index do |m, index|
                   %li{class: "#{'active' if master_menu_is_active(m)} #{'no-border' if index == 0}"}
