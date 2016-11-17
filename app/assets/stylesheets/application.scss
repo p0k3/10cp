@@ -62,7 +62,7 @@ html {
         display: none;
         .title{
           display: block;
-          font-family: "10cp";
+          font-family: 'Pacifico', cursive;
           color: #4B5C68;
           font-size: 1.4em;
         }
@@ -127,7 +127,7 @@ html {
         position: relative;
         height: 200px;
         color: #fff;
-        font-family: "Menu";
+        font-family: 'Pacifico', cursive;
         .form {
           margin-top: 50px;
           width: 100%;
@@ -136,7 +136,8 @@ html {
             font-size: 70px;
             line-height: 90px;
             display: block;
-            z-index: 10px;
+            z-index: 10;
+            font-family: 'Pacifico', cursive;
             text-shadow: 1px 1px 10px #000;
             z-index: 5;
             position: relative;
@@ -272,7 +273,7 @@ html {
     height: 100%;
     padding: 0;
     margin: 0 auto;
-    font-family: "10cp";
+    font-family: 'Imprima', sans-serif;
     #wrap {
       min-height: 100%;
       position: relative;
@@ -291,7 +292,7 @@ html {
       }
       nav.navbar {
         position: relative;
-        font-family: "Menu";
+        font-family: 'Pacifico', cursive;
         width: 980px;
         height: 60px;
         display: block;
@@ -322,7 +323,7 @@ html {
 
                 line-height: 60px;
                 text-align: center;
-                font-family: "Menu";
+                font-family: 'Pacifico', cursive;
                 padding: 0;
                 text-align: center;
 
@@ -344,7 +345,6 @@ html {
                   top: -82px;
                   color: #fff;
                   font-size: 32px;
-                  font-family: "Other";
                   text-align: center;
                   .dix {
                     font-size: 65px;
@@ -358,7 +358,8 @@ html {
                     margin: 3px 0;
                     display: block;
                     line-height: 34px;
-                    font-family: "Menu";
+
+                    font-family: 'Pacifico', cursive;
                   }
                   .pour {
                     width: 100%;
@@ -372,7 +373,8 @@ html {
                     font-size: 18px;
                     text-transform: uppercase;
                     font-weight: 700;
-                    font-family: "Menu";
+
+                    font-family: 'Pacifico', cursive;
                     padding: 0 15px;
                   }
                 }
