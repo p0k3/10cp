@@ -26,6 +26,7 @@ gem 'twitter-text'
 gem "cocoon"
 gem 'masonry-rails'
 gem 'sprockets', '2.12.3'
+gem 'coffee-rails'
 
 group :development do
   gem "better_errors"
