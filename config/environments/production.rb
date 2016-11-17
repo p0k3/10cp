@@ -86,8 +86,8 @@ Rails.application.configure do
     address:              'smtp-relay.mailin.fr',
     port:                 587,
     domain:               '10conseilspour.fr',
-    user_name:            'p.gruson@gmail.com',
-    password:             'NwTnMscvS5F84jqI',
+    user_name:            'p.gruson+mi@gmail.com',
+    password:             'CMcLwOdQPn7bh80t',
     authentication:       'plain',
     openssl_verify_mode:  'none',
     enable_starttls_auto: true
