@@ -14,7 +14,7 @@ class Subject < ActiveRecord::Base
   validates :slug, presence: true
   validates :state, inclusion: { in: %w(suggested validated disabled)}
   validates_attachment_content_type :illustration, :content_type => %w(image/jpeg image/jpg image/png image/gif)
-  validate :has_at_least_10_advices?
+  validate :has_at_least_10_advices?, on: :create
 
   before_validation :set_slug, on: :create
 
